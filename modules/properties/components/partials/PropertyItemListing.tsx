@@ -4,30 +4,29 @@ import { Heart, Share, MapPin, Rotate3D } from "lucide-react";
 import { Poppins } from "next/font/google";
 import Image from "next/image";
 import { useState } from "react";
+import type { Property } from "@/modules/properties/defs/types";
 
 const poppins = Poppins({ subsets: ["latin"], weight: ["400", "500", "600", "700"] });
 
 interface PropertyItemProps {
-  title: string;
-  description: string;
-  price: string;
-  imageUrl: string;
-  location: string;
-  hasVR?: boolean;
+  property: Property;
   onInquire?: () => void;
 }
 
-const PropertyItemListing = ({
-  title,
-  description,
-  price,
-  imageUrl,
-  location,
-  hasVR = false,
-  onInquire,
-}: PropertyItemProps) => {
+const PropertyItemListing = ({ property, onInquire }: PropertyItemProps) => {
   const [isHover, setIsHover] = useState(false);
   const [isLiked, setIsLiked] = useState(false);
+
+  // Format price with currency
+  const formattedPrice = new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: property.currency || 'USD',
+    maximumFractionDigits: 0
+  }).format(property.salePrice);
+
+  // Get primary image URL or placeholder
+  const primaryImage = property.images?.[0]?.upload?.url || '/placeholder.jpg';
+  const locationText = property.location.city;
 
   return (
     <div
@@ -43,8 +42,8 @@ const PropertyItemListing = ({
       {/* Image Section with Subtle Parallax */}
       <div className="relative h-64 overflow-hidden">
         <Image
-          src={imageUrl}
-          alt={title}
+          src={primaryImage}
+          alt={property.title}
           fill
           className={cn(
             "object-cover transition-transform duration-500",
@@ -56,24 +55,26 @@ const PropertyItemListing = ({
         {/* Subtle Gradient Overlay */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-black/10 to-transparent" />
 
-        {/* VR Icon (shown if hasVR is true) */}
-        {hasVR && (
+        {/* VR Icon */}
+        {property.hasVR && (
           <div className="absolute top-3 left-3 bg-white/90 text-primarySite p-1 rounded-full shadow-sm">
             <Rotate3D className="w-6 h-6" />
           </div>
         )}
 
-        {/* Elegant Price Tag */}
+        {/* Price Tag */}
         <div className="absolute top-3 right-3 bg-primarySite/95 text-white px-3 py-1.5 rounded-lg shadow-sm">
-          <span className="font-medium tracking-wide text-sm">{price}</span>
+          <span className="font-medium tracking-wide text-sm">{formattedPrice}</span>
         </div>
       </div>
 
-      {/* Content Section with Minimal Glass */}
+      {/* Content Section */}
       <div className="p-5 bg-white/90 backdrop-blur-xs">
         <div className="mb-3 flex items-center gap-2 text-slate-600">
           <MapPin className="w-4 h-4 text-primarySite" />
-          <span className={cn(poppins.className, "text-xs font-medium tracking-wide")}>{location}</span>
+          <span className={cn(poppins.className, "text-xs font-medium tracking-wide")}>
+            {locationText}
+          </span>
         </div>
 
         <h3
@@ -83,7 +84,7 @@ const PropertyItemListing = ({
             "group-hover:text-primarySite line-clamp-1"
           )}
         >
-          {title}
+          {property.title}
         </h3>
 
         <p
@@ -92,10 +93,10 @@ const PropertyItemListing = ({
             "text-gray-600 text-sm leading-snug mb-4 line-clamp-2"
           )}
         >
-          {description}
+          {property.description}
         </p>
 
-        {/* Sophisticated Interaction Bar */}
+        {/* Interaction Bar */}
         <div className="flex justify-between items-center border-t border-gray-100 pt-4">
           <button
             onClick={onInquire}
@@ -138,7 +139,7 @@ const PropertyItemListing = ({
         </div>
       </div>
 
-      {/* Subtle Hover Glow */}
+      {/* Hover Glow */}
       <div className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity">
         <div className="absolute inset-0 bg-gradient-to-br from-primarySite/5 via-transparent to-transparent" />
       </div>

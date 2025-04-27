@@ -14,9 +14,10 @@ const poppins = Poppins({
 interface HeroHeaderProps {
   title: string
   image: string
+  className?: string
 }
 
-const HeroHeader = ({ title, image }: HeroHeaderProps) => {
+const HeroHeader = ({ title, image, className }: HeroHeaderProps) => {
   const pathname = usePathname()
   const segments = pathname.split("/").filter(Boolean)
 
@@ -27,7 +28,7 @@ const HeroHeader = ({ title, image }: HeroHeaderProps) => {
   })
 
   return (
-    <div className={cn(poppins.className, "relative w-full h-[320px]")}>
+    <div className={cn(poppins.className, `relative w-full h-[320px] ${className}`)}>
       <Image
         src={image}
         alt={title}

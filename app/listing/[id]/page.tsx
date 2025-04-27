@@ -44,7 +44,7 @@ const fakeData = Array.from({ length: 20 }, (_, i) => {
     features: {
       bedrooms: Math.floor(3 + Math.random() * 3),
       bathrooms: Math.floor(2 + Math.random() * 2),
-      sqft: Math.floor(2500 + Math.random() * 1000),
+      area: Math.floor(2500 + Math.random() * 1000),
       garages: Math.floor(1 + Math.random() * 2)
     },
     amenities: [
@@ -185,7 +185,7 @@ const PropertyShowcase = () => {
               {[
                 { icon: <BedDouble className="w-6 h-6" />, label: `${property.features.bedrooms} Bedrooms` },
                 { icon: <Bath className="w-6 h-6" />, label: `${property.features.bathrooms} Bathrooms` },
-                { icon: <Ruler className="w-6 h-6" />, label: `${property.features.sqft} sqft` },
+                { icon: <Ruler className="w-6 h-6" />, label: `${property.features.area} m²` },
                 { icon: <Warehouse className="w-6 h-6" />, label: `${property.features.garages} Garages` },
                 { icon: <Calendar className="w-6 h-6" />, label: `Built ${property.yearBuilt}` },
                 { icon: <TreePine className="w-6 h-6" />, label: `${property.lotSize} sqm Lot` }

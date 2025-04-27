@@ -1,10 +1,10 @@
 "use client";
 import Link from "next/link";
-import { Cart } from "../partials/navbar/cart";
-import Icon from "../partials/navbar/icon";
-import NavActions from "../partials/navbar/nav-actions";
-import Navigation from "../partials/navbar/navigation";
-import { ResponsiveNavbar } from "../partials/navbar/responsive-navbar";
+import { Cart } from "../../components/common/partials/navbar/cart";
+import Icon from "../../components/common/partials/navbar/icon";
+import NavActions from "../../components/common/partials/navbar/nav-actions";
+import Navigation from "../../components/common/partials/navbar/navigation";
+import { ResponsiveNavbar } from "../../components/common/partials/navbar/responsive-navbar";
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 import { useState } from "react";
 
@@ -19,8 +19,9 @@ const Navbar = () => {
   return (
     <motion.div
       className={`
-        w-full md:h-[75px] h-16 flex items-center justify-center 
-        fixed top-0 z-[500] bg-white
+        fixed top-0 left-0 right-0 z-50 
+        w-full md:h-[75px] flex 
+        items-center justify-center bg-white
         transition-all duration-300 ease-out
         ${isScrolled ? "shadow-sm md:h-[65px]" : "shadow-none"}
       `}

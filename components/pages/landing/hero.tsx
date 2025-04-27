@@ -8,7 +8,7 @@ const poppins = Poppins({ subsets: ["latin"], weight: ["400", "500", "600", "700
 
 const Hero = () => {
   return (
-    <div className="h-screen w-full relative">
+    <div className="h-screen w-full relative z-0">
       {/* Background Image with Subtle Overlay */}
       <div className="absolute inset-0">
         <Image
