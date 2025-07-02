@@ -3,15 +3,33 @@ import useSWRImmutable, { KeyedMutator } from 'swr';
 import { Any, CrudApiRoutes, Id } from '../defs/types';
 import useApi, { ApiResponse, FetchApiOptions } from './useApi';
 
+export const enum GridLinkOperator {
+  And = "and",
+  Or = "or"
+}
+
+export interface GridFilterItem {
+  id?: number | string;
+  columnField: string;
+  value?: any;
+  operatorValue?: string;
+}
+
 export interface PaginationMeta {
   currentPage: number;
   lastPage: number;
   totalItems: number;
 }
-export interface FilterParam {
+
+export interface FilterItem {
   filterColumn: string;
   filterOperator: string;
   filterValue?: Any;
+}
+
+export interface FilterParam {
+  items: (FilterParam | GridFilterItem)[];
+  linkOperator?: GridLinkOperator;
 }
 
 export interface SortParam {
@@ -40,7 +58,7 @@ export interface UseItemsHook<Item, CreateOneInput, UpdateOneInput> {
     page?: number,
     pageSize?: number | 'all',
     columnsSort?: SortParam,
-    filterParam?: FilterParam[],
+    filter?: FilterParam,
     options?: FetchApiOptions
   ) => Promise<ItemsResponse<Item>>;
   updateOne: (
@@ -63,7 +81,7 @@ export interface UseItemsOptions {
 }
 export const defaultOptions = {
   fetchItems: false,
-  pageSize: 25 as number | 'all',
+  pageSize: 25,
 };
 
 export type UseItems<Item, CreateOneInput = Any, UpdateOneInput = Any> = (
@@ -76,12 +94,8 @@ const useItems = <Item, CreateOneInput, UpdateOneInput>(
 ): UseItemsHook<Item, CreateOneInput, UpdateOneInput> => {
   const fetchApi = useApi();
   const [shouldRefetch, setShouldRefetch] = useState(opts.fetchItems);
-  const [savedReadAllParams, setSavedReadAllParams] = useState<SavedReadAllParams>({
-    page: 1,
-    pageSize: opts.pageSize,
-    columnsSort: undefined,
-    filter: undefined,
-  });
+  const [savedReadAllParams, setSavedReadAllParams] = useState<SavedReadAllParams | null>();
+
   const { data, mutate } = useSWRImmutable<Item[] | null>(
     shouldRefetch ? apiRoutes.ReadAll : null,
     async (_url: string) => {
@@ -92,7 +106,7 @@ const useItems = <Item, CreateOneInput, UpdateOneInput>(
         savedReadAllParams?.page,
         savedReadAllParams?.pageSize,
         savedReadAllParams?.columnsSort,
-        savedReadAllParams && savedReadAllParams.filter ? [savedReadAllParams?.filter] : []
+        savedReadAllParams?.filter
       );
       return response.data?.items ?? null;
     }
@@ -138,7 +152,7 @@ const useItems = <Item, CreateOneInput, UpdateOneInput>(
     page?: number,
     pageSize?: number | 'all',
     columnsSort?: SortParam,
-    filters?: FilterParam[],
+    filter?: FilterParam,
     options?: FetchApiOptions
   ) => {
     setSavedReadAllParams((value) => ({
@@ -146,33 +160,25 @@ const useItems = <Item, CreateOneInput, UpdateOneInput>(
       page,
       pageSize,
       columnsSort,
-      filters,
+      filter,
     }));
 
     const paginationOptions = {
       page: page || 1,
-      perPage: pageSize || 50,
+      perPage: pageSize || 6,
     };
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore: ignoring uncorrect params type mismatch
     const queryParams = new URLSearchParams(paginationOptions).toString();
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore: ignoring uncorrect params type mismatch
-    const filterParam = filters
-      ?.filter((filter) => filter !== undefined && filter !== null)
-      .map((filter) => encodeURIComponent(JSON.stringify(filter)))
-      .join('&filters[]=');
+
+    const filterParam = filter ? `&filter=${encodeURIComponent(JSON.stringify(filter))}` : '';
 
     const sortParams = columnsSort
       ? `&order[column]=${columnsSort.column}&order[dir]=${columnsSort.dir}`
       : '';
 
     const response = await fetchApi<ItemsData<Item>>(
-      `${apiRoutes.ReadAll}?${queryParams}${sortParams}${
-        filterParam !== undefined && filterParam !== null && filterParam !== ''
-          ? '&filters[]=' + filterParam
-          : ''
-      }`,
+      `${apiRoutes.ReadAll}?${queryParams}${sortParams}${filterParam}`,
       options
     );
     if (response.success) {

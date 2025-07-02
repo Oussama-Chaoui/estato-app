@@ -1,3 +1,6 @@
+// components/ui/input.tsx
+"use client"
+
 import * as React from "react"
 import { cn } from "@/components/lib/utils/twMerge"
 import { motion } from "framer-motion"
@@ -7,6 +10,14 @@ export interface InputProps extends React.ComponentProps<"input"> {
   endAdornment?: React.ReactNode
   label?: string
   error?: string
+  /**
+   * How far from the left edge the label sits when at rest (e.g. "0.75rem" or "135px")
+   */
+  labelLeftRest?: string
+  /**
+   * How far from the left edge the label sits when floated (e.g. "1rem")
+   */
+  labelLeftFloat?: string
 }
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
@@ -22,6 +33,8 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
       value,
       onChange,
       onBlur,
+      labelLeftRest,
+      labelLeftFloat,
       ...rest
     },
     ref
@@ -45,23 +58,27 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
       onBlur?.(e)
     }
 
+    // fallback defaults
+    const leftRest = labelLeftRest ?? (startAdornment ? "2.25rem" : "0.75rem")
+    const leftFloat = labelLeftFloat ?? "1rem"
+
     const variants = {
       rest: {
         top: "50%",
         y: "-50%",
         fontSize: "1rem",
-        left: startAdornment ? "2.25rem" : "0.75rem",
+        left: leftRest,
       },
       float: {
         top: "-0.6rem",
         y: "0%",
         fontSize: "0.7rem",
-        left: "1rem",
+        left: leftFloat,
       },
     }
 
     return (
-      <div className="flex flex-col gap-0">
+      <div className="flex flex-col gap-0 w-full">
         <div className="relative w-full">
           {label && (
             <motion.label
@@ -69,7 +86,12 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
               initial="rest"
               animate={isFocused || hasValue ? "float" : "rest"}
               variants={variants}
-              transition={{ type: "spring", stiffness: 300, damping: 25, bounce: 0 }}
+              transition={{
+                type: "spring",
+                stiffness: 300,
+                damping: 25,
+                bounce: 0,
+              }}
               style={{ originX: 0, originY: 0 }}
               className="absolute pointer-events-none bg-white px-2 text-gray-500 rounded z-10"
             >
@@ -92,8 +114,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
             onFocus={() => setIsFocused(true)}
             onBlur={handleBlur}
             className={cn(
-              "w-full h-12 rounded-md border border-input bg-transparent",
-              "placeholder-transparent text-base focus:outline-none focus:ring-2 focus:ring-primarySite/80",
+              "w-full h-12 rounded-md border bg-transparent placeholder-transparent text-base focus:outline-none",
               error
                 ? "border-destructive focus:ring-destructive/80"
                 : "border-input focus:ring-primarySite/80",
@@ -109,16 +130,13 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
               {endAdornment}
             </div>
           )}
-
         </div>
-        {
-          error && (
-            <p className="mt-1 text-xs text-destructive flex items-center gap-1">
-              <span>•</span>
-              {error}
-            </p>
-          )
-        }
+        {error && (
+          <p className="mt-1 text-xs text-destructive flex items-center gap-1">
+            <span>•</span>
+            {error}
+          </p>
+        )}
       </div>
     )
   }

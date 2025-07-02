@@ -1,5 +1,6 @@
 import ApiRoutes from "@/common/defs/api-routes";
 import useItems, { defaultOptions, UseItems, UseItemsOptions } from "@/common/hooks/useItems";
+import { Location } from "../../defs/types";
 
 export interface CreateOneInput {
   region: string;

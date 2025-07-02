@@ -35,7 +35,7 @@ const HeroHeader = ({ title, image, className }: HeroHeaderProps) => {
         layout="fill"
         objectFit="cover"
       />
-      <div className="absolute inset-0 bg-white bg-opacity-70 flex flex-col items-center justify-center">
+      <div className="absolute inset-0 bg-white bg-opacity-30 flex flex-col items-center justify-center pb-8">
         <h1 className="text-black text-5xl font-medium tracking-widest">{title}</h1>
         <div className="mt-4">
           <CustomBreadcrumbs links={breadcrumbs} />
