@@ -1,0 +1,48 @@
+{
+  "hero": {
+    "title": "أخبار ونصائح العقارات",
+    "subtitle": "اكتشف أحدث النصائح والتوجهات السوقية في مجال العقارات المغربي",
+    "search_placeholder": "ابحث في المقالات..."
+  },
+  "filters": {
+    "title": "تصفية حسب التصنيف",
+    "all_articles": "جميع المقالات",
+    "clear_filters": "إلغاء التصفية"
+  },
+  "posts": {
+    "no_articles_found": "لم نجد مقالات مطابقة",
+    "no_articles_description": "جرب تعديل كلمات البحث أو تغيير التصفية",
+    "no_articles_available": "لا توجد مقالات متاحة حالياً",
+    "no_articles_available_description": "نحن نعمل على إعداد محتوى مميز لكم. تابعونا قريباً!",
+    "read_more": "اقرأ المزيد",
+    "min_read": "دقيقة قراءة",
+    "unknown_author": "كاتب غير محدد",
+    "published_at": "نُشر في",
+    "author": "الكاتب",
+    "read_time": "وقت القراءة"
+  },
+  "article": {
+    "back_to_blog": "العودة للمدونة",
+    "share_article": "مشاركة المقال",
+    "reading_time": "وقت القراءة",
+    "published_on": "نُشر في",
+    "written_by": "كتبه",
+    "related_articles": "مقالات مشابهة",
+    "tags": "الوسوم",
+    "categories": "التصنيفات",
+    "share_on": "مشاركة على",
+    "copy_link": "نسخ الرابط",
+    "link_copied": "تم نسخ الرابط!",
+    "not_found": {
+      "title": "المقال غير موجود",
+      "description": "المقال الذي تبحث عنه غير متاح أو تم حذفه.",
+      "back_button": "العودة للمدونة"
+    }
+  },
+  "pagination": {
+    "previous": "السابق",
+    "next": "التالي",
+    "page": "صفحة",
+    "of": "من"
+  }
+}

@@ -1,16 +1,100 @@
-import * as MuiIcons from '@mui/icons-material';
-import React from 'react';
-import type { SvgIconProps } from '@mui/material/SvgIcon';
+import {
+  Waves,
+  Dumbbell,
+  Car,
+  Wifi,
+  Snowflake,
+  ArrowUpDown,
+  Shield,
+  TreePine,
+  Square,
+  Building,
+  Flame,
+  WashingMachine,
+  UserCheck,
+  DoorOpen,
+  PawPrint,
+  ChefHat,
+  Sparkles,
+  Bath,
+  Gamepad2,
+  Circle,
+  Baby,
+  Home,
+  Warehouse,
+  Bike,
+  Tv,
+  Headphones,
+  Sofa,
+  Bed,
+  Users,
+  Sun,
+  Smartphone,
+  Settings,
+  Wine,
+  BookOpen,
+  Film,
+  GraduationCap,
+  Bell,
+  Activity,
+  Battery,
+  Video,
+  VolumeX,
+  Zap,
+  Fuel,
+  Car as Taxi
+} from 'lucide-react';
 
-export const getAmenityIcon = (iconName: string, props?: SvgIconProps): JSX.Element | null => {
-  const formattedName = iconName
-    .split('-')
-    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-    .join('');
+export const getAmenityIcon = (iconName: string) => {
+  const iconMap: Record<string, React.ComponentType<any>> = {
+    'pool': Waves,
+    'fitness-center': Dumbbell,
+    'local-parking': Car,
+    'wifi': Wifi,
+    'ac-unit': Snowflake,
+    'elevator': ArrowUpDown,
+    'security': Shield,
+    'emoji-nature': TreePine,
+    'deck': Square,
+    'roofing': Building,
+    'fireplace': Flame,
+    'local-laundry-service': WashingMachine,
+    'room-service': UserCheck,
+    'door-front': DoorOpen,
+    'pets': PawPrint,
+    'outdoor-grill': ChefHat,
+    'spa': Sparkles,
+    'hot-tub': Bath,
+    'sports-tennis': Gamepad2,
+    'sports-basketball': Circle,
+    'child-friendly': Baby,
+    'home': Home,
+    'warehouse': Warehouse,
+    'directions-bike': Bike,
+    'whatshot': Flame,
+    'live-tv': Tv,
+    'support-agent': Headphones,
+    'weekend': Sofa,
+    'kitchen': ChefHat,
+    'king-bed': Bed,
+    'meeting-room': Users,
+    'wb-sunny': Sun,
+    'smartphone': Smartphone,
+    'settings-remote': Settings,
+    'wine-bar': Wine,
+    'menu-book': BookOpen,
+    'theaters': Film,
+    'school': GraduationCap,
+    'alarm': Bell,
+    'co2': Activity,
+    'battery-charging-full': Battery,
+    'videocam': Video,
+    'volume-off': VolumeX,
+    'speed': Zap,
+    'ev-station': Fuel,
+    'local-taxi': Taxi
+  };
 
-  const IconComponent: React.ElementType = (MuiIcons as Record<string, React.ElementType>)[
-    formattedName
-  ];
-
-  return IconComponent ? <IconComponent {...props} /> : null;
+  const IconComponent = iconMap[iconName];
+  return IconComponent ? <IconComponent className="w-5 h-5" /> : <Home className="w-5 h-5" />;
 };

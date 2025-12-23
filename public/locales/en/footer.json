@@ -1,0 +1,30 @@
+{
+  "brand": {
+    "description": "Premium real estate listings designed for elegance and quality living.",
+    "address": "400 Avenue Hassan II, Casablanca"
+  },
+  "sections": {
+    "discover": "Discover",
+    "services": "Services",
+    "insights": "Insights"
+  },
+  "links": {
+    "home": "Home",
+    "luxury_villas": "Luxury Villas",
+    "our_agents": "Our Agents",
+    "consultation": "Consultation",
+    "privacy_policy": "Privacy Policy",
+    "investment_guide": "Investment Guide",
+    "vip_services": "VIP Services"
+  },
+  "newsletter": {
+    "description": "Get exclusive market reports and premium listings",
+    "placeholder": "Your email",
+    "subscribe": "Subscribe"
+  },
+  "legal": {
+    "copyright": "© {{year}} Yakout. All rights reserved.",
+    "terms_of_service": "Terms of Service",
+    "privacy_policy": "Privacy Policy"
+  }
+}

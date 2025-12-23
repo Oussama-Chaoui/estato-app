@@ -1,0 +1,153 @@
+{
+  "meta": {
+    "title": "Preguntas Frecuentes - Yakout",
+    "description": "Encuentre respuestas a preguntas comunes sobre el uso de la plataforma inmobiliaria de Yakout."
+  },
+  "hero": {
+    "title": "Preguntas Frecuentes",
+    "subtitle": "Encuentre respuestas rápidas a preguntas comunes sobre el uso de nuestra plataforma"
+  },
+  "search": {
+    "placeholder": "Buscar respuestas...",
+    "no_results": "No se encontraron resultados",
+    "no_results_description": "Intente ajustar su búsqueda o explorar por categoría"
+  },
+  "sidebar": {
+    "title": "Categorías",
+    "all_questions": "Todas las Preguntas"
+  },
+  "cta": {
+    "title": "¿Todavía tiene preguntas?",
+    "description": "¿No encuentra la respuesta que busca? Nuestro equipo de soporte está aquí para ayudarlo.",
+    "contact_button": "Contactar Soporte",
+    "email_button": "Envíenos un Email"
+  },
+  "categories": {
+    "general": {
+      "title": "General",
+      "questions": [
+        {
+          "question": "¿Qué es Yakout?",
+          "answer": "Yakout es la principal plataforma inmobiliaria de Marruecos que conecta a buscadores de propiedades con agentes con licencia. Ya sea que busque un alquiler diario para vacaciones, un apartamento mensual o comprar la casa de sus sueños, ofrecemos listados completos en las principales ciudades marroquíes."
+        },
+        {
+          "question": "¿Yakout es gratuito?",
+          "answer": "¡Sí! Explorar propiedades, ver detalles y contactar con agentes es completamente gratuito. No se requieren tarifas ni suscripciones para buscar alquileres diarios, mensuales o casas en venta."
+        },
+        {
+          "question": "¿Qué ciudades cubre Yakout?",
+          "answer": "Cubrimos las principales ciudades marroquíes incluyendo Marrakech, Casablanca, Rabat, Agadir, Tánger, Fez y más. Nuestra cobertura se expande constantemente en todo Marruecos."
+        }
+      ]
+    },
+    "searching": {
+      "title": "Búsqueda de Propiedades",
+      "questions": [
+        {
+          "question": "¿Qué tipos de propiedades puedo encontrar en Yakout?",
+          "answer": "Yakout ofrece tres categorías principales: Alquileres Diarios (perfectos para vacaciones y estancias cortas), Alquileres Mensuales (para vivienda a largo plazo), y Ventas de Casas (para comprar su propiedad). Cada categoría incluye villas, apartamentos, estudios, riads tradicionales y más."
+        },
+        {
+          "question": "¿Cómo busco un tipo específico de alquiler?",
+          "answer": "Use el menú de navegación principal para seleccionar Alquiler Diario, Alquiler Mensual o Venta de Casa. Luego refine su búsqueda usando filtros de ubicación, tipo de propiedad, rango de precios, número de habitaciones y amenidades."
+        },
+        {
+          "question": "¿Puedo guardar mis propiedades favoritas?",
+          "answer": "¡Sí! Haga clic en el ícono de corazón en cualquier propiedad para guardarla en sus favoritos. Acceda a sus propiedades guardadas desde el menú de favoritos, ya sea un alquiler diario, mensual o una casa en venta."
+        },
+        {
+          "question": "¿Cuál es la diferencia entre alquiler diario y mensual?",
+          "answer": "Los alquileres diarios se cobran por noche, ideales para estancias cortas, vacaciones o viajes de negocios (mínimo usualmente 1-2 noches). Los alquileres mensuales se cobran por mes y requieren compromisos más largos, típicamente desde 1 mes, perfectos para estudiantes, profesionales o vivienda temporal."
+        }
+      ]
+    },
+    "contact": {
+      "title": "Contacto y Consultas",
+      "questions": [
+        {
+          "question": "¿Cómo contacto a un agente sobre una propiedad?",
+          "answer": "Cada listado tiene un formulario de contacto. Complete sus datos y especifique si está interesado en alquiler diario, mensual o compra. El agente recibirá su consulta y lo contactará con disponibilidad y precios."
+        },
+        {
+          "question": "¿Qué tan rápido responderá un agente?",
+          "answer": "La mayoría de los agentes responden dentro de 24 horas durante días laborables. Para reservas urgentes de alquiler diario, los agentes a menudo responden más rápido para acomodar sus fechas de viaje."
+        },
+        {
+          "question": "¿Qué información debo incluir en mi consulta?",
+          "answer": "Para alquileres diarios: especifique sus fechas de entrada/salida y número de huéspedes. Para alquileres mensuales: mencione su fecha deseada de mudanza, duración (3 meses, 6 meses, 1 año) y requisitos específicos. Para compras: indique su presupuesto y vecindarios preferidos."
+        }
+      ]
+    },
+    "booking": {
+      "title": "Alquileres y Compras",
+      "questions": [
+        {
+          "question": "¿Cómo reservo un alquiler diario?",
+          "answer": "Después de contactar a un agente a través de la plataforma, confirmará la disponibilidad para sus fechas, proporcionará el costo total (tarifa nocturna × número de noches), y lo guiará a través del proceso de reserva incluyendo detalles de pago y check-in."
+        },
+        {
+          "question": "¿Cómo funcionan los alquileres mensuales?",
+          "answer": "Los alquileres mensuales requieren negociación directa con el propietario o agente. Discutirá la duración del contrato (típicamente 3-12 meses), renta mensual, depósito de seguridad (usualmente 1-2 meses de renta), y firmará un contrato antes de mudarse."
+        },
+        {
+          "question": "¿Cuál es el proceso para comprar una propiedad?",
+          "answer": "Para compras de casas, el agente organizará visitas a propiedades, proporcionará documentación legal, lo guiará en negociaciones de precio, y lo conectará con notarios para completar la venta. Todas las formalidades legales se manejan entre usted y el agente."
+        },
+        {
+          "question": "¿Qué métodos de pago se aceptan?",
+          "answer": "Los métodos varían según el agente y tipo de alquiler. Los alquileres diarios a menudo aceptan transferencias bancarias o efectivo. Los alquileres mensuales típicamente requieren transferencias para renta y depósitos. Las compras siguen la ley inmobiliaria marroquí con transacciones notariadas."
+        },
+        {
+          "question": "¿Se requieren depósitos?",
+          "answer": "Los alquileres diarios pueden requerir un depósito de reserva o pago completo. Los alquileres mensuales típicamente requieren un depósito de seguridad de 1-2 meses de renta. Las compras requieren un anticipo según la ley marroquí, a discutir con su agente."
+        },
+        {
+          "question": "¿Cuáles son las políticas de cancelación?",
+          "answer": "Las políticas varían: Los alquileres diarios pueden tener políticas flexibles a estrictas según la propiedad. Los alquileres mensuales siguen términos del contrato (usualmente requieren aviso de 1-3 meses). Las cancelaciones de compras dependen de términos contractuales y pueden involucrar penalidades."
+        }
+      ]
+    },
+    "agents": {
+      "title": "Sobre los Agentes",
+      "questions": [
+        {
+          "question": "¿Todos los agentes tienen licencia?",
+          "answer": "Sí, todos los agentes en Yakout deben tener licencias inmobiliarias marroquíes válidas. Verificamos credenciales para asegurar que trabaje con profesionales calificados ya sea que alquile diariamente, mensualmente o compre una propiedad."
+        },
+        {
+          "question": "¿Puede un agente ayudar con todos los tipos de propiedades?",
+          "answer": "La mayoría de los agentes se especializan en áreas o tipos específicos. Algunos se enfocan en alquileres vacacionales (diarios), otros en arrendamiento residencial (mensual), y algunos se especializan en ventas. Revise el perfil del agente para ver su experiencia."
+        },
+        {
+          "question": "¿Cómo funcionan las comisiones de agentes?",
+          "answer": "Las tarifas varían por servicio: Los alquileres diarios a menudo no tienen comisión para inquilinos. Los alquileres mensuales pueden cobrar 1 mes de renta como comisión. Las compras típicamente cobran 2-3% del precio de venta. Siempre confirme tarifas con su agente."
+        }
+      ]
+    },
+    "technical": {
+      "title": "Técnico y Cuenta",
+      "questions": [
+        {
+          "question": "¿Necesito una cuenta para explorar propiedades?",
+          "answer": "¡No se requiere cuenta! Explore todos los alquileres diarios, mensuales y casas en venta libremente. Envíe consultas sin registrarse. Nuestra plataforma está diseñada para acceso fácil e inmediato."
+        },
+        {
+          "question": "¿Mi información personal está segura?",
+          "answer": "Sí, sus datos están protegidos. La información de contacto solo se comparte con los agentes que elige contactar. Revise nuestra Política de Privacidad para detalles completos sobre el manejo de datos."
+        },
+        {
+          "question": "¿Qué idiomas soporta Yakout?",
+          "answer": "Yakout está disponible en inglés, francés, español y árabe. Cambie de idioma usando el menú para explorar alquileres diarios, mensuales y ventas en su idioma preferido."
+        },
+        {
+          "question": "¿Yakout es compatible con móviles?",
+          "answer": "¡Sí! Nuestro sitio funciona perfectamente en smartphones y tabletas. Explore alquileres diarios, mensuales y casas en venta en cualquier dispositivo visitando yakout.ma."
+        },
+        {
+          "question": "¿A quién puedo contactar para soporte?",
+          "answer": "Para soporte técnico o preguntas sobre alquileres diarios, mensuales o compras, contáctenos en legal@yakout.ma o llame al +212 5XX XXX XXX. ¡Estamos aquí para ayudar!"
+        }
+      ]
+    }
+  }
+}

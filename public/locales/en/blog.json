@@ -1,0 +1,48 @@
+{
+  "hero": {
+    "title": "Real Estate Insights",
+    "subtitle": "Discover expert advice, market trends, and insider tips for Morocco's real estate market",
+    "search_placeholder": "Search articles..."
+  },
+  "filters": {
+    "title": "Filter by Category",
+    "all_articles": "All Articles",
+    "clear_filters": "Clear filters"
+  },
+  "posts": {
+    "no_articles_found": "No articles found",
+    "no_articles_description": "Try adjusting your search terms or filters",
+    "no_articles_available": "No articles available yet",
+    "no_articles_available_description": "We're working on creating amazing content for you. Check back soon!",
+    "read_more": "Read More",
+    "min_read": "min read",
+    "unknown_author": "Unknown Author",
+    "published_at": "Published at",
+    "author": "Author",
+    "read_time": "Read time"
+  },
+  "article": {
+    "back_to_blog": "Back to Blog",
+    "share_article": "Share Article",
+    "reading_time": "Reading time",
+    "published_on": "Published on",
+    "written_by": "Written by",
+    "related_articles": "Related Articles",
+    "tags": "Tags",
+    "categories": "Categories",
+    "share_on": "Share on",
+    "copy_link": "Copy Link",
+    "link_copied": "Link copied to clipboard!",
+    "not_found": {
+      "title": "Article Not Found",
+      "description": "The article you're looking for doesn't exist or has been removed.",
+      "back_button": "Back to Blog"
+    }
+  },
+  "pagination": {
+    "previous": "Previous",
+    "next": "Next",
+    "page": "Page",
+    "of": "of"
+  }
+}

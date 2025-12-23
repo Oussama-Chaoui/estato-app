@@ -4,7 +4,6 @@ import Image from "next/image"
 import { usePathname } from "next/navigation"
 import { cn } from "@/components/lib/utils/twMerge"
 import { Poppins } from "next/font/google"
-import CustomBreadcrumbs from "@/components/lib/navigation/CustomBreadCrumbs"
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -36,10 +35,10 @@ const HeroHeader = ({ title, image, className }: HeroHeaderProps) => {
         objectFit="cover"
       />
       <div className="absolute inset-0 bg-white bg-opacity-30 flex flex-col items-center justify-center pb-8">
-        <h1 className="text-black text-5xl font-medium tracking-widest">{title}</h1>
-        <div className="mt-4">
+        <h1 className="text-black text-4xl font-medium tracking-widest">{title}</h1>
+        {/* <div className="mt-4">
           <CustomBreadcrumbs links={breadcrumbs} />
-        </div>
+        </div> */}
       </div>
     </div>
   )

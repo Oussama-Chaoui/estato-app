@@ -5,23 +5,129 @@ import { Location } from "@/modules/locations/defs/types";
 import { Upload } from "@/modules/uploads/defs/types";
 import { Client } from "@/modules/users/defs/types";
 
+export interface CreateOneInput {
+  title: {
+    en?: string;
+    fr: string;
+    es?: string;
+    ar: string;
+  };
+  description: {
+    en?: string;
+    fr: string;
+    es?: string;
+    ar: string;
+  };
+  monthlyPrice: number;
+  salePrice: number;
+  dailyPrice: number;
+  dailyPriceEnabled: boolean;
+  currency: string;
+  monthlyPriceEnabled: boolean;
+  type: string;
+  locationId?: Id;
+  streetAddress: {
+    en?: string;
+    fr: string;
+    es?: string;
+    ar: string;
+  };
+  yearBuilt: number;
+  hasVR: boolean;
+  agentIds: Id[];
+  amenityIds: Id[];
+  furnishingStatus: FURNISHING_STATUS;
+  images: {
+    imageId: Id;
+    caption: string;
+    ordering: number;
+    /** client-only preview URL – server will ignore */
+    preview?: string;
+  }[];
+  features: {
+    id: Id;
+    bedrooms: number;
+    bathrooms: number;
+    area: number;
+    garages: number;
+    floors: number;
+  };
+  location: {
+    id: Id;
+    cityId: number;
+    streetAddress: {
+      en?: string;
+      fr: string;
+      es?: string;
+      ar: string;
+    };
+    latitude: number;
+    longitude: number;
+  };
+}
+
+export interface UpdateOneInput {
+  title: {
+    en?: string;
+    fr: string;
+    es?: string;
+    ar: string;
+  };
+  description: {
+    en?: string;
+    fr: string;
+    es?: string;
+    ar: string;
+  };
+  monthlyPrice: number;
+  salePrice: number;
+  dailyPrice: number;
+  dailyPriceEnabled: boolean;
+  currency: string;
+  monthlyPriceEnabled: boolean;
+  type: string;
+  locationId: Id;
+  streetAddress: {
+    en?: string;
+    fr: string;
+    es?: string;
+    ar: string;
+  };
+  yearBuilt: number;
+  hasVR: boolean;
+  agentIds: Id[];
+  amenityIds: Id[];
+  furnishingStatus: FURNISHING_STATUS;
+  images: {
+    imageId: Id;
+    caption: string;
+    ordering: number;
+  }[];
+}
+
 export enum PROPERTY_STATUS {
-  FOR_SALE = 'for_sale',
-  FOR_RENT = 'for_rent',
-  SOLD = 'sold',
-  RENTED = 'rented',
+  FOR_SALE = 'FOR_SALE',
+  FOR_RENT = 'FOR_RENT',
+  SOLD = 'SOLD',
+  RENTED = 'RENTED',
 }
 
 export enum PROPERTY_TYPE {
-  HOUSE = 'house',
-  APARTMENT = 'apartment',
-  VILLA = 'villa',
-  STUDIO = 'studio',
-  LAND = 'land',
-  COMMERCIAL = 'commercial',
-  OFFICE = 'office',
-  GARAGE = 'garage',
-  MANSION = 'mansion',
+  HOUSE = 'HOUSE',
+  APARTMENT = 'APARTMENT',
+  VILLA = 'VILLA',
+  STUDIO = 'STUDIO',
+  LAND = 'LAND',
+  COMMERCIAL = 'COMMERCIAL',
+  OFFICE = 'OFFICE',
+  GARAGE = 'GARAGE',
+  MANSION = 'MANSION',
+}
+
+export enum FURNISHING_STATUS {
+  FURNISHED = 'FURNISHED',
+  UNFURNISHED = 'UNFURNISHED',
+  SEMI_FURNISHED = 'SEMI_FURNISHED',
 }
 
 export interface Feature extends CrudObject {
@@ -30,8 +136,6 @@ export interface Feature extends CrudObject {
   bedrooms: number;
   bathrooms: number;
   garages: number;
-  pool: boolean;
-  garden: boolean;
   floors: number;
   area: number;
 }
@@ -64,8 +168,18 @@ export interface PropertyImage {
 }
 
 export interface Property extends CrudObject {
-  title: string;
-  description: string;
+  title: {
+    en?: string;
+    fr: string;
+    es?: string;
+    ar: string;
+  };
+  description: {
+    en?: string;
+    fr: string;
+    es?: string;
+    ar: string;
+  };
   salePrice: number;
   monthlyPrice: number;
   dailyPrice: number;
@@ -75,10 +189,16 @@ export interface Property extends CrudObject {
   type: PROPERTY_TYPE;
   status: PROPERTY_STATUS;
   locationId: Id;
-  streetAddress: string;
+  streetAddress: {
+    en?: string;
+    fr: string;
+    es?: string;
+    ar: string;
+  };
   yearBuilt: number;
-  lotSize: number;
   hasVR: boolean;
+  featured?: boolean;
+  furnishingStatus: FURNISHING_STATUS;
   features: Feature;
   amenities: Amenity[];
   agents: Agent[];

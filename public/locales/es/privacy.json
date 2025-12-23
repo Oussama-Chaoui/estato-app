@@ -1,0 +1,81 @@
+{
+  "meta": {
+    "title": "Política de Privacidad - Yakout",
+    "description": "Entiende cómo Yakout recopila, usa y protege tus datos personales. Tu privacidad es nuestra prioridad."
+  },
+  "hero": {
+    "title": "Política de Privacidad",
+    "subtitle": "Tu privacidad es importante para nosotros. Esta política explica cómo recopilamos, usamos y protegemos tu información personal."
+  },
+  "sidebar": {
+    "title": "Tabla de Contenidos"
+  },
+  "sections": {
+    "introduction": {
+      "title": "Introducción",
+      "content": "En Yakout, estamos comprometidos a proteger tu privacidad. Esta Política de Privacidad describe los tipos de información que recopilamos, cómo la usamos, y las medidas que tomamos para salvaguardar tus datos cuando usas nuestro sitio web y servicios. Al usar Yakout, aceptas la recopilación y uso de información de acuerdo con esta política."
+    },
+    "data_collection": {
+      "title": "Información que recopilamos",
+      "content": "Recopilamos varios tipos de información para proporcionar y mejorar nuestros servicios. Esto incluye información que nos proporcionas directamente, y datos generados a través de tus interacciones con nuestra plataforma. Solo recopilamos datos que son necesarios para los propósitos descritos a continuación.",
+      "points": {
+        "user_account": {
+          "title": "Datos de cuenta de usuario",
+          "description": "Cuando te registras o se crea una cuenta para ti (por ejemplo, durante una reserva), recopilamos tu nombre, correo electrónico, número de teléfono, y una contraseña cifrada. También puedes proporcionar una foto de perfil. Estos datos son esenciales para gestionar tu cuenta y proporcionar servicios personalizados."
+        },
+        "client_specific": {
+          "title": "Datos específicos del cliente",
+          "description": "Para clientes que participan en alquileres o compras de propiedades, podemos recopilar tu número de identidad nacional (NIC) o número de pasaporte. Esta información se usa para propósitos de verificación y para cumplir con las obligaciones legales y contractuales relacionadas con las transacciones inmobiliarias."
+        },
+        "agent_specific": {
+          "title": "Datos específicos del agente",
+          "description": "Para agentes, recopilamos tu número de licencia, años de experiencia, nombre de la agencia, y dirección de la agencia. También puedes proporcionar una biografía. Estos datos se usan para verificar tus credenciales y facilitar tus servicios en nuestra plataforma."
+        },
+        "agent_applications": {
+          "title": "Aplicaciones de agentes",
+          "description": "Cuando solicitas convertirte en agente, recopilamos tu nombre, correo electrónico (opcional), y número de teléfono. Esta información se usa para procesar tu aplicación y comunicarnos contigo sobre su estado."
+        },
+        "property_rental": {
+          "title": "Datos de alquiler de propiedades",
+          "description": "Si participas en alquileres de propiedades, recopilamos detalles como el ID de la propiedad, ID del cliente, ID del agente, fechas de inicio y fin del alquiler, precio, y tipo de alquiler. Estos datos son necesarios para gestionar acuerdos de alquiler y facilitar transacciones."
+        },
+        "property_inquiries": {
+          "title": "Consultas sobre propiedades",
+          "description": "Cuando envías una consulta sobre una propiedad, recopilamos tu nombre, correo electrónico, número de teléfono, y tu mensaje. Esta información se usa para responder a tus consultas y conectarte con agentes o propiedades relevantes."
+        },
+        "session_technical": {
+          "title": "Datos de sesión y técnicos",
+          "description": "Usamos cookies de sesión para autenticación y para mantener tu estado de inicio de sesión. También recopilamos tokens de API, tokens de recordatorio, y tokens CSRF para seguridad y funcionalidad de la plataforma. No los usamos para seguimiento o análisis."
+        }
+      }
+    },
+    "data_usage": {
+      "title": "Cómo usamos tu información",
+      "content": "Usamos la información recopilada para:",
+      "purposes": {
+        "property_services": "Proporcionar, operar y mantener nuestro sitio web y servicios.",
+        "communication": "Responder a tus consultas, preguntas y solicitudes.",
+        "legal_requirements": "Verificar tu identidad y asegurar el cumplimiento de las obligaciones legales.",
+        "account_management": "Gestionar tu cuenta de usuario y proporcionar soporte al cliente."
+      }
+    },
+    "user_rights": {
+      "title": "Tus derechos de privacidad",
+      "content": "Tienes derecho a:",
+      "rights": {
+        "access": "Acceso: Solicitar copias de tus datos personales.",
+        "rectification": "Rectificación: Solicitar que corrijamos cualquier información que creas que es inexacta o completemos información incompleta.",
+        "deletion": "Eliminación: Solicitar que eliminemos tus datos personales, bajo ciertas condiciones.",
+        "data_portability": "Portabilidad de datos: Solicitar que transfiramos los datos que hemos recopilado a otra organización, o directamente a ti, bajo ciertas condiciones."
+      }
+    },
+    "contact_us": {
+      "title": "Contáctanos",
+      "content": "Si tienes alguna pregunta o inquietud sobre esta Política de Privacidad o nuestras prácticas de datos, por favor contáctanos en:\n\nCorreo electrónico: privacy@yakout.ma\nTeléfono: +212 5XX XXX XXX\nDirección: Boulevard Pasteur, Tánger, Marruecos, 90000"
+    },
+    "last_updated": {
+      "title": "Última actualización",
+      "content": "Esta Política de Privacidad fue actualizada por última vez el 2024-07-29."
+    }
+  }
+}

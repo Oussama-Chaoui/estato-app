@@ -1,0 +1,55 @@
+{
+  "meta": {
+    "title": "Conditions d'utilisation - Yakout",
+    "description": "Lisez nos Conditions d'utilisation pour comprendre les règles et directives d'utilisation de la plateforme immobilière Yakout."
+  },
+  "hero": {
+    "title": "Conditions d'Utilisation",
+    "subtitle": "Veuillez lire attentivement ces conditions avant d'utiliser notre plateforme. En accédant ou en utilisant Yakout, vous acceptez d'être lié par ces conditions."
+  },
+  "sidebar": {
+    "title": "Table des Matières"
+  },
+  "sections": {
+    "acceptance": {
+      "title": "Acceptation des Conditions",
+      "content": "Bienvenue sur Yakout. En accédant ou en utilisant notre site Web, vous acceptez d'être lié par ces Conditions d'utilisation et toutes les lois et réglementations applicables. Si vous n'acceptez pas l'une de ces conditions, vous êtes interdit d'utiliser ou d'accéder à ce site. Ces conditions s'appliquent à tous les visiteurs et utilisateurs de la plateforme."
+    },
+    "platform": {
+      "title": "À Propos de Notre Plateforme",
+      "content": "Yakout est une plateforme immobilière qui vous permet de parcourir les annonces immobilières, de consulter les détails des propriétés et de contacter des agents pour des renseignements. Vous pouvez utiliser cette plateforme à des fins personnelles et non commerciales pour rechercher des propriétés au Maroc.\n\nLes annonces, descriptions, photos, prix et disponibilité des propriétés sont fournis par les propriétaires et les agents immobiliers agréés. Bien que nous nous efforcions d'assurer l'exactitude, Yakout ne garantit pas l'exhaustivité, l'exactitude ou la fiabilité des informations sur les propriétés. Tous les détails sont susceptibles de changer sans préavis et doivent être vérifiés directement auprès de l'agent ou du propriétaire.\n\nVous acceptez d'utiliser notre plateforme de manière responsable et conformément à toutes les lois applicables."
+    },
+    "inquiries_bookings": {
+      "title": "Demandes et Réservations",
+      "content": "Lorsque vous soumettez une demande de renseignements sur une propriété, nous collectons vos coordonnées pour vous mettre en contact avec l'agent concerné. En soumettant une demande, vous consentez à être contacté par des agents concernant votre demande et autorisez Yakout et ses agents partenaires à vous contacter concernant les services immobiliers. Vous acceptez de fournir des informations exactes.\n\nSi vous procédez à la réservation ou à la location d'une propriété, vous concluez un accord direct avec le propriétaire ou son agent. Yakout agit uniquement comme intermédiaire. Tous les accords, paiements, frais de location ou dépôts de garantie sont déterminés et collectés par le propriétaire ou l'agent, et non par Yakout. Nous ne sommes pas partie à ces transactions et n'assumons aucune responsabilité quant aux conditions, à l'exécution ou au résultat de tout accord.\n\nNous vous recommandons d'inspecter personnellement toute propriété et de vérifier tous les détails avant de vous engager dans une location ou un achat."
+    },
+    "prohibited_conduct": {
+      "title": "Conduite Interdite",
+      "content": "Les activités suivantes sont strictement interdites lors de l'utilisation de notre plateforme :",
+      "prohibitions": {
+        "scraping": "Scraping automatisé de données, exploration ou copie d'annonces immobilières ou de contenu du site Web.",
+        "fraud": "Soumission de fausses demandes ou fourniture de coordonnées frauduleuses.",
+        "harassment": "Harcèlement ou envoi de messages abusifs aux agents ou propriétaires.",
+        "spam": "Utilisation de notre système de demande de renseignements pour envoyer du spam, de la publicité ou des messages commerciaux non sollicités.",
+        "illegal": "Utilisation de la plateforme à des fins illégales ou en violation de toute loi.",
+        "interference": "Tentative d'interférer avec ou de perturber la fonctionnalité ou la sécurité de notre plateforme."
+      }
+    },
+    "intellectual_property": {
+      "title": "Propriété Intellectuelle et Contenu",
+      "content": "Tout le contenu de la plateforme Yakout, y compris le texte, les graphiques, les logos, les images, les logiciels et le design, est la propriété d'Yakout ou de ses concédants de licence et est protégé par les lois sur la propriété intellectuelle. Vous ne pouvez pas copier, reproduire, distribuer ou créer des œuvres dérivées de notre contenu sans autorisation écrite explicite.\n\nLes annonces immobilières et les photos sont fournies par les propriétaires et agents et restent leur propriété. Notre plateforme peut contenir des liens vers des sites Web tiers ou afficher du contenu fourni par des propriétaires, agents et autres tiers. Yakout n'est pas responsable de l'exactitude, de la légalité ou du contenu de tout matériel tiers."
+    },
+    "liability": {
+      "title": "Déni de Responsabilité et Limitation",
+      "content": "Yakout fournit cette plateforme « telle quelle » et « selon disponibilité ». Nous ne donnons aucune garantie, expresse ou implicite, concernant le fonctionnement de la plateforme, l'exactitude des annonces ou la conduite des agents et propriétaires.\n\nDans toute la mesure permise par la loi, Yakout ne sera pas responsable des dommages indirects, accessoires, spéciaux, consécutifs ou punitifs découlant de votre utilisation de la plateforme, y compris, mais sans s'y limiter, les dommages pour perte de profits, de données ou d'autres pertes intangibles. Nous ne sommes pas responsables des actions, représentations ou conduite des agents, propriétaires ou autres utilisateurs. Votre utilisation de la plateforme est à vos propres risques.\n\nVotre vie privée est importante pour nous. Veuillez consulter notre Politique de Confidentialité pour comprendre comment nous collectons et utilisons vos informations."
+    },
+    "legal": {
+      "title": "Aspects Juridiques et Résolution des Litiges",
+      "content": "Tout litige découlant de ces conditions ou de votre utilisation de la plateforme sera résolu conformément aux lois du Maroc. Toute procédure judiciaire se déroulera à Tanger, au Maroc. Si une disposition de ces conditions est jugée inapplicable, les dispositions restantes resteront pleinement en vigueur.\n\nNous nous réservons le droit de modifier ces Conditions d'utilisation à tout moment. Si nous apportons des modifications importantes, nous en informerons les utilisateurs en publiant un avis sur notre plateforme avant que les modifications ne prennent effet. Votre utilisation continue de la plateforme après toute modification constitue votre acceptation des nouvelles conditions."
+    },
+    "contact": {
+      "title": "Nous Contacter",
+      "content": "Si vous avez des questions, des préoccupations ou des commentaires concernant ces Conditions d'utilisation, veuillez nous contacter à :\n\nEmail: legal@yakout.ma\nTéléphone: +212 5XX XXX XXX\nAdresse: Boulevard Pasteur, Tanger, Maroc, 90000\n\nDernière mise à jour : 29 juillet 2024"
+    }
+  }
+}

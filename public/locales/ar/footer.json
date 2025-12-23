@@ -1,0 +1,30 @@
+{
+  "brand": {
+    "description": "عقارات متميزة مصممة للأناقة والعيش الراقي.",
+    "address": "400 شارع الحسن الثاني، الدار البيضاء"
+  },
+  "sections": {
+    "discover": "اكتشف",
+    "services": "خدماتنا",
+    "insights": "معلومات ونصائح"
+  },
+  "links": {
+    "home": "الرئيسية",
+    "luxury_villas": "فيلات فاخرة",
+    "our_agents": "وكلاؤنا",
+    "consultation": "استشارات",
+    "privacy_policy": "سياسة الخصوصية",
+    "investment_guide": "دليل الاستثمار",
+    "vip_services": "خدمات VIP"
+  },
+  "newsletter": {
+    "description": "احصل على أحدث العروض والتقارير الحصرية",
+    "placeholder": "بريدك الإلكتروني",
+    "subscribe": "اشتراك"
+  },
+  "legal": {
+    "copyright": "جميع الحقوق محفوظة © {{year}} ياقوت.",
+    "terms_of_service": "شروط الاستخدام",
+    "privacy_policy": "سياسة الخصوصية"
+  }
+}

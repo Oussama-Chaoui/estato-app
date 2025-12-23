@@ -1,0 +1,140 @@
+{
+  "hero": {
+    "badge": "Transforma Tu Carrera Inmobiliaria",
+    "title": {
+      "part1": "Únete a la",
+      "part2": "Plataforma Inmobiliaria Líder de Marruecos"
+    },
+    "subtitle": "Ya seas un agente experimentado, propietario de inmuebles, o entusiasta del sector inmobiliario, Yakout ofrece las herramientas, red y apoyo que necesitas para triunfar en el dinámico mercado inmobiliario de Marruecos.",
+    "cta": {
+      "primary": "Comienza Tu Viaje",
+      "secondary": "Saber Más"
+    },
+    "stats": {
+      "agents": "Agentes Activos",
+      "properties": "Propiedades Listadas"
+    }
+  },
+  "mission": {
+    "title": "Nuestra Misión y Visión",
+    "subtitle": "Estamos revolucionando el sector inmobiliario en Marruecos conectando a las personas con sus propiedades soñadas a través de la innovación, confianza y servicio excepcional.",
+    "cards": {
+      "mission": {
+        "title": "Nuestra Misión",
+        "description": "Democratizar el acceso al mercado inmobiliario marroquí proporcionando una plataforma transparente, eficiente y fácil de usar que empodera tanto a compradores como vendedores a tomar decisiones informadas."
+      },
+      "vision": {
+        "title": "Nuestra Visión",
+        "description": "Convertirnos en la plataforma inmobiliaria más confiable e innovadora de Marruecos, estableciendo nuevos estándares para transacciones inmobiliarias digitales y experiencia del cliente."
+      },
+      "values": {
+        "title": "Nuestros Valores",
+        "description": "La transparencia, integridad, innovación y enfoque en el cliente guían todo lo que hacemos. Creemos en construir relaciones duraderas basadas en la confianza y el éxito mutuo."
+      }
+    }
+  },
+  "benefits": {
+    "title": "¿Por Qué Elegir Yakout?",
+    "subtitle": "Únete a miles de profesionales que han transformado sus carreras inmobiliarias con nuestra plataforma integral y apoyo dedicado.",
+    "network": {
+      "title": "Red Extensa",
+      "description": "Conecta con más de 2,000 agentes verificados y accede a una base de datos de más de 50,000 propiedades en las principales ciudades de Marruecos y mercados emergentes."
+    },
+    "platform": {
+      "title": "Plataforma Avanzada",
+      "description": "Aprovecha la tecnología de vanguardia incluyendo tours virtuales, emparejamiento impulsado por IA y análisis comprehensivos para mantenerte por delante de la competencia."
+    },
+    "growth": {
+      "title": "Crecimiento Profesional",
+      "description": "Accede a programas de entrenamiento exclusivos, cursos de certificación y oportunidades de mentoría para acelerar tu desarrollo profesional."
+    },
+    "support": {
+      "title": "Soporte 24/7",
+      "description": "Obtén asistencia dedicada de nuestro equipo experto, incluyendo soporte de marketing, orientación legal y ayuda técnica cuando la necesites."
+    }
+  },
+  "testimonials": {
+    "title": "Historias de Éxito",
+    "subtitle": "Escucha a profesionales inmobiliarios que han transformado sus carreras con Yakout.",
+    "items": [
+      {
+        "name": "Fatima El Mansouri",
+        "role": "Agente Inmobiliaria Senior, Casablanca",
+        "content": "Unirme a Yakout fue la mejor decisión que tomé para mi carrera. Las herramientas avanzadas de la plataforma y su extensa red me ayudaron a aumentar mis ventas en un 300% en solo un año."
+      },
+      {
+        "name": "Ahmed Benali",
+        "role": "Desarrollador Inmobiliario, Marrakech",
+        "content": "La plataforma integral de Yakout y su apoyo profesional facilitaron mostrar mis propiedades de lujo a compradores serios. La calidad de los prospectos es excepcional."
+      },
+      {
+        "name": "Sophia Martinez",
+        "role": "Consultora Inmobiliaria Internacional",
+        "content": "Como inversora extranjera, Yakout me proporcionó la experiencia local y perspectivas de mercado que necesitaba para hacer inversiones inmobiliarias exitosas en Marruecos."
+      }
+    ]
+  },
+  "faq": {
+    "title": "Preguntas Frecuentes",
+    "subtitle": "Obtén respuestas a preguntas comunes sobre unirse a nuestra plataforma.",
+    "items": [
+      {
+        "question": "¿Cuánto cuesta unirse a Yakout?",
+        "answer": "Ofrecemos planes de membresía flexibles desde acceso gratuito básico hasta suscripciones premium con características avanzadas. Nuestra estructura de comisiones es competitiva y transparente, sin tarifas ocultas."
+      },
+      {
+        "question": "¿Necesito una licencia inmobiliaria para unirme?",
+        "answer": "Aunque tener una licencia inmobiliaria es preferible para agentes, damos la bienvenida a propietarios, desarrolladores y entusiastas inmobiliarios. También proporcionamos orientación para obtener certificaciones apropiadas."
+      },
+      {
+        "question": "¿Qué entrenamiento y apoyo proporcionan?",
+        "answer": "Ofrecemos incorporación integral, sesiones de entrenamiento regulares, materiales de marketing, apoyo legal y servicio al cliente 24/7. Nuestro equipo está dedicado a tu éxito."
+      },
+      {
+        "question": "¿Qué tan rápido puedo empezar a listar propiedades?",
+        "answer": "Una vez que tu aplicación sea aprobada y completes nuestro proceso rápido de incorporación, puedes empezar a listar propiedades inmediatamente. La aprobación típicamente toma 24-48 horas."
+      }
+    ]
+  },
+  "final_cta": {
+    "badge": "¿Listo para Liderar el Mercado?",
+    "title": "Comienza Tu Historia de Éxito Hoy",
+    "subtitle": "Únete a la comunidad inmobiliaria de crecimiento más rápido de Marruecos y desbloquea oportunidades ilimitadas en el dinámico mercado inmobiliario.",
+    "primary_button": "Aplicar Ahora"
+  },
+  "modal": {
+    "title": "Solicitar como Agente",
+    "subtitle": "Únete a nuestra red de profesionales inmobiliarios exitosos y comienza tu viaje con Yakout.",
+    "success": {
+      "title": "¡Solicitud Enviada!",
+      "subtitle": "Gracias por tu interés en unirte a Yakout.",
+      "thank_you": "¡Gracias!",
+      "message": "Hemos recibido tu solicitud y la revisaremos en 24-48 horas. Nuestro equipo se pondrá en contacto contigo con los siguientes pasos.",
+      "auto_close": "Cerrando automáticamente en {{seconds}} segundos"
+    },
+    "error": {
+      "default": "Algo salió mal. Por favor, inténtalo de nuevo.",
+      "network": "Error de red. Por favor, verifica tu conexión e inténtalo de nuevo."
+    },
+    "form": {
+      "name": {
+        "label": "Nombre Completo",
+        "placeholder": "Ingresa tu nombre completo",
+        "error": "El nombre completo es requerido"
+      },
+      "email": {
+        "label": "Correo Electrónico",
+        "placeholder": "Ingresa tu correo electrónico",
+        "error": "Por favor, ingresa un correo electrónico válido"
+      },
+      "phone": {
+        "label": "Número de Teléfono",
+        "placeholder": "Ingresa tu número de teléfono",
+        "error": "El número de teléfono es requerido"
+      },
+      "submit": "Enviar Solicitud",
+      "submitting": "Enviando...",
+      "privacy_notice": "Al enviar este formulario, aceptas nuestra política de privacidad y términos de servicio."
+    }
+  }
+}

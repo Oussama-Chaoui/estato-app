@@ -1,0 +1,55 @@
+{
+  "meta": {
+    "title": "Términos de Servicio - Yakout",
+    "description": "Lea nuestros Términos de Servicio para comprender las reglas y pautas para usar la plataforma inmobiliaria de Yakout."
+  },
+  "hero": {
+    "title": "Términos de Servicio",
+    "subtitle": "Por favor, lea estos términos cuidadosamente antes de usar nuestra plataforma. Al acceder o usar Yakout, usted acepta estar sujeto a estos términos."
+  },
+  "sidebar": {
+    "title": "Tabla de Contenidos"
+  },
+  "sections": {
+    "acceptance": {
+      "title": "Aceptación de Términos",
+      "content": "Bienvenido a Yakout. Al acceder o usar nuestro sitio web, usted acepta estar sujeto a estos Términos de Servicio y todas las leyes y regulaciones aplicables. Si no está de acuerdo con alguno de estos términos, tiene prohibido usar o acceder a este sitio. Estos términos se aplican a todos los visitantes y usuarios de la plataforma."
+    },
+    "platform": {
+      "title": "Sobre Nuestra Plataforma",
+      "content": "Yakout es una plataforma inmobiliaria que le permite navegar por listados de propiedades, ver detalles de propiedades y contactar con agentes para consultas. Puede usar esta plataforma para fines personales y no comerciales para buscar propiedades en Marruecos.\n\nLos listados, descripciones, fotos, precios y disponibilidad de propiedades son proporcionados por propietarios y agentes inmobiliarios con licencia. Si bien nos esforzamos por garantizar la precisión, Yakout no garantiza la integridad, precisión o confiabilidad de ninguna información de propiedad. Todos los detalles están sujetos a cambios sin previo aviso y deben verificarse directamente con el agente o propietario del listado.\n\nUsted acepta usar nuestra plataforma de manera responsable y en cumplimiento con todas las leyes aplicables."
+    },
+    "inquiries_bookings": {
+      "title": "Consultas y Reservas",
+      "content": "Cuando envía una consulta sobre una propiedad, recopilamos su información de contacto para conectarlo con el agente relevante. Al enviar una consulta, usted acepta ser contactado por agentes con respecto a su consulta y autoriza a Yakout y sus agentes asociados a contactarlo sobre servicios inmobiliarios. Usted acepta proporcionar información precisa.\n\nSi procede con la reserva o el alquiler de una propiedad, está entrando en un acuerdo directo con el propietario o su agente. Yakout actúa únicamente como intermediario. Cualquier acuerdo, pago, tarifa de alquiler o depósito de seguridad es determinado y recaudado por el propietario o agente, no por Yakout. No somos parte de estas transacciones y no asumimos responsabilidad por los términos, cumplimiento o resultado de ningún acuerdo.\n\nRecomendamos que inspeccione personalmente cualquier propiedad y verifique todos los detalles antes de comprometerse con un alquiler o compra."
+    },
+    "prohibited_conduct": {
+      "title": "Conducta Prohibida",
+      "content": "Las siguientes actividades están estrictamente prohibidas al usar nuestra plataforma:",
+      "prohibitions": {
+        "scraping": "Extracción automática de datos, rastreo o copia de listados de propiedades o contenido del sitio web.",
+        "fraud": "Enviar consultas falsas o proporcionar información de contacto fraudulenta.",
+        "harassment": "Acosar o enviar mensajes abusivos a agentes o propietarios.",
+        "spam": "Usar nuestro sistema de consultas para enviar spam, publicidad o mensajes comerciales no solicitados.",
+        "illegal": "Usar la plataforma para cualquier propósito ilegal o en violación de cualquier ley.",
+        "interference": "Intentar interferir o interrumpir la funcionalidad o seguridad de nuestra plataforma."
+      }
+    },
+    "intellectual_property": {
+      "title": "Propiedad Intelectual y Contenido",
+      "content": "Todo el contenido en la plataforma Yakout, incluidos texto, gráficos, logotipos, imágenes, software y diseño, es propiedad de Yakout o sus licenciantes y está protegido por leyes de propiedad intelectual. No puede copiar, reproducir, distribuir o crear obras derivadas de nuestro contenido sin permiso explícito por escrito.\n\nLos listados de propiedades y fotos son proporcionados por propietarios y agentes y siguen siendo su propiedad. Nuestra plataforma puede contener enlaces a sitios web de terceros o mostrar contenido proporcionado por propietarios, agentes y otros terceros. Yakout no es responsable de la precisión, legalidad o contenido de ningún material de terceros."
+    },
+    "liability": {
+      "title": "Descargo de Responsabilidad y Limitación",
+      "content": "Yakout proporciona esta plataforma \"tal cual\" y \"según disponibilidad\". No ofrecemos garantías, expresas o implícitas, con respecto al funcionamiento de la plataforma, la precisión de los listados o la conducta de agentes y propietarios.\n\nEn la medida máxima permitida por la ley, Yakout no será responsable de ningún daño indirecto, incidental, especial, consecuente o punitivo que surja de su uso de la plataforma, incluidos, entre otros, daños por pérdida de ganancias, datos u otras pérdidas intangibles. No somos responsables de las acciones, representaciones o conducta de agentes, propietarios u otros usuarios. Su uso de la plataforma es bajo su propio riesgo.\n\nSu privacidad es importante para nosotros. Por favor, revise nuestra Política de Privacidad para comprender cómo recopilamos y usamos su información."
+    },
+    "legal": {
+      "title": "Legal y Resolución de Disputas",
+      "content": "Cualquier disputa que surja de estos términos o su uso de la plataforma se resolverá de acuerdo con las leyes de Marruecos. Cualquier procedimiento legal se llevará a cabo en Tánger, Marruecos. Si alguna disposición de estos términos se considera inaplicable, las disposiciones restantes permanecerán en pleno vigor y efecto.\n\nNos reservamos el derecho de modificar estos Términos de Servicio en cualquier momento. Si realizamos cambios importantes, notificaremos a los usuarios publicando un aviso en nuestra plataforma antes de que los cambios entren en vigencia. Su uso continuo de la plataforma después de cualquier cambio constituye su aceptación de los nuevos términos."
+    },
+    "contact": {
+      "title": "Contáctenos",
+      "content": "Si tiene alguna pregunta, inquietud o comentario sobre estos Términos de Servicio, contáctenos en:\n\nEmail: legal@yakout.ma\nTeléfono: +212 5XX XXX XXX\nDirección: Boulevard Pasteur, Tánger, Marruecos, 90000\n\nÚltima actualización: 29 de julio de 2024"
+    }
+  }
+}

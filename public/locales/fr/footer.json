@@ -1,0 +1,30 @@
+{
+  "brand": {
+    "description": "Annonces immobilières premium conçues pour l'élégance et la qualité de vie.",
+    "address": "400 Avenue Hassan II, Casablanca"
+  },
+  "sections": {
+    "discover": "Découvrir",
+    "services": "Services",
+    "insights": "Informations"
+  },
+  "links": {
+    "home": "Accueil",
+    "luxury_villas": "Villas de Luxe",
+    "our_agents": "Nos Agents",
+    "consultation": "Consultation",
+    "privacy_policy": "Politique de Confidentialité",
+    "investment_guide": "Guide d'Investissement",
+    "vip_services": "Services VIP"
+  },
+  "newsletter": {
+    "description": "Obtenez des rapports exclusifs du marché et des annonces premium",
+    "placeholder": "Votre email",
+    "subscribe": "S'abonner"
+  },
+  "legal": {
+    "copyright": "© {{year}} Yakout. Tous droits réservés.",
+    "terms_of_service": "Conditions de Service",
+    "privacy_policy": "Politique de Confidentialité"
+  }
+}

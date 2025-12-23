@@ -1,0 +1,83 @@
+{
+  "hero": {
+    "badge": "Ponte en Contacto",
+    "title": "Contáctanos Hoy",
+    "subtitle": "¿Listo para encontrar tu propiedad ideal? Nuestro equipo de expertos está aquí para ayudarte en cada paso del camino. Contáctanos y hagamos realidad tus sueños inmobiliarios."
+  },
+  "info": {
+    "title": "Cómo Contactarnos",
+    "subtitle": "Múltiples formas de conectarte con nuestro equipo",
+    "address": {
+      "title": "Visita Nuestra Oficina",
+      "details": "Ubicada en el corazón de la ciudad\nBoulevard Pasteur\nTánger, Marruecos\n90000"
+    },
+    "phone": {
+      "title": "Llama",
+      "details": "Habla directamente con nuestro equipo experto\n+212 5XX XXX XXX\no\n+212 5XX XXX XXX"
+    },
+    "email": {
+      "title": "Escríbenos",
+      "details": "Envíanos tus consultas y te responderemos rápidamente\ninfo@yakout.ma\nsupport@yakout.ma\nventas@yakout.ma"
+    },
+    "hours": {
+      "title": "Horario de Atención",
+      "details": "Lunes - Viernes: 9:00 AM - 6:00 PM\nSábado: 9:00 AM - 2:00 PM\nDomingo: Cerrado"
+    }
+  },
+  "form": {
+    "title": "Envíanos un Mensaje",
+    "subtitle": "Completa el formulario a continuación y te responderemos en 24 horas",
+    "fields": {
+      "name": "Nombre Completo",
+      "email": "Dirección de Email",
+      "phone": "Número de Teléfono",
+      "subject": "Asunto",
+      "message": "Mensaje",
+      "property_type": "Tipo de Propiedad"
+    },
+    "placeholders": {
+      "name": "Ingresa tu nombre completo",
+      "email": "Ingresa tu dirección de email",
+      "phone": "Ingresa tu número de teléfono",
+      "subject": "¿En qué podemos ayudarte?",
+      "message": "Cuéntanos sobre tus requerimientos...",
+      "property_type": "Selecciona el tipo de propiedad"
+    },
+    "property_types": {
+      "apartment": "Apartamento",
+      "villa": "Villa",
+      "office": "Oficina",
+      "commercial": "Comercial",
+      "land": "Terreno",
+      "other": "Otro"
+    },
+    "submit": "Enviar Mensaje",
+    "submitting": "Enviando...",
+    "success_message": "¡Gracias! Tu mensaje ha sido enviado exitosamente.",
+    "error_message": "Lo sentimos, hubo un error al enviar tu mensaje. Por favor intenta de nuevo.",
+    "validation": {
+      "name_required": "El nombre es requerido",
+      "name_min": "El nombre debe tener al menos 2 caracteres",
+      "email_required": "El email es requerido",
+      "email_invalid": "Por favor ingresa una dirección de email válida",
+      "phone_invalid": "Por favor ingresa un número de teléfono válido",
+      "subject_required": "El asunto es requerido",
+      "subject_min": "El asunto debe tener al menos 5 caracteres",
+      "message_required": "El mensaje es requerido",
+      "message_min": "El mensaje debe tener al menos 10 caracteres"
+    }
+  },
+  "map": {
+    "title": "Encuéntranos Aquí",
+    "subtitle": "Visita nuestra oficina en Tánger"
+  },
+  "social": {
+    "title": "Síguenos",
+    "subtitle": "Mantente conectado con nosotros en redes sociales"
+  },
+  "quick_contact": {
+    "title": "¿Necesitas Ayuda Inmediata?",
+    "subtitle": "Para consultas urgentes, llámanos directamente",
+    "call_now": "Llamar Ahora"
+  }
+}

@@ -5,6 +5,8 @@ import Properties from '@/modules/properties/defs/api-routes';
 import Agents from '@/modules/agents/defs/api-routes';
 import Locations from '@/modules/locations/defs/api-routes';
 import Amenities from '@/modules/amenities/defs/api-routes';
+import Settings from '@/modules/settings/defs/api-routes';
+import Posts from '@/modules/posts/defs/api-routes';
 
 const ApiRoutes = {
   Auth,
@@ -14,6 +16,8 @@ const ApiRoutes = {
   Agents,
   Locations,
   Amenities,
+  Settings,
+  Posts,
 };
 
 export default ApiRoutes;

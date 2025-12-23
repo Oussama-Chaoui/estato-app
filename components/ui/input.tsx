@@ -4,6 +4,7 @@
 import * as React from "react"
 import { cn } from "@/components/lib/utils/twMerge"
 import { motion } from "framer-motion"
+import { useDirection } from "@/common/contexts/DirectionContext"
 
 export interface InputProps extends React.ComponentProps<"input"> {
   startAdornment?: React.ReactNode
@@ -39,11 +40,13 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
     },
     ref
   ) => {
+    const { isRTL } = useDirection()
     const [isFocused, setIsFocused] = React.useState(false)
     const [hasValue, setHasValue] = React.useState(
       value !== undefined && value !== null && value !== ""
     )
-    const inputId = id || React.useId()
+    const generatedId = React.useId()
+    const inputId = id || generatedId
 
     React.useEffect(() => {
       setHasValue(value !== undefined && value !== null && value !== "")
@@ -100,7 +103,13 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
           )}
 
           {startAdornment && (
-            <div className="absolute inset-y-0 left-0 flex items-center pl-3">
+            <div 
+              className="absolute inset-y-0 left-0 flex items-center"
+              style={{ 
+                paddingLeft: isRTL ? '0.75rem' : '0.75rem',
+                paddingRight: isRTL ? '0' : '0'
+              }}
+            >
               {startAdornment}
             </div>
           )}
@@ -114,19 +123,34 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
             onFocus={() => setIsFocused(true)}
             onBlur={handleBlur}
             className={cn(
-              "w-full h-12 rounded-md border bg-transparent placeholder-transparent text-base focus:outline-none",
+              "w-full h-12 rounded-md border bg-transparent placeholder-transparent text-base focus:outline-none ltr [&:-webkit-autofill]:bg-white [&:-webkit-autofill]:shadow-[0_0_0_30px_white_inset] [&:-webkit-autofill]:text-black [&:-webkit-autofill]:border-input [&:-webkit-autofill]:focus:border-input",
               error
                 ? "border-destructive focus:ring-destructive/80"
                 : "border-input focus:ring-primarySite/80",
-              startAdornment ? "pl-11" : "pl-4",
-              endAdornment ? "pr-10" : "pr-3",
               className
             )}
+            style={{
+              paddingLeft: startAdornment 
+                ? (isRTL ? '2.75rem' : '2.75rem') 
+                : (isRTL ? '0.75rem' : '1rem'),
+              paddingRight: endAdornment 
+                ? (isRTL ? '2.5rem' : '2.5rem') 
+                : (isRTL ? '0' : '0.75rem'),
+              WebkitAppearance: 'none',
+              WebkitBoxShadow: '0 0 0 30px white inset',
+            }}
+            dir="ltr"
             {...rest}
           />
 
           {endAdornment && (
-            <div className="absolute inset-y-0 right-0 flex items-center pr-3">
+            <div 
+              className="absolute inset-y-0 right-0 flex items-center"
+              style={{ 
+                paddingLeft: isRTL ? '0' : '0',
+                paddingRight: isRTL ? '0.75rem' : '0.75rem'
+              }}
+            >
               {endAdornment}
             </div>
           )}

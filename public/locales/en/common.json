@@ -1,0 +1,18 @@
+{
+  "loading": "Loading...",
+  "languages": {
+    "en": "English",
+    "fr": "French",
+    "es": "Spanish",
+    "ar": "Arabic"
+  },
+  "price": {
+    "per_night": "/ night",
+    "per_month": "/ month"
+  },
+  "date_picker": {
+    "pick_date_range": "Pick a date range",
+    "select_dates": "Select dates"
+  },
+  "area_unit": "m²"
+}

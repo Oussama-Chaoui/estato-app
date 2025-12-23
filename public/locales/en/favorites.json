@@ -1,0 +1,12 @@
+{
+  "title": "Favorites",
+  "subtitle": "Properties you've liked",
+  "no_favorites": {
+    "title": "No favorites yet",
+    "description": "Start exploring our premium collection and like properties that catch your eye",
+    "browse_button": "Browse Properties"
+  },
+  "property": {
+  
+  }
+}

@@ -1,5 +1,5 @@
 import ApiRoutes from '@/common/defs/api-routes';
-import  useApi, { ApiOptions, ApiResponse, FetchApiOptions } from '@/common/hooks/useApi';
+import useApi, { ApiOptions, ApiResponse, FetchApiOptions } from '@/common/hooks/useApi';
 import { User } from '@/modules/users/defs/types';
 import { useState } from 'react';
 import useSWR from 'swr';
@@ -68,7 +68,7 @@ const useAuth = (): AuthData => {
 
   const fetchApi = useApi();
 
-  const { data: user, mutate } = useSWR<User | null>(ApiRoutes.Auth.Me, async (url) => {
+  const { data: user, mutate } = useSWR<User | null>(ApiRoutes.Auth.Me, async (url: string) => {
     if (!localStorage.getItem('authToken')) {
       setInitialized(true);
       return null;

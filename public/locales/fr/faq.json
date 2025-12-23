@@ -1,0 +1,153 @@
+{
+  "meta": {
+    "title": "Questions Fréquemment Posées - Yakout",
+    "description": "Trouvez des réponses aux questions courantes sur l'utilisation de la plateforme immobilière Yakout."
+  },
+  "hero": {
+    "title": "Questions Fréquemment Posées",
+    "subtitle": "Trouvez rapidement des réponses aux questions courantes sur l'utilisation de notre plateforme"
+  },
+  "search": {
+    "placeholder": "Rechercher des réponses...",
+    "no_results": "Aucun résultat trouvé",
+    "no_results_description": "Essayez d'ajuster votre recherche ou parcourez par catégorie"
+  },
+  "sidebar": {
+    "title": "Catégories",
+    "all_questions": "Toutes les Questions"
+  },
+  "cta": {
+    "title": "Vous avez encore des questions ?",
+    "description": "Vous ne trouvez pas la réponse que vous cherchez ? Notre équipe de support est là pour vous aider.",
+    "contact_button": "Contacter le Support",
+    "email_button": "Nous Envoyer un Email"
+  },
+  "categories": {
+    "general": {
+      "title": "Général",
+      "questions": [
+        {
+          "question": "Qu'est-ce que Yakout ?",
+          "answer": "Yakout est la principale plateforme immobilière du Maroc qui connecte les chercheurs de propriétés avec des agents agréés. Que vous recherchiez une location quotidienne pour vos vacances, un appartement mensuel ou l'achat de votre maison de rêve, nous proposons des annonces complètes dans les grandes villes marocaines."
+        },
+        {
+          "question": "Yakout est-il gratuit ?",
+          "answer": "Oui ! Parcourir les propriétés, consulter les détails et contacter les agents est entièrement gratuit. Aucun frais ou abonnement n'est requis pour rechercher des locations quotidiennes, mensuelles ou des maisons à vendre."
+        },
+        {
+          "question": "Quelles villes Yakout couvre-t-il ?",
+          "answer": "Nous couvrons les grandes villes marocaines, notamment Marrakech, Casablanca, Rabat, Agadir, Tanger, Fès et plus encore. Notre couverture s'étend constamment à travers le Maroc."
+        }
+      ]
+    },
+    "searching": {
+      "title": "Recherche de Propriétés",
+      "questions": [
+        {
+          "question": "Quels types de propriétés puis-je trouver sur Yakout ?",
+          "answer": "Yakout propose trois catégories principales : Locations Quotidiennes (parfaites pour les vacances et courts séjours), Locations Mensuelles (pour le logement à long terme), et Ventes de Maisons (pour acheter votre propriété). Chaque catégorie comprend des villas, appartements, studios, riads traditionnels et plus."
+        },
+        {
+          "question": "Comment rechercher un type de location spécifique ?",
+          "answer": "Utilisez le menu de navigation principal pour sélectionner Location Quotidienne, Location Mensuelle ou Vente de Maison. Affinez ensuite votre recherche avec les filtres de localisation, type de propriété, gamme de prix, nombre de chambres et commodités."
+        },
+        {
+          "question": "Puis-je sauvegarder mes propriétés préférées ?",
+          "answer": "Oui ! Cliquez sur l'icône cœur sur n'importe quelle propriété pour l'enregistrer dans vos favoris. Accédez à vos propriétés sauvegardées depuis le menu favoris, qu'il s'agisse d'une location quotidienne, mensuelle ou d'une maison à vendre."
+        },
+        {
+          "question": "Quelle est la différence entre location quotidienne et mensuelle ?",
+          "answer": "Les locations quotidiennes sont tarifées par nuit, idéales pour les courts séjours, vacances ou voyages d'affaires (minimum 1-2 nuits généralement). Les locations mensuelles sont tarifées au mois et nécessitent des engagements plus longs, à partir de 1 mois, parfaites pour étudiants, professionnels ou logement temporaire."
+        }
+      ]
+    },
+    "contact": {
+      "title": "Contact et Demandes",
+      "questions": [
+        {
+          "question": "Comment contacter un agent au sujet d'une propriété ?",
+          "answer": "Chaque annonce a un formulaire de contact. Remplissez vos coordonnées et précisez si vous êtes intéressé par une location quotidienne, mensuelle ou un achat. L'agent recevra votre demande et vous contactera avec les disponibilités et tarifs."
+        },
+        {
+          "question": "Dans combien de temps un agent répondra-t-il ?",
+          "answer": "La plupart des agents répondent dans les 24 heures pendant les jours ouvrables. Pour les réservations urgentes de location quotidienne, les agents répondent souvent plus rapidement pour vos dates de voyage."
+        },
+        {
+          "question": "Quelles informations dois-je inclure dans ma demande ?",
+          "answer": "Pour locations quotidiennes : précisez vos dates d'arrivée/départ et nombre d'invités. Pour locations mensuelles : mentionnez votre date d'emménagement souhaitée, durée (3 mois, 6 mois, 1 an) et exigences spécifiques. Pour achats : indiquez votre budget et quartiers préférés."
+        }
+      ]
+    },
+    "booking": {
+      "title": "Locations et Achats",
+      "questions": [
+        {
+          "question": "Comment réserver une location quotidienne ?",
+          "answer": "Après avoir contacté un agent via la plateforme, il confirmera la disponibilité pour vos dates, fournira le coût total (tarif nuit × nombre de nuits), et vous guidera dans le processus de réservation incluant le paiement et les détails d'arrivée."
+        },
+        {
+          "question": "Comment fonctionnent les locations mensuelles ?",
+          "answer": "Les locations mensuelles nécessitent une négociation directe avec le propriétaire ou l'agent. Vous discuterez de la durée du bail (généralement 3-12 mois), du loyer mensuel, du dépôt de garantie (habituellement 1-2 mois de loyer), et signerez un contrat avant l'emménagement."
+        },
+        {
+          "question": "Quel est le processus d'achat d'une propriété ?",
+          "answer": "Pour les achats de maisons, l'agent organisera des visites, fournira la documentation légale, vous guidera dans les négociations de prix, et vous connectera avec des notaires pour finaliser la vente. Toutes les formalités légales sont traitées entre vous et l'agent."
+        },
+        {
+          "question": "Quels modes de paiement sont acceptés ?",
+          "answer": "Les modes de paiement varient selon l'agent et le type de location. Les locations quotidiennes acceptent souvent virements bancaires ou espèces. Les locations mensuelles nécessitent généralement des virements pour loyer et dépôts. Les achats suivent la loi immobilière marocaine avec transactions notariées."
+        },
+        {
+          "question": "Des dépôts sont-ils requis ?",
+          "answer": "Les locations quotidiennes peuvent nécessiter un acompte de réservation ou paiement complet. Les locations mensuelles nécessitent généralement un dépôt de garantie de 1-2 mois de loyer. Les achats requièrent un acompte selon la loi marocaine, à discuter avec votre agent."
+        },
+        {
+          "question": "Quelles sont les politiques d'annulation ?",
+          "answer": "Les politiques varient : Les locations quotidiennes peuvent avoir des politiques flexibles ou strictes selon la propriété. Les locations mensuelles suivent les termes du bail (généralement 1-3 mois de préavis). Les annulations d'achats dépendent des termes du contrat et peuvent impliquer des pénalités."
+        }
+      ]
+    },
+    "agents": {
+      "title": "À Propos des Agents",
+      "questions": [
+        {
+          "question": "Tous les agents sont-ils agréés ?",
+          "answer": "Oui, tous les agents sur Yakout doivent avoir des licences immobilières marocaines valides. Nous vérifions les références pour vous assurer de travailler avec des professionnels qualifiés que vous louiez quotidiennement, mensuellement ou achetiez une propriété."
+        },
+        {
+          "question": "Un agent peut-il m'aider pour tous les types de propriétés ?",
+          "answer": "La plupart des agents se spécialisent dans des zones ou types spécifiques. Certains se concentrent sur les locations de vacances (quotidiennes), d'autres sur la location résidentielle (mensuelle), et certains se spécialisent dans les ventes. Consultez le profil de l'agent pour voir son expertise."
+        },
+        {
+          "question": "Comment fonctionnent les commissions d'agent ?",
+          "answer": "Les frais varient selon le service : Les locations quotidiennes sont souvent sans commission pour les locataires. Les locations mensuelles peuvent facturer 1 mois de loyer en commission. Les achats facturent généralement 2-3% du prix de vente. Confirmez toujours les frais avec votre agent."
+        }
+      ]
+    },
+    "technical": {
+      "title": "Technique et Compte",
+      "questions": [
+        {
+          "question": "Ai-je besoin d'un compte pour parcourir les propriétés ?",
+          "answer": "Aucun compte requis ! Parcourez toutes les locations quotidiennes, mensuelles et maisons à vendre librement. Soumettez des demandes sans inscription. Notre plateforme est conçue pour un accès facile et immédiat."
+        },
+        {
+          "question": "Mes informations personnelles sont-elles sûres ?",
+          "answer": "Oui, vos données sont protégées. Les coordonnées ne sont partagées qu'avec les agents que vous choisissez de contacter. Consultez notre Politique de Confidentialité pour tous les détails sur le traitement des données."
+        },
+        {
+          "question": "Quelles langues Yakout prend-il en charge ?",
+          "answer": "Yakout est disponible en anglais, français, espagnol et arabe. Changez de langue via le menu pour parcourir locations quotidiennes, mensuelles et ventes en votre langue préférée."
+        },
+        {
+          "question": "Yakout est-il compatible mobile ?",
+          "answer": "Oui ! Notre site fonctionne parfaitement sur smartphones et tablettes. Parcourez locations quotidiennes, mensuelles et maisons à vendre sur n'importe quel appareil en visitant yakout.ma."
+        },
+        {
+          "question": "Qui puis-je contacter pour le support ?",
+          "answer": "Pour le support technique ou questions sur locations quotidiennes, mensuelles ou achats, contactez-nous à legal@yakout.ma ou appelez +212 5XX XXX XXX. Nous sommes là pour vous aider !"
+        }
+      ]
+    }
+  }
+}

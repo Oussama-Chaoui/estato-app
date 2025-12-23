@@ -1,0 +1,18 @@
+{
+  "loading": "...جارٍ التحميل",
+  "languages": {
+    "en": "الإنجليزية",
+    "fr": "الفرنسية",
+    "es": "الإسبانية",
+    "ar": "العربية"
+  },
+  "price": {
+    "per_night": "لليلة",
+    "per_month": "لشهر"
+  },
+  "date_picker": {
+    "pick_date_range": "اختر فترة التواريخ",
+    "select_dates": "اختر التواريخ"
+  },
+  "area_unit": "م²"
+}

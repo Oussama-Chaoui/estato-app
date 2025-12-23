@@ -1,0 +1,13 @@
+export { default as PropertyHero } from './PropertyHero';
+export { default as PropertyFeatures } from './PropertyFeatures';
+export { default as PropertyDescription } from './PropertyDescription';
+export { default as PropertyPriceHistory } from './PropertyPriceHistory';
+export { default as PropertyAmenities } from './PropertyAmenities';
+export { default as PropertyVirtualTour } from './PropertyVirtualTour';
+export { default as PropertyGallery } from './PropertyGallery';
+export { default as PropertyContactSidebar } from './PropertyContactSidebar';
+export { default as PropertyBookingModal } from './PropertyBookingModal';
+export { default as PropertyMap } from './PropertyMap';
+export { default as PropertyAvailability } from './PropertyAvailability';
+export { default as PropertyLoading } from './PropertyLoading';
+export { default as PropertyNotFound } from './PropertyNotFound'; 

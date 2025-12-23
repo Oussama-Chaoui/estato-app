@@ -1,0 +1,140 @@
+{
+  "hero": {
+    "badge": "Transform Your Real Estate Career",
+    "title": {
+      "part1": "Join Morocco's",
+      "part2": "Leading Real Estate Platform"
+    },
+    "subtitle": "Whether you're an experienced agent, property owner, or real estate enthusiast, Yakout offers the tools, network, and support you need to succeed in Morocco's dynamic real estate market.",
+    "cta": {
+      "primary": "Start Your Journey",
+      "secondary": "Learn More"
+    },
+    "stats": {
+      "agents": "Active Agents",
+      "properties": "Listed Properties"
+    }
+  },
+  "mission": {
+    "title": "Our Mission & Vision",
+    "subtitle": "We're revolutionizing real estate in Morocco by connecting people with their dream properties through innovation, trust, and exceptional service.",
+    "cards": {
+      "mission": {
+        "title": "Our Mission",
+        "description": "To democratize access to Morocco's real estate market by providing a transparent, efficient, and user-friendly platform that empowers both buyers and sellers to make informed decisions."
+      },
+      "vision": {
+        "title": "Our Vision",
+        "description": "To become the most trusted and innovative real estate platform in Morocco, setting new standards for digital property transactions and customer experience."
+      },
+      "values": {
+        "title": "Our Values",
+        "description": "Transparency, integrity, innovation, and customer-centricity guide everything we do. We believe in building lasting relationships based on trust and mutual success."
+      }
+    }
+  },
+  "benefits": {
+    "title": "Why Choose Yakout?",
+    "subtitle": "Join thousands of professionals who have transformed their real estate careers with our comprehensive platform and dedicated support.",
+    "network": {
+      "title": "Extensive Network",
+      "description": "Connect with over 2,000 verified agents and access a database of 50,000+ properties across Morocco's major cities and emerging markets."
+    },
+    "platform": {
+      "title": "Advanced Platform",
+      "description": "Leverage cutting-edge technology including virtual tours, AI-powered matching, and comprehensive analytics to stay ahead of the competition."
+    },
+    "growth": {
+      "title": "Career Growth",
+      "description": "Access exclusive training programs, certification courses, and mentorship opportunities to accelerate your professional development."
+    },
+    "support": {
+      "title": "24/7 Support",
+      "description": "Get dedicated assistance from our expert team, including marketing support, legal guidance, and technical help whenever you need it."
+    }
+  },
+  "testimonials": {
+    "title": "Success Stories",
+    "subtitle": "Hear from real estate professionals who have transformed their careers with Yakout.",
+    "items": [
+      {
+        "name": "Fatima El Mansouri",
+        "role": "Senior Real Estate Agent, Casablanca",
+        "content": "Joining Yakout was the best decision I made for my career. The platform's advanced tools and extensive network helped me increase my sales by 300% in just one year."
+      },
+      {
+        "name": "Ahmed Benali",
+        "role": "Property Developer, Marrakech",
+        "content": "Yakout's comprehensive platform and professional support made it easy to showcase my luxury properties to serious buyers. The quality of leads is exceptional."
+      },
+      {
+        "name": "Sophia Martinez",
+        "role": "International Real Estate Consultant",
+        "content": "As a foreign investor, Yakout provided me with the local expertise and market insights I needed to make successful property investments in Morocco."
+      }
+    ]
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "subtitle": "Get answers to common questions about joining our platform.",
+    "items": [
+      {
+        "question": "What does it cost to join Yakout?",
+        "answer": "We offer flexible membership plans starting from basic free access to premium subscriptions with advanced features. Our commission structure is competitive and transparent, with no hidden fees."
+      },
+      {
+        "question": "Do I need a real estate license to join?",
+        "answer": "While having a real estate license is preferred for agents, we welcome property owners, developers, and real estate enthusiasts. We also provide guidance on obtaining proper certifications."
+      },
+      {
+        "question": "What training and support do you provide?",
+        "answer": "We offer comprehensive onboarding, regular training sessions, marketing materials, legal support, and 24/7 customer service. Our team is dedicated to your success."
+      },
+      {
+        "question": "How quickly can I start listing properties?",
+        "answer": "Once your application is approved and you complete our quick onboarding process, you can start listing properties immediately. Approval typically takes 24-48 hours."
+      }
+    ]
+  },
+  "final_cta": {
+    "badge": "Ready to Lead the Market?",
+    "title": "Start Your Success Story Today",
+    "subtitle": "Join Morocco's fastest-growing real estate community and unlock unlimited opportunities in the dynamic property market.",
+    "primary_button": "Apply Now"
+  },
+  "modal": {
+    "title": "Apply as an Agent",
+    "subtitle": "Join our network of successful real estate professionals and start your journey with Yakout.",
+    "success": {
+      "title": "Application Submitted!",
+      "subtitle": "Thank you for your interest in joining Yakout.",
+      "thank_you": "Thank You!",
+      "message": "We've received your application and will review it within 24-48 hours. Our team will contact you with next steps.",
+      "auto_close": "Closing automatically in {{seconds}} seconds"
+    },
+    "error": {
+      "default": "Something went wrong. Please try again.",
+      "network": "Network error. Please check your connection and try again."
+    },
+    "form": {
+      "name": {
+        "label": "Full Name",
+        "placeholder": "Enter your full name",
+        "error": "Full name is required"
+      },
+      "email": {
+        "label": "Email Address",
+        "placeholder": "Enter your email address",
+        "error": "Please enter a valid email address"
+      },
+      "phone": {
+        "label": "Phone Number",
+        "placeholder": "Enter your phone number",
+        "error": "Phone number is required"
+      },
+      "submit": "Submit Application",
+      "submitting": "Submitting...",
+      "privacy_notice": "By submitting this form, you agree to our privacy policy and terms of service."
+    }
+  }
+}

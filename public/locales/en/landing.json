@@ -1,0 +1,100 @@
+{
+  "hero": {
+    "daily_rent": {
+      "badge": "✨ Discover Morocco's Finest",
+      "title": "Find Your Perfect",
+      "title_highlight": "Moroccan Retreat",
+      "subtitle": "Discover extraordinary vacation rentals across Morocco and experience the magic of North Africa",
+      "search": {
+        "where_label": "Where",
+        "where_placeholder": "Search Moroccan cities & regions",
+        "where_search_placeholder": "Search cities...",
+        "where_empty_text": "No cities found",
+        "when_label": "When",
+        "when_placeholder": "Select dates",
+        "search_button": "Search Properties"
+      },
+      "stats": {
+        "properties": "Properties",
+        "happy_guests": "Happy Guests",
+        "cities": "Moroccan Cities"
+      }
+    }
+  },
+  "categories": {
+    "title": "Explore Property Types",
+    "subtitle": "Discover the perfect property type tailored to your lifestyle and aspirations.",
+    "property_types": {
+      "villas": {
+        "title": "Villas",
+        "description": "Luxurious private estates with expansive spaces and premium amenities."
+      },
+      "apartments": {
+        "title": "Apartments",
+        "description": "Modern living spaces in the heart of the city, designed for convenience."
+      },
+      "studios": {
+        "title": "Studios",
+        "description": "Compact and stylish spaces perfect for urban living."
+      }
+    }
+  },
+  "features": {
+    "daily_rent": {
+      "vacation_homes": {
+        "title": "Vacation Homes",
+        "description": "Beautiful properties perfect for your getaway experience."
+      },
+      "verified_hosts": {
+        "title": "Verified Hosts",
+        "description": "Trusted property owners and professional managers."
+      },
+      "best_rates": {
+        "title": "Best Rates",
+        "description": "Competitive pricing with transparent pricing model."
+      },
+      "support": {
+        "title": "24/7 Support",
+        "description": "Dedicated assistance throughout your stay."
+      }
+    }
+  },
+  "products_grid": {
+    "title": "Featured Properties",
+    "subtitle": "Discover our handpicked selection of exceptional properties across Morocco",
+    "view_more": "View More Listings"
+  },
+  "join_us": {
+    "badge": "Join Our Community",
+    "title": "Join Yakout Today",
+    "subtitle": "Whether you're a real estate agent looking to expand your reach or a property owner wanting to list your home, join thousands of professionals who trust Yakout for their real estate needs.",
+    "benefits": {
+      "network": {
+        "title": "Join Our Network",
+        "description": "Connect with thousands of potential buyers and renters across Morocco"
+      },
+      "list_properties": {
+        "title": "List Your Properties",
+        "description": "Showcase your properties with professional photography and virtual tours"
+      },
+      "professional_support": {
+        "title": "Professional Support",
+        "description": "Get expert guidance and marketing tools to maximize your property's exposure"
+      },
+      "trusted_platform": {
+        "title": "Trusted Platform",
+        "description": "Benefit from our established reputation and secure transaction processes"
+      }
+    },
+    "cta": {
+      "title": "Ready to Get Started?",
+      "subtitle": "Join our platform and start connecting with buyers, renters, and fellow professionals in Morocco's thriving real estate market.",
+      "button": "Join Now"
+    }
+  },
+  "mosaic": {
+    "title": "Showcase Your Dream Property With",
+    "hashtag": "# LiveWithYakout"
+  }
+}
+

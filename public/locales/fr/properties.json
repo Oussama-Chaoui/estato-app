@@ -1,0 +1,190 @@
+{
+  "listing": {
+    "title": "Liste des propriétés",
+    "empty_state": {
+      "title": "Aucune propriété trouvée",
+      "description": "Nous n'avons trouvé aucune propriété correspondant à vos critères. Essayez d'ajuster vos filtres ou vos termes de recherche.",
+      "clear_filters": "Effacer les filtres"
+    }
+  },
+  "filters": {
+    "location": {
+      "placeholder": "Emplacement",
+      "search_placeholder": "Rechercher des villes...",
+      "empty_text": "Aucune ville trouvée",
+      "anywhere": "N'importe où"
+    },
+    "dates": {
+      "placeholder": "Sélectionner les dates",
+      "available_from": "Disponible à partir de"
+    },
+    "property_type": {
+      "placeholder": "Type de Propriété",
+      "search_placeholder": "Rechercher des types de propriétés...",
+      "empty_text": "Aucun type trouvé",
+      "any_type": "N'importe quel type",
+      "house": "Maison",
+      "apartment": "Appartement",
+      "villa": "Villa",
+      "studio": "Studio",
+      "mansion": "Manoir",
+      "land": "Terrain",
+      "commercial": "Commercial",
+      "office": "Bureau",
+      "garage": "Garage"
+    },
+    "furnishing_status": {
+      "title": "État d'Aménagement",
+      "furnished": "Meublé",
+      "semi_furnished": "Semi-meublé",
+      "unfurnished": "Non meublé"
+    },
+    "price_range": {
+      "title": "Fourchette de Prix",
+      "per_night": "(par nuit)",
+      "per_month": "(par mois)",
+      "total": "(total)",
+      "min": "Min:",
+      "max": "Max:",
+      "currency": "MAD"
+    },
+    "area_range": {
+      "title": "Fourchette de Surface (m²)",
+      "min": "Min:",
+      "max": "Max:",
+      "unit": "m²"
+    },
+    "bedrooms": {
+      "title": "Chambres"
+    },
+    "bathrooms": {
+      "title": "Salles de Bain"
+    },
+    "garages": {
+      "title": "Garages"
+    },
+    "floors": {
+      "title": "Étages"
+    },
+    "amenities": {
+      "title": "Équipements Populaires"
+    },
+    "advanced": {
+      "show_more": "Afficher plus de filtres",
+      "hide": "Masquer les filtres"
+    },
+    "search": {
+      "button": "Rechercher des Propriétés"
+    }
+  },
+  "property_item": {
+    "view_details": "Voir les détails",
+    "photos": "photo",
+    "photos_plural": "photos",
+    "no_photos": "Aucune photo",
+    "share": "Partager",
+    "like": "J'aime",
+    "sold": "VENDUE"
+  },
+
+  "showcase": {
+    "loading": {
+      "title": "Chargement des détails de la propriété",
+      "description": "Veuillez patienter pendant que nous rassemblons les informations"
+    },
+    "not_found": {
+      "title": "Propriété introuvable",
+      "description": "Nous n'avons pas pu trouver la propriété que vous recherchez. Elle a peut-être été supprimée ou l'URL est incorrecte.",
+      "browse_button": "Parcourir les propriétés disponibles"
+    },
+    "features": {
+      "bedrooms": "Chambres",
+      "bathrooms": "Salles de bain",
+      "garages": "Garages",
+      "built": "Construit"
+    },
+    "availability": {
+      "title": "Disponibilité",
+      "select_stay": "Sélectionnez votre séjour",
+      "choose_dates": "Choisissez vos dates préférées",
+      "date_placeholder": "Choisissez les dates d'arrivée et de départ",
+      "calendar": {
+        "available_all_day": "Disponible toute la journée",
+        "timezone_info": "Toutes les heures affichées en {timezone} (GMT{offset})",
+        "to": "à",
+        "days": {
+          "sun": "Dim",
+          "mon": "Lun",
+          "tue": "Mar",
+          "wed": "Mer",
+          "thu": "Jeu",
+          "fri": "Ven",
+          "sat": "Sam"
+        },
+        "months": {
+          "january": "Janvier",
+          "february": "Février",
+          "march": "Mars",
+          "april": "Avril",
+          "may": "Mai",
+          "june": "Juin",
+          "july": "Juillet",
+          "august": "Août",
+          "september": "Septembre",
+          "october": "Octobre",
+          "november": "Novembre",
+          "december": "Décembre"
+        }
+      }
+    },
+    "price_history": {
+      "title": "Historique des prix"
+    },
+    "virtual_tour": {
+      "explore": "Explorer la visite virtuelle 3D"
+    },
+    "map": {
+      "not_available": "Carte de localisation non disponible"
+    },
+    "contact": {
+      "nightly_rate": "Tarif nocturne",
+      "monthly_rate": "Tarif mensuel",
+      "sale_price": "Prix de vente",
+      "price_breakdown": "Détail des prix",
+      "stay_details": "Détails de votre séjour",
+      "nights": "nuits",
+      "daily_rate": "Tarif quotidien",
+      "total": "Total",
+      "includes_fees": "Inclut tous les frais et taxes",
+      "book_now": "Réserver maintenant",
+      "years_experience": "années d'expérience",
+      "contact_agent": "Contacter",
+      "speaks": "Parle",
+      "your_name": "Votre nom",
+      "your_email": "Votre email",
+      "message": "Message",
+      "send_to": "Envoyer à",
+      "or": "Ou",
+      "call_directly": "Appeler directement",
+      "schedule_tour": "Planifier une visite"
+    },
+    "hero": {
+      "image": "Image de propriété",
+      "close": "Fermer",
+      "previous": "Précédent",
+      "next": "Suivant",
+      "slide_counter": "compteur de diapositives",
+      "loading_images": "Chargement des images..."
+    },
+    "booking_modal": {
+      "title": "Réserver cette propriété",
+      "subtitle": "Contactez notre agent pour sécuriser votre réservation",
+      "years_experience": "années d'expérience",
+      "speaks": "Parle",
+      "contact_information": "Informations de contact",
+      "phone_number": "Numéro de téléphone",
+      "show_number": "Afficher le numéro",
+      "hide": "Masquer"
+    }
+  }
+}

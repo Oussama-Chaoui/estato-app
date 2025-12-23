@@ -17,11 +17,28 @@ const config: Config = {
         "system-ui",
         "sans-serif",
       ],
+      arabic: [
+        "var(--font-noto-kufi-arabic)",
+        "ui-sans-serif",
+        "system-ui",
+        "sans-serif",
+      ],
     },
     extend: {
       colors: {
-        primarySite: "#B88E2F",
-        primaryLight: "#FFF3E3",
+        primary: {
+          50: '#F0F8F7',   // Very light mint
+          100: '#E1F1F0',   // Light mint
+          200: '#C3E3E1',   // Soft mint
+          300: '#A5D5D2',   // Medium mint
+          400: '#4A9A97',   // Medium-light (closer to 500)
+          500: '#21807D',   // Main brand color
+          600: '#1A6664',   // Dark
+          700: '#134C4B',   // Darker
+          800: '#0C3231',   // Very dark
+          900: '#051817',   // Darkest
+          DEFAULT: '#21807D',
+        },
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
         card: {
@@ -31,10 +48,6 @@ const config: Config = {
         popover: {
           DEFAULT: 'hsl(var(--popover))',
           foreground: 'hsl(var(--popover-foreground))'
-        },
-        primary: {
-          DEFAULT: 'hsl(var(--primary))',
-          foreground: 'hsl(var(--primary-foreground))'
         },
         secondary: {
           DEFAULT: 'hsl(var(--secondary))',
@@ -72,6 +85,7 @@ const config: Config = {
   },
   plugins: [
     require("tailwindcss-animate"),
+    require("tailwindcss-rtl"),
   ],
 };
 export default config;

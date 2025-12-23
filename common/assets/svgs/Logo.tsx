@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import { Box, Typography } from '@mui/material';
 import { Montserrat } from 'next/font/google';
 
 const montserrat = Montserrat({
@@ -7,7 +6,7 @@ const montserrat = Montserrat({
   weight: ['400', '600', '700'],
 });
 
-const APP_TITLE = process.env.NEXT_PUBLIC_TITLE || 'ESTATO';
+const APP_TITLE = process.env.NEXT_PUBLIC_TITLE || 'YAKOUT';
 
 interface LogoProps {
   isFullLogo?: boolean;
@@ -17,46 +16,29 @@ interface LogoProps {
 const Logo = ({ isFullLogo = false, onClick }: LogoProps) => {
   if (!isFullLogo) {
     return (
-      <Box sx={{ cursor: onClick ? 'pointer' : 'default' }} onClick={onClick}>
+      <div 
+        className={`${onClick ? 'cursor-pointer' : 'cursor-default'}`} 
+        onClick={onClick}
+      >
         <Image src="/logo.png" width={50} height={33} alt="logo" />
-      </Box>
+      </div>
     );
   }
 
   return (
-    <Box
-      sx={{
-        display: 'flex',
-        gap: 1,
-        alignItems: 'flex-end', // Align items to the bottom
-        cursor: onClick ? 'pointer' : 'default',
-      }}
+    <div
+      className={`flex gap-1 items-end ${onClick ? 'cursor-pointer' : 'cursor-default'}`}
       onClick={onClick}
     >
-      <Box
-        sx={{
-          width: { xs: 35, md: 50 },
-          height: { xs: 28, md: 33 },
-          position: 'relative',
-        }}
-      >
+      <div className="relative w-[35px] h-[28px] md:w-[50px] md:h-[33px]">
         <Image src="/logo.png" alt="logo" fill style={{ objectFit: 'contain' }} />
-      </Box>
-      <Typography
-        variant="h1"
-        sx={{
-          fontSize: { xs: '1.25rem', md: '28px' },
-          fontWeight: 'bold',
-          fontFamily: montserrat.style.fontFamily,
-          lineHeight: 1, // Add this to match font size
-          mb: 0, // Remove default margin-bottom
-          display: 'flex', // Ensure proper alignment
-          alignItems: 'flex-end', // Align text to bottom
-        }}
+      </div>
+      <h1
+        className={`text-xl md:text-[28px] font-bold leading-none mb-0 flex items-end ${montserrat.className}`}
       >
         {APP_TITLE}
-      </Typography>
-    </Box>
+      </h1>
+    </div>
   );
 };
 

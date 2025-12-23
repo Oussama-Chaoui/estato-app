@@ -1,0 +1,100 @@
+{
+  "hero": {
+    "badge": "Plateforme Immobilière Premium",
+    "title": "Redéfinir l'Immobilier Marocain",
+    "subtitle": "Nous nous sommes donné pour mission de devenir la plateforme immobilière la plus fiable et innovante au Maroc, offrant un accès inégalé aux propriétés haut de gamme avec une excellence de service inégalée.",
+    "moroccan": "Marocain",
+    "real_estate": "Immobilier"
+  },
+  "vision": {
+    "title": "Notre Vision",
+    "subtitle": "Révolutionner le paysage immobilier marocain en créant la plateforme la plus complète, fiable et innovante qui connecte les clients exigeants avec des propriétés exceptionnelles.",
+    "points": {
+      "excellence": {
+        "title": "Excellence en Tout",
+        "description": "Établir la référence en matière d'immobilier de luxe au Maroc"
+      },
+      "trust": {
+        "title": "Confiance et Sécurité",
+        "description": "Construire des relations durables grâce à la transparence et la fiabilité"
+      },
+      "service": {
+        "title": "Service Exceptionnel",
+        "description": "Offrir une expérience client inégalée à chaque point de contact"
+      },
+      "leadership": {
+        "title": "Aspiration à l'Excellence",
+        "description": "Travailler pour devenir la plateforme immobilière leader au Maroc"
+      }
+    }
+  },
+  "values": {
+    "title": "Les Valeurs auxquelles Nous Croyons",
+    "subtitle": "Les principes qui guident chaque décision, chaque interaction et chaque propriété que nous représentons.",
+    "points": {
+      "passion": {
+        "title": "Passion",
+        "description": "Nous sommes animés par l'amour des propriétés exceptionnelles et du service exceptionnel"
+      },
+      "community": {
+        "title": "Communauté",
+        "description": "Construire des ponts entre les rêves et la réalité, une propriété à la fois"
+      },
+      "excellence": {
+        "title": "Excellence",
+        "description": "Engagés à ne livrer rien de moins que des résultats extraordinaires"
+      },
+      "innovation": {
+        "title": "Innovation",
+        "description": "Embrasser la technologie de pointe pour révolutionner l'immobilier"
+      }
+    }
+  },
+  "services": {
+    "title": "Solutions Complètes",
+    "subtitle": "Des ventes de luxe aux locations flexibles, nous offrons des solutions immobilières complètes adaptées à chaque besoin et aspiration.",
+    "points": {
+      "sales": {
+        "title": "Ventes de Luxe",
+        "description": "Propriétés premium qui définissent le luxe au Maroc",
+        "stats": "Propriétés Premium"
+      },
+      "rentals": {
+        "title": "Solutions de Location",
+        "description": "Options de location flexibles du quotidien aux séjours à long terme",
+        "stats": "Options Flexibles"
+      },
+      "global": {
+        "title": "Portée Mondiale",
+        "description": "Connecter les clients internationaux avec l'immobilier marocain",
+        "stats": "Portée Mondiale"
+      }
+    }
+  },
+  "cta": {
+    "title": "Prêt à Trouver Votre Propriété de Rêve ?",
+    "subtitle": "Rejoignez des milliers de clients satisfaits qui ont découvert leur propriété parfaite grâce à notre plateforme. Découvrez la différence que fait un service premium.",
+    "button": "Explorer les Propriétés",
+    "badge": "Prêt à Commencer Votre Voyage ?",
+    "dream_property": "Propriété de Rêve ?",
+    "contact_us": "Nous Contacter",
+    "trust_indicators": {
+      "secure_platform": "Plateforme Sécurisée",
+      "premium_quality": "Qualité Premium",
+      "expert_support": "Support Expert"
+    }
+  },
+  "ui": {
+    "watch_story": "Regarder l'Histoire",
+    "learn_more": "En Savoir Plus",
+    "explore_properties": "Explorer les Propriétés",
+    "transforming_dreams": "Transformer les Rêves",
+    "into_reality": "En Réalité",
+    "luxury_real_estate": "Immobilier de Luxe",
+    "property_story": "Chaque propriété raconte une histoire d'ambition, de luxe et de possibilités infinies.",
+    "vision_badge": "Ce Pour Quoi Nous Luttons",
+    "values_badge": "Nos Valeurs",
+    "services_badge": "Nos Services",
+    "solutions": "Solutions"
+  }
+}

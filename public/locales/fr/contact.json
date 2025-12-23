@@ -1,0 +1,83 @@
+{
+  "hero": {
+    "badge": "Contactez-nous",
+    "title": "Contactez-nous Aujourd'hui",
+    "subtitle": "Prêt à trouver votre propriété de rêve ? Notre équipe d'experts est là pour vous aider à chaque étape. Contactez-nous et réalisons ensemble vos rêves immobiliers."
+  },
+  "info": {
+    "title": "Comment Nous Joindre",
+    "subtitle": "Plusieurs façons de contacter notre équipe",
+    "address": {
+      "title": "Visitez Notre Bureau",
+      "details": "Situé au cœur de la ville\nBoulevard Pasteur\nTanger, Maroc\n90000"
+    },
+    "phone": {
+      "title": "Appelez-nous",
+      "details": "Parlez directement avec notre équipe experte\n+212 5XX XXX XXX\nou\n+212 5XX XXX XXX"
+    },
+    "email": {
+      "title": "Écrivez-nous",
+      "details": "Envoyez-nous vos demandes et nous répondrons rapidement\ninfo@yakout.ma\nsupport@yakout.ma\nventes@yakout.ma"
+    },
+    "hours": {
+      "title": "Heures d'Ouverture",
+      "details": "Lundi - Vendredi: 9h00 - 18h00\nSamedi: 9h00 - 14h00\nDimanche: Fermé"
+    }
+  },
+  "form": {
+    "title": "Envoyez-nous un Message",
+    "subtitle": "Remplissez le formulaire ci-dessous et nous vous répondrons dans les 24 heures",
+    "fields": {
+      "name": "Nom Complet",
+      "email": "Adresse Email",
+      "phone": "Numéro de Téléphone",
+      "subject": "Sujet",
+      "message": "Message",
+      "property_type": "Type de Propriété"
+    },
+    "placeholders": {
+      "name": "Entrez votre nom complet",
+      "email": "Entrez votre adresse email",
+      "phone": "Entrez votre numéro de téléphone",
+      "subject": "En quoi pouvons-nous vous aider ?",
+      "message": "Décrivez-nous vos besoins...",
+      "property_type": "Sélectionnez le type de propriété"
+    },
+    "property_types": {
+      "apartment": "Appartement",
+      "villa": "Villa",
+      "office": "Bureau",
+      "commercial": "Commercial",
+      "land": "Terrain",
+      "other": "Autre"
+    },
+    "submit": "Envoyer le Message",
+    "submitting": "Envoi en cours...",
+    "success_message": "Merci ! Votre message a été envoyé avec succès.",
+    "error_message": "Désolé, une erreur s'est produite lors de l'envoi de votre message. Veuillez réessayer.",
+    "validation": {
+      "name_required": "Le nom est requis",
+      "name_min": "Le nom doit contenir au moins 2 caractères",
+      "email_required": "L'email est requis",
+      "email_invalid": "Veuillez entrer une adresse email valide",
+      "phone_invalid": "Veuillez entrer un numéro de téléphone valide",
+      "subject_required": "Le sujet est requis",
+      "subject_min": "Le sujet doit contenir au moins 5 caractères",
+      "message_required": "Le message est requis",
+      "message_min": "Le message doit contenir au moins 10 caractères"
+    }
+  },
+  "map": {
+    "title": "Trouvez-nous Ici",
+    "subtitle": "Visitez notre bureau à Tanger"
+  },
+  "social": {
+    "title": "Suivez-nous",
+    "subtitle": "Restez connecté avec nous sur les réseaux sociaux"
+  },
+  "quick_contact": {
+    "title": "Besoin d'Aide Immédiate ?",
+    "subtitle": "Pour les demandes urgentes, appelez-nous directement",
+    "call_now": "Appeler Maintenant"
+  }
+}

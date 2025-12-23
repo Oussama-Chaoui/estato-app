@@ -1,17 +1,19 @@
 "use client";
-import React, { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
-import { MapPin, Home, DollarSign, Ruler, Calendar, ChevronDown, Grid, List, Search, House } from "lucide-react";
-import { motion } from "framer-motion";
+import React, { useEffect, useMemo, useState } from "react";
+import { MapPin, Home, DollarSign, Ruler, ChevronDown, List, Search } from "lucide-react";
 import { cn } from "@/components/lib/utils/twMerge";
 import {
   DropdownMenu,
   DropdownMenuContent,
-  DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import * as SliderPrimitive from "@radix-ui/react-slider";
 import useLocations from "@/modules/locations/hooks/api/useLocations";
-import { PROPERTY_STATUS, PROPERTY_TYPE } from "../../defs/types";
+import { useTranslatedText } from "@/modules/properties/utils/translations";
+import { PROPERTY_TYPE } from "../../defs/types";
+import { Combobox } from "@/components/ui/combobox";
+import { transformLocationsToOptions } from "@/modules/locations/utils/locationUtils";
+import { useTranslation } from "react-i18next";
 
 export enum PROPERTY_OFFER_TYPE {
   All = 'all',
@@ -38,7 +40,6 @@ interface ListingFiltersProps {
 }
 
 const ListingFilters = ({
-  sortBy, setSortBy,
   propertyType, setPropertyType,
   propertyStatus, setPropertyStatus,
   priceRange, setPriceRange,
@@ -46,64 +47,29 @@ const ListingFilters = ({
   location, setLocation,
   propertySize, setPropertySize,
 }: ListingFiltersProps) => {
-
+  const { t } = useTranslation(['common', 'properties']);
   const { items: locations } = useLocations({ fetchItems: true, pageSize: 'all' });
+  const getTranslatedText = useTranslatedText();
 
-  const triggerRef = useRef<HTMLDivElement>(null);
-  const inputRef = useRef<HTMLInputElement>(null);
-  const [triggerWidth, setTriggerWidth] = useState(0);
-
-  const [isLocationOpen, setIsLocationOpen] = useState(false);
   const [isTypeOpen, setIsTypeOpen] = useState(false);
   const [isStatusOpen, setIsStatusOpen] = useState(false);
 
-
-  const [locationQuery, setLocationQuery] = useState("");
-
-  const priceSliderMax = propertyStatus === "daily"
+  const priceSliderMax = propertyStatus === PROPERTY_OFFER_TYPE.Daily
     ? 1500
-    : propertyStatus === "monthly"
+    : propertyStatus === PROPERTY_OFFER_TYPE.Monthly
       ? 20000
       : 10000000;
 
-  useLayoutEffect(() => {
-    if (triggerRef.current) {
-      setTriggerWidth(triggerRef.current.offsetWidth);
-    }
-  }, [isLocationOpen]);
 
-  useEffect(() => {
-    if (isLocationOpen && inputRef.current) {
-      setTimeout(() => inputRef.current?.focus(), 10);
-    }
-  }, [isLocationOpen]);
-
-  useEffect(() => {
-    setLocationQuery(location);
-  }, [location]);
 
   useEffect(() => {
     setPriceRange([0, priceSliderMax]);
   }, [priceSliderMax, setPriceRange]);
 
-  const sortedLocations = useMemo(() => {
-    const seen = new Set<string>();
-    return (locations ?? [])
-      .filter(loc => !!loc.city?.trim())
-      .sort((a, b) => a.city.localeCompare(b.city))
-      .filter(loc => {
-        if (seen.has(loc.city)) return false;
-        seen.add(loc.city);
-        return true;
-      });
-  }, [locations]);
-
-  const filteredLocations = useMemo(
-    () => sortedLocations.filter(loc =>
-      loc.city.toLowerCase().includes(locationQuery.toLowerCase())
-    ),
-    [sortedLocations, locationQuery]
-  );
+  // Transform locations into combobox options grouped by region
+  const locationOptions = useMemo(() => {
+    return transformLocationsToOptions(locations, getTranslatedText);
+  }, [locations, getTranslatedText]);
 
   const propertyTypeOptions = Object
     .values(PROPERTY_TYPE)
@@ -120,7 +86,7 @@ const ListingFilters = ({
       {/* Search Bar Section */}
       <div className="max-w-[84rem] mx-auto">
         <div className="bg-white/50 backdrop-blur-sm border-gray-100 rounded-t-xl pt-6 pb-4 px-6">
-          <div className="relative max-w-7xl mx-auto">
+          <div className="relative max-w-5xl mx-auto">
             <input
               type="text"
               placeholder="Search For A Property"
@@ -164,72 +130,18 @@ const ListingFilters = ({
           <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
 
             {/* Location Filter */}
-            <DropdownMenu open={isLocationOpen}>
-              <DropdownMenuTrigger asChild>
-                <div
-                  ref={triggerRef}
-                  onPointerDown={(e) => {
-                    if (!inputRef.current?.contains(e.target as Node)) {
-                      setIsLocationOpen((prev) => !prev);
-                    }
-                  }}
-                  className="flex items-center gap-2 px-4 py-3 border border-gray-200 rounded-xl bg-white hover:border-primarySite transition-colors cursor-pointer"
-                >
-                  <MapPin className="w-5 h-5 text-gray-600" />
-
-                  <input
-                    ref={inputRef}
-                    type="text"
-                    placeholder="Anywhere"
-                    value={locationQuery}
-                    onFocus={() => setIsLocationOpen(true)}
-                    onChange={(e) => {
-                      const v = e.target.value;
-                      setLocationQuery(v);
-                      if (v === "") setLocation("");
-                      setIsLocationOpen(true);
-                    }}
-                    onMouseDownCapture={(e) => e.stopPropagation()}
-                    onPointerDownCapture={(e) => e.stopPropagation()}
-                    onPointerUpCapture={(e) => e.stopPropagation()}
-                    onClickCapture={(e) => e.stopPropagation()}
-                    className="flex-1 bg-transparent text-sm placeholder-gray-400 focus:outline-none"
-                  />
-
-                  <ChevronDown className="w-4 h-4 text-gray-500" />
-                </div>
-              </DropdownMenuTrigger>
-
-              <DropdownMenuContent
-                side="bottom"
-                align="start"
-                sideOffset={4}
-                avoidCollisions={false}
-                style={{ width: triggerWidth }}
-                className="p-1 dropdown-content max-h-60 overflow-y-auto"
-                onCloseAutoFocus={(e) => e.preventDefault()}
-                onPointerDownOutside={() => setIsLocationOpen(false)}
-              >
-                {locationQuery && filteredLocations.length === 0 ? (
-                  <div className="px-3 py-2 text-sm text-gray-500">No locations found</div>
-                ) : (
-                  (locationQuery ? filteredLocations : sortedLocations).map(loc => (
-                    <DropdownMenuItem
-                      key={loc.id}
-                      onSelect={() => {
-                        setLocation(loc.city);
-                        setLocationQuery(loc.city);
-                        setIsLocationOpen(false);
-                        inputRef.current?.blur();
-                      }}
-                      className="px-3 py-2 hover:bg-gray-50 rounded-sm cursor-pointer"
-                    >
-                      {loc.city}
-                    </DropdownMenuItem>
-                  ))
-                )}
-              </DropdownMenuContent>
-            </DropdownMenu>
+            <div className="flex items-center gap-2 px-4 py-3 border border-gray-200 rounded-xl bg-white hover:border-primarySite transition-colors">
+              <MapPin className="w-5 h-5 text-gray-600" />
+              <Combobox
+                options={locationOptions}
+                value={location}
+                onValueChange={setLocation}
+                placeholder="Anywhere"
+                searchPlaceholder="Search cities..."
+                emptyText="No cities found"
+                className="flex-1 bg-transparent text-sm"
+              />
+            </div>
 
             {/* Property Type Filter */}
             <DropdownMenu
@@ -356,8 +268,8 @@ const ListingFilters = ({
                   min={0}
                   max={priceSliderMax}
                   step={
-                    propertyStatus === "daily" ? 50 :
-                      propertyStatus === "monthly" ? 500 :
+                    propertyStatus === PROPERTY_OFFER_TYPE.Daily ? 50 :
+                      propertyStatus === PROPERTY_OFFER_TYPE.Monthly ? 500 :
                         100_000
                   }
                   className="relative flex w-full touch-none select-none items-center"
@@ -395,7 +307,7 @@ const ListingFilters = ({
                     </div>
                     <div className="text-sm font-normal text-gray-800">
                       {propertySize[0] > 0 || propertySize[1] < 1000
-                        ? `${propertySize[0]} - ${propertySize[1]} m²`
+                        ? `${propertySize[0]} - ${propertySize[1]} ${t('common:area_unit')}`
                         : "Any Size"}
                     </div>
                   </div>
@@ -424,8 +336,8 @@ const ListingFilters = ({
                 </SliderPrimitive.Root>
 
                 <div className="flex justify-between text-sm mt-3">
-                  <span>{propertySize[0]} m²</span>
-                  <span>{propertySize[1]} m²</span>
+                  <span>{propertySize[0]} {t('common:area_unit')}</span>
+                  <span>{propertySize[1]} {t('common:area_unit')}</span>
                 </div>
               </DropdownMenuContent>
             </DropdownMenu>

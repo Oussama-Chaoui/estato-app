@@ -1,0 +1,189 @@
+{
+  "listing": {
+    "title": "العقارات المتاحة",
+    "empty_state": {
+      "title": "لا توجد عقارات",
+      "description": "لم نتمكن من العثور على عقارات تناسب معاييرك. جرب تغيير التصفية أو البحث بكلمات أخرى.",
+      "clear_filters": "إلغاء التصفية"
+    }
+  },
+  "filters": {
+    "location": {
+      "placeholder": "الموقع",
+      "search_placeholder": "ابحث في المدن...",
+      "empty_text": "لا توجد مدن",
+      "anywhere": "أي مكان"
+    },
+    "dates": {
+      "placeholder": "اختر التواريخ",
+      "available_from": "متاح من"
+    },
+    "property_type": {
+      "placeholder": "نوع العقار",
+      "search_placeholder": "ابحث في أنواع العقارات...",
+      "empty_text": "لا توجد أنواع",
+      "any_type": "أي نوع",
+      "house": "منزل",
+      "apartment": "شقة",
+      "villa": "فيلا",
+      "studio": "استوديو",
+      "mansion": "قصر",
+      "land": "أرض",
+      "commercial": "تجاري",
+      "office": "مكتب",
+      "garage": "مرأب"
+    },
+    "furnishing_status": {
+      "title": "حالة التأثيث",
+      "furnished": "مؤثث",
+      "semi_furnished": "نصف مؤثث",
+      "unfurnished": "غير مؤثث"
+    },
+    "price_range": {
+      "title": "نطاق السعر",
+      "per_night": "(لليلة)",
+      "per_month": "(للشهر)",
+      "total": "(الإجمالي)",
+      "min": "الحد الأدنى:",
+      "max": "الحد الأقصى:",
+      "currency": "MAD"
+    },
+    "area_range": {
+      "title": "نطاق المساحة (م²)",
+      "min": "الحد الأدنى:",
+      "max": "الحد الأقصى:",
+      "unit": "م²"
+    },
+    "bedrooms": {
+      "title": "غرف النوم"
+    },
+    "bathrooms": {
+      "title": "الحمّامات"
+    },
+    "garages": {
+      "title": "المرائب"
+    },
+    "floors": {
+      "title": "الطوابق"
+    },
+    "amenities": {
+      "title": "المرافق المتوفرة"
+    },
+    "advanced": {
+      "show_more": "اعرض المزيد من الخيارات",
+      "hide": "إخفاء الخيارات"
+    },
+    "search": {
+      "button": "ابحث عن العقارات"
+    }
+  },
+  "property_item": {
+    "view_details": "اعرض التفاصيل",
+    "photos": "صورة",
+    "photos_plural": "صور",
+    "no_photos": "لا توجد صور",
+    "share": "مشاركة",
+    "like": "إعجاب",
+    "sold": "مباع"
+  },
+  "showcase": {
+    "loading": {
+      "title": "جاري تحميل تفاصيل العقار",
+      "description": "يرجى الانتظار بينما نجمع المعلومات"
+    },
+    "not_found": {
+      "title": "العقار غير متوفر",
+      "description": "لم نتمكن من العثور على العقار الذي تبحث عنه. قد يكون قد تم حذفه أو أن الرابط غير صحيح.",
+      "browse_button": "تصفح العقارات المتاحة"
+    },
+    "features": {
+      "bedrooms": "غرف النوم",
+      "bathrooms": "الحمّامات",
+      "garages": "المرائب",
+      "built": "سنة البناء"
+    },
+    "availability": {
+      "title": "حجز التواريخ",
+      "select_stay": "اختر مدة الإقامة",
+      "choose_dates": "اختر تواريخ الإقامة",
+      "date_placeholder": "اختر تاريخ الوصول والمغادرة",
+      "calendar": {
+        "available_all_day": "متاح طوال اليوم",
+        "timezone_info": "جميع الأوقات معروضة بتوقيت {timezone} (GMT{offset})",
+        "to": "إلى",
+        "days": {
+          "sun": "الأحد",
+          "mon": "الاثنين",
+          "tue": "الثلاثاء",
+          "wed": "الأربعاء",
+          "thu": "الخميس",
+          "fri": "الجمعة",
+          "sat": "السبت"
+        },
+        "months": {
+          "january": "يناير",
+          "february": "فبراير",
+          "march": "مارس",
+          "april": "أبريل",
+          "may": "مايو",
+          "june": "يونيو",
+          "july": "يوليو",
+          "august": "أغسطس",
+          "september": "سبتمبر",
+          "october": "أكتوبر",
+          "november": "نوفمبر",
+          "december": "ديسمبر"
+        }
+      }
+    },
+    "price_history": {
+      "title": "تاريخ الأسعار"
+    },
+    "virtual_tour": {
+      "explore": "استكشف الجولة الافتراضية ثلاثية الأبعاد"
+    },
+    "map": {
+      "not_available": "خريطة الموقع غير متاحة"
+    },
+    "contact": {
+      "nightly_rate": "السعر لليلة",
+      "monthly_rate": "السعر الشهري",
+      "sale_price": "سعر البيع",
+      "price_breakdown": "تفاصيل السعر",
+      "stay_details": "تفاصيل الإقامة",
+      "nights": "ليالٍ",
+      "daily_rate": "السعر اليومي",
+      "total": "الإجمالي",
+      "includes_fees": "يشمل جميع الرسوم والضرائب",
+      "book_now": "احجز الآن",
+      "years_experience": "سنوات خبرة",
+      "contact_agent": "تواصل",
+      "speaks": "يتحدث",
+      "your_name": "اسمك",
+      "your_email": "بريدك الإلكتروني",
+      "message": "رسالتك",
+      "send_to": "إرسال إلى",
+      "or": "أو",
+      "call_directly": "اتصل مباشرة",
+      "schedule_tour": "حدد موعد جولة"
+    },
+    "hero": {
+      "image": "صورة العقار",
+      "close": "إغلاق",
+      "previous": "السابق",
+      "next": "التالي",
+      "slide_counter": "عداد الشرائح",
+      "loading_images": "جاري تحميل الصور..."
+    },
+    "booking_modal": {
+      "title": "احجز هذا العقار",
+      "subtitle": "تواصل مع وكيلنا لتأكيد حجزك",
+      "years_experience": "سنوات خبرة",
+      "speaks": "يتحدث",
+      "contact_information": "معلومات الاتصال",
+      "phone_number": "رقم الهاتف",
+      "show_number": "إظهار الرقم",
+      "hide": "إخفاء"
+    }
+  }
+}

@@ -20,23 +20,40 @@ const Navbar = () => {
     <motion.div
       className={`
         fixed top-0 left-0 right-0 z-50 
-        w-full md:h-[75px] flex 
-        items-center justify-center bg-white
-        transition-all duration-300 ease-out
-        ${isScrolled ? "shadow-sm md:h-[65px]" : "shadow-none"}
+        w-full transition-all duration-500 ease-out
+        ${isScrolled 
+          ? "bg-white/95 backdrop-blur-md shadow-lg border-b border-gray-100 h-16" 
+          : "bg-gradient-to-r from-white via-gray-50/80 to-white backdrop-blur-sm h-20"
+        }
       `}
+      initial={{ y: -100, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
     >
-      <div className="max-w-screen-2xl h-[41px] flex items-center justify-between sm:px-8 px-2 w-full">
-        <motion.div whileHover={{ scale: 1.05 }}>
-          <Link href="/">
-            <Icon title="Estato" />
+      <div className="max-w-7xl mx-auto h-full flex items-center justify-between px-4 sm:px-6 lg:px-8">
+        {/* Logo */}
+        <motion.div 
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          className="flex-shrink-0"
+        >
+          <Link href="/" className="flex items-center">
+            <Icon />
           </Link>
         </motion.div>
 
-        <Navigation />
-        <NavActions />
+        {/* Desktop Navigation */}
+        <div className="hidden lg:flex items-center space-x-8">
+          <Navigation />
+        </div>
 
-        <div className="flex gap-1 md:hidden">
+        {/* Desktop Actions */}
+        <div className="hidden lg:flex items-center space-x-4">
+          <NavActions />
+        </div>
+
+        {/* Mobile Actions */}
+        <div className="flex items-center space-x-2 lg:hidden">
           <Cart />
           <ResponsiveNavbar />
         </div>

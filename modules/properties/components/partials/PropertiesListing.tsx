@@ -1,196 +1,244 @@
 "use client";
 
-import { useState, useMemo, useEffect } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import Link from "next/link";
+import { usePathname, useSearchParams } from "next/navigation";
 
 import Footer from "@/components/common/layout/footer";
 import HeroHeader from "@/components/common/partials/HeroHeader";
-import ListingFilters, { PROPERTY_OFFER_TYPE } from "@/modules/properties/components/partials/ListingFilters";
 import PropertyItemListing from "@/modules/properties/components/partials/PropertyItemListing";
+import PropertyItemSkeleton from "@/modules/properties/components/partials/PropertyItemSkeleton";
+import DailyPropertiesFilter from "@/modules/properties/components/partials/DailyPropertiesFilter";
+import MonthlyPropertiesFilter from "@/modules/properties/components/partials/MonthlyPropertiesFilter";
+import SalePropertiesFilter from "@/modules/properties/components/partials/SalePropertiesFilter";
+import Pagination from "@/components/ui/pagination";
 
-import { type SortParam, type FilterParam, type GridFilterItem, GridLinkOperator } from "@/common/hooks/useItems";
 import useProperties from "@/modules/properties/hooks/api/useProperties";
 import type { PaginationMeta } from "@/common/hooks/useItems";
-import type { Property, PROPERTY_TYPE } from "@/modules/properties/defs/types";
-import { Grid, Home } from "lucide-react";
+import type { Property, FURNISHING_STATUS } from "@/modules/properties/defs/types";
+import { Home } from "lucide-react";
 import Routes from "@/common/defs/routes";
+import { WEBSITE_FOCUS } from "@/modules/settings/defs/types";
+import { useTranslation } from "next-i18next";
 
-const PropertiesListing = () => {
-  const [itemsPerPage, setItemsPerPage] = useState(8);
-  const [sortBy, setSortBy] = useState<"default" | "priceLowHigh" | "priceHighLow">("default");
-  const [data, setData] = useState<Property[] | null>(null);
-  const [meta, setMeta] = useState<PaginationMeta | null>(null);
-  const [loading, setLoading] = useState(true);
+interface PropertiesListingProps {
+  websiteFocus: WEBSITE_FOCUS;
+  initialData?: {
+    items: Property[];
+    meta: PaginationMeta | null;
+    page: number;
+    pageSize: number;
+  };
+}
 
-  const [propertyType, setPropertyType] = useState<PROPERTY_TYPE | "All">("All");
-  const [propertyStatus, setPropertyStatus] = useState<PROPERTY_OFFER_TYPE>(PROPERTY_OFFER_TYPE.All);
-  const [priceRange, setPriceRange] = useState<[number, number]>([0, 10_000_000]);
-  const [bedrooms, setBedrooms] = useState<number>(0);
-  const [bathrooms, setBathrooms] = useState<number>(0);
-  const [searchQuery, setSearchQuery] = useState("");
-  const [location, setLocation] = useState<string>("");
-  const [propertySize, setPropertySize] = useState<[number, number]>([0, 1000]);
+const PropertiesListing = ({ websiteFocus, initialData }: PropertiesListingProps) => {
+  const { t } = useTranslation('properties');
+  const [data, setData] = useState<Property[] | null>(initialData?.items ?? null);
+  const [meta, setMeta] = useState<PaginationMeta | null>(initialData?.meta ?? null);
+  const [loading, setLoading] = useState(!initialData);
+  const [currentPage, setCurrentPage] = useState(initialData?.page ?? 1);
+  const [pageSize] = useState(initialData?.pageSize ?? 12);
 
-  const { readAll } = useProperties();
+  const { searchPropertiesByfilters } = useProperties();
+  const filterRef = useRef<any>(null);
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
 
-  const sortParam = useMemo<SortParam | undefined>(() => {
-    if (sortBy === "priceLowHigh") return { column: "sale_price", dir: "asc" };
-    if (sortBy === "priceHighLow") return { column: "sale_price", dir: "desc" };
-    return undefined;
-  }, [sortBy]);
-
-  const buildFilter = (): FilterParam | undefined => {
-    try {
-      const items: GridFilterItem[] = [];
-
-      if (propertyType !== "All") {
-        items.push({
-          columnField: "type",
-          operatorValue: "equals",
-          value: propertyType,
-        });
-      }
-
-      if (searchQuery.trim()) {
-        items.push({
-          columnField: "title",
-          operatorValue: "contains",
-          value: searchQuery.trim(),
-        });
-      }
-
-      if (location) {
-        items.push({
-          columnField: "location.city",
-          operatorValue: "equals",
-          value: location,
-        });
-      }
-
-      if (items.length === 0) return undefined;
-
-      return {
-        items,
-        linkOperator: GridLinkOperator.And,
-      };
-
-    } catch (e) {
-      console.error("🚨 buildFilter threw:", e);
+  useEffect(() => {
+    if (initialData) {
+      // Skip initial fetch; already hydrated from server
+      console.log('initialData with filter', initialData);
+      return;
     }
+    const urlLocation = searchParams.get('location');
+    const urlCheckIn = searchParams.get('checkIn');
+    const urlCheckOut = searchParams.get('checkOut');
+    const urlPropertyType = searchParams.get('propertyType');
+
+    setCurrentPage(1);
+
+    if (urlLocation || urlCheckIn || urlCheckOut || urlPropertyType) {
+      handleSearch({
+        location: urlLocation || undefined,
+        checkIn: urlCheckIn ? new Date(urlCheckIn) : undefined,
+        checkOut: urlCheckOut ? new Date(urlCheckOut) : undefined,
+        propertyType: urlPropertyType || undefined,
+        websiteFocus: websiteFocus,
+      });
+    } else {
+      handleSearch({
+        websiteFocus: websiteFocus,
+      });
+    }
+  }, [searchParams, websiteFocus, initialData]);
+
+  useEffect(() => {
+    if (initialData) {
+      return;
+    }
+    const urlLocation = searchParams.get('location');
+    const urlCheckIn = searchParams.get('checkIn');
+    const urlCheckOut = searchParams.get('checkOut');
+    const urlPropertyType = searchParams.get('propertyType');
+
+    if (urlLocation || urlCheckIn || urlCheckOut || urlPropertyType) {
+      handleSearch({
+        location: urlLocation || undefined,
+        checkIn: urlCheckIn ? new Date(urlCheckIn) : undefined,
+        checkOut: urlCheckOut ? new Date(urlCheckOut) : undefined,
+        propertyType: urlPropertyType || undefined,
+        websiteFocus: websiteFocus,
+      });
+    } else {
+      handleSearch({
+        websiteFocus: websiteFocus,
+      });
+    }
+  }, [currentPage, initialData]);
+
+  const getReadOneRoute = (propertyId: string | number) => {
+    if (pathname.includes('/daily-rent')) {
+      return Routes.Properties.DailyRent.ReadOne.replace("{id}", propertyId.toString());
+    } else if (pathname.includes('/monthly-rent')) {
+      return Routes.Properties.MonthlyRent.ReadOne.replace("{id}", propertyId.toString());
+    } else if (pathname.includes('/home-sale')) {
+      return Routes.Properties.HomeSale.ReadOne.replace("{id}", propertyId.toString());
+    }
+    return Routes.Properties.DailyRent.ReadOne.replace("{id}", propertyId.toString());
   };
 
-  const fetchProperties = async () => {
+  const handleSearch = async (inputs: {
+    location?: string;
+    checkIn?: Date;
+    checkOut?: Date;
+    availableFrom?: Date;
+    propertyType?: string;
+    minPrice?: number;
+    maxPrice?: number;
+    bedrooms?: number;
+    bathrooms?: number;
+    amenities?: string[];
+    furnishingStatus?: FURNISHING_STATUS;
+    websiteFocus?: WEBSITE_FOCUS;
+  }) => {
     setLoading(true);
     try {
-      const filter = buildFilter();
+      const response = await searchPropertiesByfilters(inputs, currentPage, pageSize);
 
-      const response = await readAll(
-        1,
-        itemsPerPage,
-        sortParam,
-        filter
-      );
-
-      if (response.data) {
-        setData(response.data.items ?? []);
-        setMeta(response.data.meta ?? null);
+      if (response.success && response.data) {
+        setData(response.data.items);
+        setMeta({
+          currentPage: response.data.meta.currentPage,
+          lastPage: response.data.meta.lastPage,
+          totalItems: response.data.meta.total,
+        });
+      } else {
+        setData([]);
+        setMeta(null);
       }
-    } catch (e) {
-      console.error("Error fetching properties:", e);
+    } catch (error) {
+      setData([]);
+      setMeta(null);
     } finally {
       setLoading(false);
     }
   };
 
-  useEffect(() => {
-    fetchProperties();
+  const handlePageChange = useCallback((page: number) => {
+    setCurrentPage(page);
   }, []);
-
-  useEffect(() => {
-    fetchProperties()
-  }, [
-    itemsPerPage,
-    sortParam,
-    propertyType,
-    propertyStatus,
-    priceRange,
-    searchQuery,
-    location,
-    propertySize,
-  ]);
 
   return (
     <div className="min-h-screen w-full">
       {/* Hero + floating filters */}
       <div className="relative pt-16 md:pt-[75px]">
         <HeroHeader
-          title="Properties listing"
+          title={t('listing.title')}
           image="/Properties_hero.jpg"
           className="pb-24"
         />
 
-        <div className="absolute bottom-[-20px] left-0 w-full transform translate-y-1/2 z-20">
-          <ListingFilters
-            sortBy={sortBy}
-            setSortBy={setSortBy}
-            propertyType={propertyType}
-            setPropertyType={setPropertyType}
-            propertyStatus={propertyStatus}
-            setPropertyStatus={setPropertyStatus}
-            priceRange={priceRange}
-            setPriceRange={setPriceRange}
-            searchQuery={searchQuery}
-            setSearchQuery={setSearchQuery}
-            location={location}
-            setLocation={setLocation}
-            propertySize={propertySize}
-            setPropertySize={setPropertySize}
-          />
+        <div className="absolute top-[78%] md:top-[90%] left-0 w-full z-20">
+          {websiteFocus === WEBSITE_FOCUS.RENT ? (
+            <MonthlyPropertiesFilter
+              ref={filterRef}
+              onSearch={handleSearch}
+              initialLocation={searchParams.get('location') || undefined}
+              initialAvailableFrom={searchParams.get('availableFrom') || undefined}
+              initialPropertyType={searchParams.get('propertyType') || undefined}
+              initialFurnishingStatus={searchParams.get('furnishingStatus') as FURNISHING_STATUS || undefined}
+              websiteFocus={websiteFocus}
+            />
+          ) : websiteFocus === WEBSITE_FOCUS.SELLING ? (
+            <SalePropertiesFilter
+              ref={filterRef}
+              onSearch={handleSearch}
+              initialLocation={searchParams.get('location') || undefined}
+              initialPropertyType={searchParams.get('propertyType') || undefined}
+              initialMinArea={searchParams.get('minArea') ? parseInt(searchParams.get('minArea')!) : undefined}
+              initialMaxArea={searchParams.get('maxArea') ? parseInt(searchParams.get('maxArea')!) : undefined}
+              websiteFocus={websiteFocus}
+            />
+          ) : (
+            <DailyPropertiesFilter
+              ref={filterRef}
+              onSearch={handleSearch}
+              initialLocation={searchParams.get('location') || undefined}
+              initialCheckIn={searchParams.get('checkIn') || undefined}
+              initialCheckOut={searchParams.get('checkOut') || undefined}
+              initialPropertyType={searchParams.get('propertyType') || undefined}
+              websiteFocus={websiteFocus}
+            />
+          )}
         </div>
       </div>
 
       {/* Results */}
-      <div className="relative z-10 bg-[#faf8f5] pt-48 pb-20">
+      <div className="relative z-10 bg-gradient-to-br from-primary-200/50 via-white to-primary-200/30 pt-32 pb-20">
         {loading ? (
-          <div className="min-h-[60vh] flex flex-col items-center justify-center gap-4">
-            <div className="animate-spin rounded-full h-12 w-12 border-4 border-primarySite border-t-transparent" />
-            <h3 className="text-xl font-semibold text-gray-700">
-              Finding Perfect Properties
-            </h3>
-          </div>
-        ) : data && data.length > 0 ? (
-          <div className="max-w-screen-2xl mx-auto px-6 py-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {data.map((item) => (
-              <Link key={item.id} href={Routes.Properties.ReadOne.replace("{id}", item.id.toString())}>
-                <PropertyItemListing property={item} />
-              </Link>
+          <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 py-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6 justify-items-center">
+            {Array.from({ length: 8 }).map((_, index) => (
+              <div key={index} className="w-full max-w-sm sm:max-w-none">
+                <PropertyItemSkeleton />
+              </div>
             ))}
           </div>
+        ) : data && data.length > 0 ? (
+          <>
+            <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 py-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6 justify-items-center">
+              {data.map((item) => (
+                <Link key={item.id} href={getReadOneRoute(item.id)} className="w-full max-w-sm sm:max-w-none">
+                  <PropertyItemListing property={item} websiteFocus={websiteFocus} />
+                </Link>
+              ))}
+            </div>
+
+            {/* Pagination */}
+            {meta && data && data.length > 0 && (
+              <div className="max-w-screen-5xl mx-auto px-4 sm:px-6 pt-20">
+                <Pagination
+                  currentPage={meta.currentPage}
+                  totalPages={meta.lastPage}
+                  onPageChange={handlePageChange}
+                  className="py-4"
+                />
+              </div>
+            )}
+          </>
         ) : (
           <div className="min-h-[60vh] flex flex-col items-center justify-center gap-6 text-center px-4">
-            <div className="bg-primarySite/10 p-6 rounded-full">
-              <Home className="w-16 h-16 text-primarySite" strokeWidth={1.5} />
+            <div className="bg-primary-100 p-6 rounded-full">
+              <Home className="w-16 h-16 text-primary-600" strokeWidth={1.5} />
             </div>
-            <h3 className="text-2xl font-semibold text-gray-800">No Properties Found</h3>
+            <h3 className="text-2xl font-semibold text-gray-800">{t('listing.empty_state.title')}</h3>
             <p className="text-gray-600 max-w-md">
-              We couldn't find any properties matching your criteria. Try adjusting
-              your filters or search terms.
+              {t('listing.empty_state.description')}
             </p>
             <button
-              onClick={() => {
-                // clear everything
-                setPropertyType("All");
-                setPropertyStatus(PROPERTY_OFFER_TYPE.All);
-                setPriceRange([0, 10_000_000]);
-                setBedrooms(0);
-                setBathrooms(0);
-                setSearchQuery("");
-                setLocation("");
-                setPropertySize([0, 1000]);
-              }}
-              className="mt-4 px-6 py-3 bg-primarySite text-white rounded-lg hover:bg-primarySite/90 transition-colors font-medium"
+              onClick={() => { filterRef.current.clearFilters(); }}
+              className="mt-4 px-6 py-3 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors font-medium"
             >
-              Clear Filters
+              {t('listing.empty_state.clear_filters')}
             </button>
           </div>
         )}

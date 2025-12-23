@@ -94,7 +94,9 @@ const useItems = <Item, CreateOneInput, UpdateOneInput>(
 ): UseItemsHook<Item, CreateOneInput, UpdateOneInput> => {
   const fetchApi = useApi();
   const [shouldRefetch, setShouldRefetch] = useState(opts.fetchItems);
-  const [savedReadAllParams, setSavedReadAllParams] = useState<SavedReadAllParams | null>();
+  const [savedReadAllParams, setSavedReadAllParams] = useState<SavedReadAllParams | null>(
+    opts.fetchItems ? { page: 1, pageSize: opts.pageSize } : null
+  );
 
   const { data, mutate } = useSWRImmutable<Item[] | null>(
     shouldRefetch ? apiRoutes.ReadAll : null,

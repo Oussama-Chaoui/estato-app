@@ -1,5 +1,5 @@
-import { Id } from '@common/defs/types';
 import { createContext, useContext, useMemo, useState } from 'react';
+import { Id } from '../defs/types';
 
 interface FileToUpload {
   key: string;

@@ -12,6 +12,7 @@ import {
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { cn } from "@/components/lib/utils/twMerge"
+import { useDirection } from "@/common/contexts/DirectionContext"
 
 export interface Country {
   code: string
@@ -22,6 +23,7 @@ export interface Country {
 
 const countries: Country[] = [
   { code: "MA", name: "Morocco", dialCode: "+212", flagUrl: "https://flagcdn.com/ma.svg" },
+  { code: "ES", name: "Spain", dialCode: "+34", flagUrl: "https://flagcdn.com/es.svg" },
   { code: "FR", name: "France", dialCode: "+33", flagUrl: "https://flagcdn.com/fr.svg" },
   { code: "US", name: "United States", dialCode: "+1", flagUrl: "https://flagcdn.com/us.svg" },
 ]
@@ -46,48 +48,54 @@ const PhoneInput = React.forwardRef<HTMLInputElement, PhoneInputProps>(
     },
     ref
   ) => {
-    const triggerBorder = error
-      ? "border border-destructive focus:ring-2 focus:ring-destructive/80"
-      : "border border-input focus:ring-2 focus:ring-primarySite/80"
+    const { isRTL } = useDirection()
 
     const CountrySelector = (
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
           <Button
             type="button"
-            variant="outline"
+            variant="ghost"
             className={cn(
-              "h-12 min-w-[110px] justify-between rounded-lg pr-2 pl-3",
-              triggerBorder
+              "h-12 min-w-[110px] justify-between rounded-lg border-none shadow-none hover:bg-gray-50 transition-colors ltr"
             )}
+            style={{
+              paddingLeft: isRTL ? '0.75rem' : '0.75rem',
+              paddingRight: isRTL ? '0.5rem' : '0.5rem',
+            }}
+            dir="ltr"
           >
             <span className="flex items-center gap-2">
               <img
                 src={selectedCountry.flagUrl}
                 alt={selectedCountry.name}
-                className="w-6 h-4 rounded-sm object-cover"
+                className="w-5 h-4 rounded-sm object-cover shadow-sm"
               />
-              <span className="text-sm font-medium">
+              <span className="text-sm font-medium text-gray-700">
                 {selectedCountry.dialCode}
               </span>
             </span>
-            <ChevronDown className="w-4 h-4 opacity-60" />
+            <ChevronDown className="w-4 h-4 text-gray-500 transition-transform duration-200" />
           </Button>
         </DropdownMenuTrigger>
-        <DropdownMenuContent className="max-h-60 w-72 overflow-y-auto">
+        <DropdownMenuContent className="max-h-60 w-[140px] overflow-y-auto p-1">
           {countries.map((c) => (
             <DropdownMenuItem
               key={c.code}
               onClick={() => onCountryChange(c)}
-              className="flex items-center gap-3"
+              className="flex items-center justify-between w-full px-3 py-2.5 rounded-md hover:bg-gray-50 transition-colors"
             >
-              <img
-                src={c.flagUrl}
-                alt={c.name}
-                className="w-6 h-4 rounded-sm object-cover"
-              />
-              <span className="flex-1">{c.name}</span>
-              <span className="text-muted-foreground">{c.dialCode}</span>
+              <div className="flex items-center gap-3">
+                <img
+                  src={c.flagUrl}
+                  alt={c.name}
+                  className="w-5 h-4 rounded-sm object-cover shadow-sm"
+                />
+                <span className="text-sm font-medium text-gray-700">{c.dialCode}</span>
+              </div>
+              {selectedCountry.code === c.code && (
+                <div className="w-2 h-2 bg-primary-500 rounded-full"></div>
+              )}
             </DropdownMenuItem>
           ))}
         </DropdownMenuContent>
@@ -105,7 +113,12 @@ const PhoneInput = React.forwardRef<HTMLInputElement, PhoneInputProps>(
         onChange={onChange}
         labelLeftRest="135px"
         {...rest}
-        className={cn("pl-[135px] py-8", className)}
+        className={cn("py-8 ltr", className)}
+        style={{
+          paddingLeft: '135px',
+          paddingRight: '0.75rem',
+        }}
+        dir="ltr"
       />
     )
   }

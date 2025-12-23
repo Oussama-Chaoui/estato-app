@@ -1,0 +1,48 @@
+{
+  "hero": {
+    "title": "Conseils Immobiliers",
+    "subtitle": "Découvrez des conseils d'experts, les tendances du marché et des astuces exclusives pour le marché immobilier marocain",
+    "search_placeholder": "Rechercher des articles..."
+  },
+  "filters": {
+    "title": "Filtrer par Catégorie",
+    "all_articles": "Tous les Articles",
+    "clear_filters": "Effacer les filtres"
+  },
+  "posts": {
+    "no_articles_found": "Aucun article trouvé",
+    "no_articles_description": "Essayez d'ajuster vos termes de recherche ou vos filtres",
+    "no_articles_available": "Aucun article disponible pour le moment",
+    "no_articles_available_description": "Nous travaillons sur la création de contenu incroyable pour vous. Revenez bientôt !",
+    "read_more": "Lire Plus",
+    "min_read": "min de lecture",
+    "unknown_author": "Auteur Inconnu",
+    "published_at": "Publié le",
+    "author": "Auteur",
+    "read_time": "Temps de lecture"
+  },
+  "article": {
+    "back_to_blog": "Retour au Blog",
+    "share_article": "Partager l'Article",
+    "reading_time": "Temps de lecture",
+    "published_on": "Publié le",
+    "written_by": "Écrit par",
+    "related_articles": "Articles Connexes",
+    "tags": "Étiquettes",
+    "categories": "Catégories",
+    "share_on": "Partager sur",
+    "copy_link": "Copier le Lien",
+    "link_copied": "Lien copié dans le presse-papiers !",
+    "not_found": {
+      "title": "Article Non Trouvé",
+      "description": "L'article que vous recherchez n'existe pas ou a été supprimé.",
+      "back_button": "Retour au Blog"
+    }
+  },
+  "pagination": {
+    "previous": "Précédent",
+    "next": "Suivant",
+    "page": "Page",
+    "of": "sur"
+  }
+}

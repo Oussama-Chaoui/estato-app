@@ -42,7 +42,7 @@ const Footer = () => {
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="max-w-screen-2xl w-full flex flex-col gap-y-10 relative z-10"
+        className="max-w-6xl w-full flex flex-col gap-y-10 relative z-10"
       >
         {/* Top Section */}
         <div className="w-full grid md:grid-cols-3 lg:grid-cols-4 gap-8">
@@ -52,7 +52,7 @@ const Footer = () => {
               whileHover={{ scale: 1.05 }}
               className="text-3xl font-bold bg-gradient-to-r from-[#B88E2F] to-[#D4A946] bg-clip-text text-transparent"
             >
-              Estato.
+              Yakout.
             </motion.h1>
             <p className="text-gray-600 text-sm leading-relaxed max-w-xs">
               Premium real estate listings designed for elegance and quality living.
@@ -140,7 +140,7 @@ const Footer = () => {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
         >
-          <p>© {new Date().getFullYear()} Estato. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Yakout. All rights reserved.</p>
           <div className="flex gap-4">
             <Link href="/terms-of-service">
               <motion.span whileHover={{ color: "#B88E2F" }} className="cursor-pointer">

@@ -1,21 +1,19 @@
 import { memo } from 'react';
-import { useTheme } from '@mui/material/styles';
-import { Box, BoxProps } from '@mui/material';
 import BackgroundIllustration from './BackgroundIllustration';
 
-const NotFoundIllustration = ({ ...other }: BoxProps) => {
-  const theme = useTheme();
+interface NotFoundIllustrationProps {
+  className?: string;
+}
 
-  const PRIMARY_LIGHT = theme.palette.primary.light;
-
-  const PRIMARY_MAIN = theme.palette.primary.main;
-
-  const PRIMARY_DARK = theme.palette.primary.dark;
-
-  const PRIMARY_DARKER = theme.palette.primary.darker;
+const NotFoundIllustration = ({ className = '' }: NotFoundIllustrationProps) => {
+  // Using Tailwind primary colors
+  const PRIMARY_LIGHT = '#A5D5D2';  // primary-300
+  const PRIMARY_MAIN = '#21807D';   // primary-500
+  const PRIMARY_DARK = '#1A6664';   // primary-600
+  const PRIMARY_DARKER = '#134C4B'; // primary-700
 
   return (
-    <Box {...other}>
+    <div className={className}>
       <svg width="100%" height="100%" viewBox="0 0 480 360" xmlns="http://www.w3.org/2000/svg">
         <BackgroundIllustration />
 
@@ -63,7 +61,7 @@ const NotFoundIllustration = ({ ...other }: BoxProps) => {
           </linearGradient>
         </defs>
       </svg>
-    </Box>
+    </div>
   );
 };
 

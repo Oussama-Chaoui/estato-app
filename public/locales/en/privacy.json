@@ -1,0 +1,81 @@
+{
+  "meta": {
+    "title": "Privacy Policy - Yakout",
+    "description": "Understand how Yakout collects, uses, and protects your personal data. Your privacy is our priority."
+  },
+  "hero": {
+    "title": "Privacy Policy",
+    "subtitle": "Your privacy is important to us. This policy explains how we collect, use, and protect your personal information."
+  },
+  "sidebar": {
+    "title": "Table of Contents"
+  },
+  "sections": {
+    "introduction": {
+      "title": "Introduction",
+      "content": "At Yakout, we are committed to protecting your privacy. This Privacy Policy outlines the types of information we collect, how we use it, and the measures we take to safeguard your data when you use our website and services. By using Yakout, you agree to the collection and use of information in accordance with this policy."
+    },
+    "data_collection": {
+      "title": "Information We Collect",
+      "content": "We collect various types of information to provide and improve our services. This includes information you provide directly to us, and data generated through your interactions with our platform. We only collect data that is necessary for the purposes outlined below.",
+      "points": {
+        "user_account": {
+          "title": "User Account Data",
+          "description": "When you register or an account is created for you (e.g., during a booking), we collect your name, email, phone number, and a hashed password. You may also provide a profile photo. This data is essential for managing your account and providing personalized services."
+        },
+        "client_specific": {
+          "title": "Client-Specific Data",
+          "description": "For clients engaging in property rentals or purchases, we may collect your National ID (NIC) number or Passport number. This information is used for verification purposes and to fulfill legal and contractual obligations related to real estate transactions."
+        },
+        "agent_specific": {
+          "title": "Agent-Specific Data",
+          "description": "For agents, we collect your license number, years of experience, agency name, and agency address. You may also provide a bio. This data is used to verify your credentials and facilitate your services on our platform."
+        },
+        "agent_applications": {
+          "title": "Agent Applications",
+          "description": "When you apply to become an agent, we collect your name, email (optional), and phone number. This information is used to process your application and communicate with you regarding its status."
+        },
+        "property_rental": {
+          "title": "Property Rental Data",
+          "description": "If you engage in property rentals, we collect details such as the property ID, client ID, agent ID, rental start and end dates, price, and rental type. This data is necessary to manage rental agreements and facilitate transactions."
+        },
+        "property_inquiries": {
+          "title": "Property Inquiries",
+          "description": "When you submit an inquiry about a property, we collect your name, email, phone number, and your message. This information is used to respond to your inquiries and connect you with relevant agents or properties."
+        },
+        "session_technical": {
+          "title": "Session & Technical Data",
+          "description": "We use session cookies for authentication and to maintain your login status. We also collect API tokens, remember tokens, and CSRF tokens for security and platform functionality. We do not use these for tracking or analytics."
+        }
+      }
+    },
+    "data_usage": {
+      "title": "How We Use Your Information",
+      "content": "We use the collected information to:",
+      "purposes": {
+        "property_services": "Provide, operate, and maintain our website and services.",
+        "communication": "Respond to your inquiries, questions, and requests.",
+        "legal_requirements": "Verify your identity and ensure compliance with legal obligations.",
+        "account_management": "Manage your user account and provide customer support."
+      }
+    },
+    "user_rights": {
+      "title": "Your Privacy Rights",
+      "content": "You have the right to:",
+      "rights": {
+        "access": "Access: Request copies of your personal data.",
+        "rectification": "Rectification: Request that we correct any information you believe is inaccurate or complete incomplete information.",
+        "deletion": "Erasure: Request that we erase your personal data, under certain conditions.",
+        "data_portability": "Data Portability: Request that we transfer the data that we have collected to another organization, or directly to you, under certain conditions."
+      }
+    },
+    "contact_us": {
+      "title": "Contact Us",
+      "content": "If you have any questions or concerns about this Privacy Policy or our data practices, please contact us at:\n\nEmail: privacy@yakout.ma\nPhone: +212 5XX XXX XXX\nAddress: Boulevard Pasteur, Tangier, Morocco, 90000"
+    },
+    "last_updated": {
+      "title": "Last Updated",
+      "content": "This Privacy Policy was last updated on 2024-07-29."
+    }
+  }
+}

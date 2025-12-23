@@ -1,0 +1,190 @@
+{
+  "listing": {
+    "title": "Listado de propiedades",
+    "empty_state": {
+      "title": "No se encontraron propiedades",
+      "description": "No pudimos encontrar propiedades que coincidan con tus criterios. Intenta ajustar tus filtros o términos de búsqueda.",
+      "clear_filters": "Limpiar Filtros"
+    }
+  },
+  "filters": {
+    "location": {
+      "placeholder": "Ubicación",
+      "search_placeholder": "Buscar ciudades...",
+      "empty_text": "No se encontraron ciudades",
+      "anywhere": "Cualquier lugar"
+    },
+    "dates": {
+      "placeholder": "Seleccionar fechas",
+      "available_from": "Disponible desde"
+    },
+    "property_type": {
+      "placeholder": "Tipo de Propiedad",
+      "search_placeholder": "Buscar tipos de propiedades...",
+      "empty_text": "No se encontraron tipos",
+      "any_type": "Cualquier tipo",
+      "house": "Casa",
+      "apartment": "Apartamento",
+      "villa": "Villa",
+      "studio": "Estudio",
+      "mansion": "Mansión",
+      "land": "Terreno",
+      "commercial": "Comercial",
+      "office": "Oficina",
+      "garage": "Garaje"
+    },
+    "furnishing_status": {
+      "title": "Estado de Amueblado",
+      "furnished": "Amueblado",
+      "semi_furnished": "Semi-amueblado",
+      "unfurnished": "Sin amueblar"
+    },
+    "price_range": {
+      "title": "Rango de Precio",
+      "per_night": "(por noche)",
+      "per_month": "(por mes)",
+      "total": "(total)",
+      "min": "Mín:",
+      "max": "Máx:",
+      "currency": "MAD"
+    },
+    "area_range": {
+      "title": "Rango de Área (m²)",
+      "min": "Mín:",
+      "max": "Máx:",
+      "unit": "m²"
+    },
+    "bedrooms": {
+      "title": "Habitaciones"
+    },
+    "bathrooms": {
+      "title": "Baños"
+    },
+    "garages": {
+      "title": "Garajes"
+    },
+    "floors": {
+      "title": "Pisos"
+    },
+    "amenities": {
+      "title": "Amenidades Populares"
+    },
+    "advanced": {
+      "show_more": "Mostrar más filtros",
+      "hide": "Ocultar filtros"
+    },
+    "search": {
+      "button": "Buscar Propiedades"
+    }
+  },
+  "property_item": {
+    "view_details": "Ver detalles",
+    "photos": "foto",
+    "photos_plural": "fotos",
+    "no_photos": "Sin fotos",
+    "share": "Compartir",
+    "like": "Me gusta",
+    "sold": "VENDIDA"
+  },
+  
+  "showcase": {
+    "loading": {
+      "title": "Cargando detalles de la propiedad",
+      "description": "Por favor espera mientras recopilamos la información"
+    },
+    "not_found": {
+      "title": "Propiedad no encontrada",
+      "description": "No pudimos encontrar la propiedad que buscas. Puede que haya sido eliminada o la URL es incorrecta.",
+      "browse_button": "Explorar propiedades disponibles"
+    },
+    "features": {
+      "bedrooms": "Habitaciones",
+      "bathrooms": "Baños",
+      "garages": "Garajes",
+      "built": "Construido"
+    },
+    "availability": {
+      "title": "Disponibilidad",
+      "select_stay": "Selecciona tu estancia",
+      "choose_dates": "Elige tus fechas preferidas",
+      "date_placeholder": "Elige las fechas de llegada y salida",
+      "calendar": {
+        "available_all_day": "Disponible todo el día",
+        "timezone_info": "Todas las horas mostradas en {timezone} (GMT{offset})",
+        "to": "a",
+        "days": {
+          "sun": "Dom",
+          "mon": "Lun",
+          "tue": "Mar",
+          "wed": "Mié",
+          "thu": "Jue",
+          "fri": "Vie",
+          "sat": "Sáb"
+        },
+        "months": {
+          "january": "Enero",
+          "february": "Febrero",
+          "march": "Marzo",
+          "april": "Abril",
+          "may": "Mayo",
+          "june": "Junio",
+          "july": "Julio",
+          "august": "Agosto",
+          "september": "Septiembre",
+          "october": "Octubre",
+          "november": "Noviembre",
+          "december": "Diciembre"
+        }
+      }
+    },
+    "price_history": {
+      "title": "Historial de precios"
+    },
+    "virtual_tour": {
+      "explore": "Explorar visita virtual 3D"
+    },
+    "map": {
+      "not_available": "Mapa de ubicación no disponible"
+    },
+    "contact": {
+      "nightly_rate": "Tarifa nocturna",
+      "monthly_rate": "Tarifa mensual",
+      "sale_price": "Precio de venta",
+      "price_breakdown": "Desglose de precios",
+      "stay_details": "Detalles de tu estancia",
+      "nights": "noches",
+      "daily_rate": "Tarifa diaria",
+      "total": "Total",
+      "includes_fees": "Incluye todas las tarifas e impuestos",
+      "book_now": "Reservar ahora",
+      "years_experience": "años de experiencia",
+      "contact_agent": "Contactar",
+      "speaks": "Habla",
+      "your_name": "Tu nombre",
+      "your_email": "Tu email",
+      "message": "Mensaje",
+      "send_to": "Enviar a",
+      "or": "O",
+      "call_directly": "Llamar directamente",
+      "schedule_tour": "Programar visita"
+    },
+            "hero": {
+          "image": "Imagen de propiedad",
+          "close": "Cerrar",
+          "previous": "Anterior",
+          "next": "Siguiente",
+          "slide_counter": "contador de diapositivas",
+          "loading_images": "Cargando imágenes..."
+        },
+    "booking_modal": {
+      "title": "Reservar esta propiedad",
+      "subtitle": "Contacta a nuestro agente para asegurar tu reserva",
+      "years_experience": "años de experiencia",
+      "speaks": "Habla",
+      "contact_information": "Información de contacto",
+      "phone_number": "Número de teléfono",
+      "show_number": "Mostrar número",
+      "hide": "Ocultar"
+    }
+  }
+}

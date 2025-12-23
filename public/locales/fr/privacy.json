@@ -1,0 +1,81 @@
+{
+  "meta": {
+    "title": "Politique de Confidentialité - Yakout",
+    "description": "Comprenez comment Yakout collecte, utilise et protège vos données personnelles. Votre vie privée est notre priorité."
+  },
+  "hero": {
+    "title": "Politique de Confidentialité",
+    "subtitle": "Votre vie privée est importante pour nous. Cette politique explique comment nous collectons, utilisons et protégeons vos informations personnelles."
+  },
+  "sidebar": {
+    "title": "Table des Matières"
+  },
+  "sections": {
+    "introduction": {
+      "title": "Introduction",
+      "content": "Chez Yakout, nous nous engageons à protéger votre vie privée. Cette Politique de Confidentialité décrit les types d'informations que nous collectons, comment nous les utilisons, et les mesures que nous prenons pour protéger vos données lorsque vous utilisez notre site web et nos services. En utilisant Yakout, vous acceptez la collecte et l'utilisation d'informations conformément à cette politique."
+    },
+    "data_collection": {
+      "title": "Informations que nous collectons",
+      "content": "Nous collectons différents types d'informations pour fournir et améliorer nos services. Cela inclut les informations que vous nous fournissez directement, et les données générées par vos interactions avec notre plateforme. Nous ne collectons que les données nécessaires aux fins décrites ci-dessous.",
+      "points": {
+        "user_account": {
+          "title": "Données de compte utilisateur",
+          "description": "Lorsque vous vous inscrivez ou qu'un compte est créé pour vous (par exemple, lors d'une réservation), nous collectons votre nom, email, numéro de téléphone, et un mot de passe haché. Vous pouvez également fournir une photo de profil. Ces données sont essentielles pour gérer votre compte et fournir des services personnalisés."
+        },
+        "client_specific": {
+          "title": "Données spécifiques aux clients",
+          "description": "Pour les clients engagés dans la location ou l'achat de biens immobiliers, nous pouvons collecter votre numéro de carte d'identité nationale (CNI) ou votre numéro de passeport. Ces informations sont utilisées à des fins de vérification et pour remplir les obligations légales et contractuelles liées aux transactions immobilières."
+        },
+        "agent_specific": {
+          "title": "Données spécifiques aux agents",
+          "description": "Pour les agents, nous collectons votre numéro de licence, années d'expérience, nom de l'agence, et adresse de l'agence. Vous pouvez également fournir une biographie. Ces données sont utilisées pour vérifier vos qualifications et faciliter vos services sur notre plateforme."
+        },
+        "agent_applications": {
+          "title": "Candidatures d'agents",
+          "description": "Lorsque vous postulez pour devenir agent, nous collectons votre nom, email (optionnel), et numéro de téléphone. Ces informations sont utilisées pour traiter votre candidature et communiquer avec vous concernant son statut."
+        },
+        "property_rental": {
+          "title": "Données de location immobilière",
+          "description": "Si vous vous engagez dans la location de biens immobiliers, nous collectons des détails tels que l'ID du bien, l'ID du client, l'ID de l'agent, les dates de début et de fin de location, le prix, et le type de location. Ces données sont nécessaires pour gérer les accords de location et faciliter les transactions."
+        },
+        "property_inquiries": {
+          "title": "Demandes de renseignements sur les biens",
+          "description": "Lorsque vous soumettez une demande de renseignements sur un bien, nous collectons votre nom, email, numéro de téléphone, et votre message. Ces informations sont utilisées pour répondre à vos demandes et vous connecter avec des agents ou des biens pertinents."
+        },
+        "session_technical": {
+          "title": "Données de session et techniques",
+          "description": "Nous utilisons des cookies de session pour l'authentification et pour maintenir votre statut de connexion. Nous collectons également des jetons API, des jetons de mémorisation, et des jetons CSRF pour la sécurité et la fonctionnalité de la plateforme. Nous ne les utilisons pas pour le suivi ou les analyses."
+        }
+      }
+    },
+    "data_usage": {
+      "title": "Comment nous utilisons vos informations",
+      "content": "Nous utilisons les informations collectées pour :",
+      "purposes": {
+        "property_services": "Fournir, exploiter et maintenir notre site web et nos services.",
+        "communication": "Répondre à vos demandes de renseignements, questions et demandes.",
+        "legal_requirements": "Vérifier votre identité et assurer la conformité aux obligations légales.",
+        "account_management": "Gérer votre compte utilisateur et fournir un support client."
+      }
+    },
+    "user_rights": {
+      "title": "Vos droits de confidentialité",
+      "content": "Vous avez le droit de :",
+      "rights": {
+        "access": "Accès : Demander des copies de vos données personnelles.",
+        "rectification": "Rectification : Demander que nous corrigions toute information que vous croyez inexacte ou complétions les informations incomplètes.",
+        "deletion": "Effacement : Demander que nous effacions vos données personnelles, sous certaines conditions.",
+        "data_portability": "Portabilité des données : Demander que nous transférions les données que nous avons collectées à une autre organisation, ou directement à vous, sous certaines conditions."
+      }
+    },
+    "contact_us": {
+      "title": "Contactez-nous",
+      "content": "Si vous avez des questions ou des préoccupations concernant cette Politique de Confidentialité ou nos pratiques de données, veuillez nous contacter à :\n\nEmail : privacy@yakout.ma\nTéléphone : +212 5XX XXX XXX\nAdresse : Boulevard Pasteur, Tanger, Maroc, 90000"
+    },
+    "last_updated": {
+      "title": "Dernière mise à jour",
+      "content": "Cette Politique de Confidentialité a été mise à jour pour la dernière fois le 2024-07-29."
+    }
+  }
+}

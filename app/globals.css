@@ -35,7 +35,22 @@
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
     --radius: 0.5rem;
+    
+    /* RTL Direction Variables */
+    --direction: ltr;
+    --start: left;
+    --end: right;
+    --text-align: left;
   }
+  
+  /* RTL Direction Overrides */
+  [dir="rtl"] {
+    --direction: rtl;
+    --start: right;
+    --end: left;
+    --text-align: right;
+  }
+  
   .dark {
     --background: 240 10% 3.9%;
     --foreground: 0 0% 98%;
@@ -70,5 +85,119 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+  
+  /* Arabic Typography Improvements */
+  .font-arabic {
+    font-family: var(--font-noto-kufi-arabic), ui-sans-serif, system-ui, sans-serif !important;
+    font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  /* Force Arabic font on all elements when RTL is active */
+  [dir="rtl"] * {
+    font-family: var(--font-noto-kufi-arabic), ui-sans-serif, system-ui, sans-serif !important;
+  }
+  
+  /* Override specific font classes in RTL mode */
+  [dir="rtl"] .font-sans,
+  [dir="rtl"] .font-montserrat {
+    font-family: var(--font-noto-kufi-arabic), ui-sans-serif, system-ui, sans-serif !important;
+  }
+  
+  /* RTL Border Overrides - Flip left borders to right borders */
+  [dir="rtl"] .border-l-4 {
+    border-left-width: 0 !important;
+    border-right-width: 0.25rem !important;
+  }
+  
+  /* RTL Padding Overrides - Flip left padding to right padding */
+  [dir="rtl"] .pl-3 {
+    padding-left: 0 !important;
+    padding-right: 0.75rem !important;
+  }
+  
+  [dir="rtl"] .pl-0 {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  
+  /* Ensure proper line height for Arabic text */
+  [dir="rtl"] {
+    line-height: 1.6;
+  }
+  
+  /* Improve Arabic text spacing */
+  [dir="rtl"] h1, [dir="rtl"] h2, [dir="rtl"] h3, [dir="rtl"] h4, [dir="rtl"] h5, [dir="rtl"] h6 {
+    line-height: 1.4;
+    letter-spacing: -0.02em;
+  }
+  
+  /* Ensure proper line height for Arabic hero titles */
+  [dir="rtl"] .text-4xl, [dir="rtl"] .text-6xl {
+    line-height: 1.5 !important;
+  }
+  
+  /* Specific override for hero titles with Arabic text */
+  [dir="rtl"] h1.text-4xl, [dir="rtl"] h1.text-6xl {
+    line-height: 1.6 !important;
+  }
+}
+
+/* RTL-specific utilities */
+@layer utilities {
+  .rtl-flip {
+    transform: scaleX(-1);
+  }
+  
+  .rtl-rotate-180 {
+    transform: rotate(180deg);
+  }
+  
+  /* Logical positioning utilities */
+  .start-0 {
+    left: 0;
+  }
+  
+  .end-0 {
+    right: 0;
+  }
+  
+  [dir="rtl"] .start-0 {
+    right: 0;
+    left: auto;
+  }
+  
+  [dir="rtl"] .end-0 {
+    left: 0;
+    right: auto;
+  }
+}
+
+/* Comprehensive autofill override */
+@layer base {
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px white inset !important;
+    -webkit-text-fill-color: black !important;
+    background-color: white !important;
+    background-clip: content-box !important;
+    transition: background-color 5000s ease-in-out 0s !important;
+  }
+  
+  /* Additional override for RTL inputs */
+  [dir="rtl"] input:-webkit-autofill,
+  [dir="rtl"] input:-webkit-autofill:hover,
+  [dir="rtl"] input:-webkit-autofill:focus,
+  [dir="rtl"] input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px white inset !important;
+    -webkit-text-fill-color: black !important;
+    background-color: white !important;
+    background-clip: content-box !important;
+    transition: background-color 5000s ease-in-out 0s !important;
   }
 }

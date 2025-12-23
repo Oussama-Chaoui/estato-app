@@ -1,0 +1,29 @@
+{
+  "navigation": {
+    "daily_rentals": "Location Quotidienne",
+    "monthly_rentals": "Location Mensuelle",
+    "home_sales": "Vente Immobilière",
+    "home": "Accueil",
+    "blog": "Blog",
+    "join_team": "Rejoindre l'Équipe",
+    "favorites": "Favoris"
+  },
+  "brand": {
+    "name": "YAKOUT",
+    "tagline": "IMMOBILIER"
+  },
+  "contact": {
+    "title": "Contactez-nous",
+    "phone": "+1 (555) 123-4567",
+    "email": "info@yakout.com"
+  },
+  "footer": {
+    "copyright": "© 2024 YAKOUT. Tous droits réservés.",
+    "privacy": "Confidentialité",
+    "terms": "Conditions",
+    "support": "Support"
+  },
+  "mobile": {
+    "language": "Langue"
+  }
+}

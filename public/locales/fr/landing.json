@@ -1,0 +1,100 @@
+{
+  "hero": {
+    "daily_rent": {
+      "badge": "✨ Découvrez le Meilleur du Maroc",
+      "title": "Trouvez Votre",
+      "title_highlight": "Retraite Marocaine Parfaite",
+      "subtitle": "Découvrez des locations de vacances extraordinaires à travers le Maroc et vivez la magie de l'Afrique du Nord",
+      "search": {
+        "where_label": "Où",
+        "where_placeholder": "Rechercher des villes et régions marocaines",
+        "where_search_placeholder": "Rechercher des villes...",
+        "where_empty_text": "Aucune ville trouvée",
+        "when_label": "Quand",
+        "when_placeholder": "Sélectionner les dates",
+        "search_button": "Rechercher des Propriétés"
+      },
+      "stats": {
+        "properties": "Propriétés",
+        "happy_guests": "Clients Satisfaits",
+        "cities": "Villes Marocaines"
+      }
+    }
+  },
+  "categories": {
+    "title": "Explorez les Types de Propriétés",
+    "subtitle": "Découvrez le type de propriété parfait adapté à votre style de vie et à vos aspirations.",
+    "property_types": {
+      "villas": {
+        "title": "Villas",
+        "description": "Domaines privés luxueux avec des espaces expansifs et des équipements premium."
+      },
+      "apartments": {
+        "title": "Appartements",
+        "description": "Espaces de vie modernes au cœur de la ville, conçus pour la commodité."
+      },
+      "studios": {
+        "title": "Studios",
+        "description": "Espaces compacts et élégants parfaits pour la vie urbaine."
+      }
+    }
+  },
+  "features": {
+    "daily_rent": {
+      "vacation_homes": {
+        "title": "Maisons de Vacances",
+        "description": "Belles propriétés parfaites pour votre expérience d'évasion."
+      },
+      "verified_hosts": {
+        "title": "Hôtes Vérifiés",
+        "description": "Propriétaires de confiance et gestionnaires professionnels."
+      },
+      "best_rates": {
+        "title": "Meilleurs Tarifs",
+        "description": "Prix compétitifs avec un modèle de tarification transparent."
+      },
+      "support": {
+        "title": "Support 24/7",
+        "description": "Assistance dédiée tout au long de votre séjour."
+      }
+    }
+  },
+  "products_grid": {
+    "title": "Propriétés en Vedette",
+    "subtitle": "Découvrez notre sélection soigneusement choisie de propriétés exceptionnelles à travers le Maroc",
+    "view_more": "Voir Plus d'Annonces"
+  },
+  "join_us": {
+    "badge": "Rejoignez Notre Communauté",
+    "title": "Rejoignez Yakout Aujourd'hui",
+    "subtitle": "Que vous soyez un agent immobilier cherchant à étendre votre portée ou un propriétaire voulant lister votre maison, rejoignez des milliers de professionnels qui font confiance à Yakout pour leurs besoins immobiliers.",
+    "benefits": {
+      "network": {
+        "title": "Rejoignez Notre Réseau",
+        "description": "Connectez-vous avec des milliers d'acheteurs et de locataires potentiels à travers le Maroc"
+      },
+      "list_properties": {
+        "title": "Listez Vos Propriétés",
+        "description": "Présentez vos propriétés avec une photographie professionnelle et des visites virtuelles"
+      },
+      "professional_support": {
+        "title": "Support Professionnel",
+        "description": "Obtenez des conseils d'experts et des outils de marketing pour maximiser l'exposition de votre propriété"
+      },
+      "trusted_platform": {
+        "title": "Plateforme de Confiance",
+        "description": "Bénéficiez de notre réputation établie et de nos processus de transaction sécurisés"
+      }
+    },
+    "cta": {
+      "title": "Prêt à Commencer ?",
+      "subtitle": "Rejoignez notre plateforme et commencez à vous connecter avec des acheteurs, des locataires et des collègues professionnels dans le marché immobilier florissant du Maroc.",
+      "button": "Rejoindre Maintenant"
+    }
+  },
+  "mosaic": {
+    "title": "Présentez Votre Propriété de Rêve Avec",
+    "hashtag": "# VivezAvecYakout"
+  }
+}
+

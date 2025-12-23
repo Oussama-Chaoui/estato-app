@@ -1,0 +1,140 @@
+{
+  "hero": {
+    "badge": "Transformez Votre Carrière Immobilière",
+    "title": {
+      "part1": "Rejoignez la",
+      "part2": "Plateforme Immobilière Leader au Maroc"
+    },
+    "subtitle": "Que vous soyez un agent expérimenté, propriétaire d'un bien, ou passionné d'immobilier, Yakout offre les outils, le réseau et le soutien dont vous avez besoin pour réussir sur le marché immobilier dynamique du Maroc.",
+    "cta": {
+      "primary": "Commencez Votre Voyage",
+      "secondary": "En Savoir Plus"
+    },
+    "stats": {
+      "agents": "Agents Actifs",
+      "properties": "Propriétés Listées"
+    }
+  },
+  "mission": {
+    "title": "Notre Mission & Vision",
+    "subtitle": "Nous révolutionnons l'immobilier au Maroc en connectant les gens à leurs propriétés de rêve grâce à l'innovation, la confiance et un service exceptionnel.",
+    "cards": {
+      "mission": {
+        "title": "Notre Mission",
+        "description": "Démocratiser l'accès au marché immobilier marocain en fournissant une plateforme transparente, efficace et conviviale qui permet aux acheteurs et vendeurs de prendre des décisions éclairées."
+      },
+      "vision": {
+        "title": "Notre Vision",
+        "description": "Devenir la plateforme immobilière la plus fiable et innovante au Maroc, établissant de nouvelles normes pour les transactions immobilières numériques et l'expérience client."
+      },
+      "values": {
+        "title": "Nos Valeurs",
+        "description": "La transparence, l'intégrité, l'innovation et la priorité au client guident tout ce que nous faisons. Nous croyons en la construction de relations durables basées sur la confiance et le succès mutuel."
+      }
+    }
+  },
+  "benefits": {
+    "title": "Pourquoi Choisir Yakout?",
+    "subtitle": "Rejoignez des milliers de professionnels qui ont transformé leurs carrières immobilières avec notre plateforme complète et notre soutien dédié.",
+    "network": {
+      "title": "Réseau Étendu",
+      "description": "Connectez-vous avec plus de 2 000 agents vérifiés et accédez à une base de données de plus de 50 000 propriétés dans les principales villes du Maroc et les marchés émergents."
+    },
+    "platform": {
+      "title": "Plateforme Avancée",
+      "description": "Tirez parti de la technologie de pointe incluant les visites virtuelles, l'appariement alimenté par l'IA et des analyses complètes pour garder une longueur d'avance."
+    },
+    "growth": {
+      "title": "Croissance de Carrière",
+      "description": "Accédez à des programmes de formation exclusifs, des cours de certification et des opportunités de mentorat pour accélérer votre développement professionnel."
+    },
+    "support": {
+      "title": "Support 24/7",
+      "description": "Obtenez une assistance dédiée de notre équipe d'experts, incluant le support marketing, les conseils juridiques et l'aide technique quand vous en avez besoin."
+    }
+  },
+  "testimonials": {
+    "title": "Histoires de Succès",
+    "subtitle": "Entendez les professionnels de l'immobilier qui ont transformé leurs carrières avec Yakout.",
+    "items": [
+      {
+        "name": "Fatima El Mansouri",
+        "role": "Agent Immobilier Senior, Casablanca",
+        "content": "Rejoindre Yakout a été la meilleure décision que j'ai prise pour ma carrière. Les outils avancés de la plateforme et son vaste réseau m'ont aidée à augmenter mes ventes de 300% en seulement un an."
+      },
+      {
+        "name": "Ahmed Benali",
+        "role": "Promoteur Immobilier, Marrakech",
+        "content": "La plateforme complète de Yakout et son soutien professionnel ont facilité la présentation de mes propriétés de luxe aux acheteurs sérieux. La qualité des prospects est exceptionnelle."
+      },
+      {
+        "name": "Sophia Martinez",
+        "role": "Consultante Immobilière Internationale",
+        "content": "En tant qu'investisseuse étrangère, Yakout m'a fourni l'expertise locale et les perspectives de marché dont j'avais besoin pour réussir mes investissements immobiliers au Maroc."
+      }
+    ]
+  },
+  "faq": {
+    "title": "Questions Fréquemment Posées",
+    "subtitle": "Obtenez des réponses aux questions courantes sur l'adhésion à notre plateforme.",
+    "items": [
+      {
+        "question": "Combien coûte l'adhésion à Yakout?",
+        "answer": "Nous offrons des plans d'adhésion flexibles allant de l'accès gratuit de base aux abonnements premium avec des fonctionnalités avancées. Notre structure de commission est compétitive et transparente, sans frais cachés."
+      },
+      {
+        "question": "Ai-je besoin d'une licence immobilière pour rejoindre?",
+        "answer": "Bien qu'avoir une licence immobilière soit préférable pour les agents, nous accueillons les propriétaires, promoteurs et passionnés d'immobilier. Nous fournissons également des conseils pour obtenir les certifications appropriées."
+      },
+      {
+        "question": "Quelle formation et soutien fournissez-vous?",
+        "answer": "Nous offrons une intégration complète, des sessions de formation régulières, du matériel marketing, un soutien juridique et un service client 24/7. Notre équipe est dédiée à votre succès."
+      },
+      {
+        "question": "À quelle vitesse puis-je commencer à lister des propriétés?",
+        "answer": "Une fois votre candidature approuvée et votre processus d'intégration rapide terminé, vous pouvez commencer à lister des propriétés immédiatement. L'approbation prend généralement 24-48 heures."
+      }
+    ]
+  },
+  "final_cta": {
+    "badge": "Prêt à Diriger le Marché?",
+    "title": "Commencez Votre Histoire de Succès Aujourd'hui",
+    "subtitle": "Rejoignez la communauté immobilière à la croissance la plus rapide du Maroc et débloquez des opportunités illimitées sur le marché immobilier dynamique.",
+    "primary_button": "Postuler Maintenant"
+  },
+  "modal": {
+    "title": "Postuler comme Agent",
+    "subtitle": "Rejoignez notre réseau de professionnels immobiliers à succès et commencez votre voyage avec Yakout.",
+    "success": {
+      "title": "Candidature Soumise!",
+      "subtitle": "Merci pour votre intérêt à rejoindre Yakout.",
+      "thank_you": "Merci!",
+      "message": "Nous avons reçu votre candidature et l'examinerons dans les 24-48 heures. Notre équipe vous contactera avec les prochaines étapes.",
+      "auto_close": "Fermeture automatique dans {{seconds}} secondes"
+    },
+    "error": {
+      "default": "Quelque chose s'est mal passé. Veuillez réessayer.",
+      "network": "Erreur réseau. Veuillez vérifier votre connexion et réessayer."
+    },
+    "form": {
+      "name": {
+        "label": "Nom Complet",
+        "placeholder": "Entrez votre nom complet",
+        "error": "Le nom complet est requis"
+      },
+      "email": {
+        "label": "Adresse E-mail",
+        "placeholder": "Entrez votre adresse e-mail",
+        "error": "Veuillez entrer une adresse e-mail valide"
+      },
+      "phone": {
+        "label": "Numéro de Téléphone",
+        "placeholder": "Entrez votre numéro de téléphone",
+        "error": "Le numéro de téléphone est requis"
+      },
+      "submit": "Soumettre la Candidature",
+      "submitting": "Soumission...",
+      "privacy_notice": "En soumettant ce formulaire, vous acceptez notre politique de confidentialité et nos conditions de service."
+    }
+  }
+}

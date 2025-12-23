@@ -3,16 +3,26 @@ import useItems, { defaultOptions, UseItems, UseItemsOptions } from "@/common/ho
 import { Location } from "../../defs/types";
 
 export interface CreateOneInput {
-  region: string;
-  city: string;
-  laltitude: number;
+  cityId: number;
+  streetAddress: {
+    en?: string;
+    fr: string;
+    es?: string;
+    ar: string;
+  };
+  latitude: number;
   longitude: number;
 }
 
 export interface UpdateOneInput {
-  region: string;
-  city: string;
-  laltitude: number;
+  cityId: number;
+  streetAddress: {
+    en?: string;
+    fr: string;
+    es?: string;
+    ar: string;
+  };
+  latitude: number;
   longitude: number;
 }
 

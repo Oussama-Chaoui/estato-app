@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Button } from "../../../ui/button";
 import { Poppins } from "next/font/google";
 import { cn } from "@/components/lib/utils/twMerge";
+import { motion } from "framer-motion";
 
 const links = [
   { href: "/", label: "Home" },
@@ -12,18 +13,36 @@ const links = [
 
 const poppins = Poppins({ subsets: ['latin'], weight: ["400", "500", "600", "700"] });
 
-
 const Navigation = () => {
   return (
-    <div className="md:flex items-center xl:gap-8 lg:gap-2 hidden ">
+    <nav className="flex items-center space-x-1">
       {links.map(({ href, label }, index) => (
-        <Link href={href} key={index}>
-          <Button className={cn(poppins.className, "text-black font-medium text-base")} variant={"link"}>
-            {label}
-          </Button>
-        </Link>
+        <motion.div
+          key={index}
+          whileHover={{ y: -2 }}
+          whileTap={{ y: 0 }}
+          transition={{ duration: 0.2 }}
+        >
+          <Link href={href}>
+            <Button 
+              className={cn(
+                poppins.className, 
+                "relative text-gray-700 font-medium text-sm px-4 py-2 h-auto bg-transparent hover:bg-gray-50/50 hover:text-primary-600 transition-all duration-200 rounded-lg"
+              )} 
+              variant="ghost"
+            >
+              {label}
+              <motion.div
+                className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary-500 rounded-full"
+                initial={{ scaleX: 0 }}
+                whileHover={{ scaleX: 1 }}
+                transition={{ duration: 0.2 }}
+              />
+            </Button>
+          </Link>
+        </motion.div>
       ))}
-    </div>
+    </nav>
   );
 };
 

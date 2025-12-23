@@ -1,0 +1,100 @@
+{
+  "hero": {
+    "badge": "Plataforma Inmobiliaria Premium",
+    "title": "Redefiniendo Sector Inmobiliario Marroquí",
+    "subtitle": "Tenemos la misión de convertirnos en la plataforma inmobiliaria más confiable e innovadora de Marruecos, ofreciendo acceso sin igual a propiedades premium con excelencia de servicio incomparable.",
+    "moroccan": "Marroquí",
+    "real_estate": "Inmobiliario"
+  },
+  "vision": {
+    "title": "Nuestra Visión",
+    "subtitle": "Revolucionar el panorama inmobiliario marroquí creando la plataforma más completa, confiable e innovadora que conecta a clientes exigentes con propiedades excepcionales.",
+    "points": {
+      "excellence": {
+        "title": "Excelencia en Todo",
+        "description": "Estableciendo el estándar de oro para bienes raíces de lujo en Marruecos"
+      },
+      "trust": {
+        "title": "Confianza y Seguridad",
+        "description": "Construyendo relaciones duraderas a través de la transparencia y confiabilidad"
+      },
+      "service": {
+        "title": "Servicio Excepcional",
+        "description": "Entregando una experiencia de cliente incomparable en cada punto de contacto"
+      },
+      "leadership": {
+        "title": "Aspiración a la Excelencia",
+        "description": "Trabajando para convertirnos en la plataforma inmobiliaria líder en Marruecos"
+      }
+    }
+  },
+  "values": {
+    "title": "Los Valores en los que Creemos",
+    "subtitle": "Los principios que guían cada decisión, cada interacción y cada propiedad que representamos.",
+    "points": {
+      "passion": {
+        "title": "Pasión",
+        "description": "Estamos impulsados por el amor a las propiedades excepcionales y el servicio sobresaliente"
+      },
+      "community": {
+        "title": "Comunidad",
+        "description": "Construyendo puentes entre sueños y realidad, una propiedad a la vez"
+      },
+      "excellence": {
+        "title": "Excelencia",
+        "description": "Comprometidos a entregar nada menos que resultados extraordinarios"
+      },
+      "innovation": {
+        "title": "Innovación",
+        "description": "Abrazando tecnología de vanguardia para revolucionar los bienes raíces"
+      }
+    }
+  },
+  "services": {
+    "title": "Soluciones Integrales",
+    "subtitle": "Desde ventas de lujo hasta alquileres flexibles, ofrecemos soluciones inmobiliarias completas adaptadas a cada necesidad y aspiración.",
+    "points": {
+      "sales": {
+        "title": "Ventas de Lujo",
+        "description": "Propiedades premium que definen el lujo en Marruecos",
+        "stats": "Propiedades Premium"
+      },
+      "rentals": {
+        "title": "Soluciones de Alquiler",
+        "description": "Opciones de alquiler flexibles desde estancias diarias hasta a largo plazo",
+        "stats": "Opciones Flexibles"
+      },
+      "global": {
+        "title": "Alcance Global",
+        "description": "Conectando clientes internacionales con bienes raíces marroquíes",
+        "stats": "Alcance Global"
+      }
+    }
+  },
+  "cta": {
+    "title": "¿Listo para Encontrar tu Propiedad Soñada?",
+    "subtitle": "Únete a miles de clientes satisfechos que han descubierto su propiedad perfecta a través de nuestra plataforma. Experimenta la diferencia que hace un servicio premium.",
+    "button": "Explorar Propiedades",
+    "badge": "¿Listo para Comenzar tu Viaje?",
+    "dream_property": "Propiedad Soñada?",
+    "contact_us": "Contáctanos",
+    "trust_indicators": {
+      "secure_platform": "Plataforma Segura",
+      "premium_quality": "Calidad Premium",
+      "expert_support": "Soporte Experto"
+    }
+  },
+  "ui": {
+    "watch_story": "Ver Historia",
+    "learn_more": "Saber Más",
+    "explore_properties": "Explorar Propiedades",
+    "transforming_dreams": "Transformando Sueños",
+    "into_reality": "En Realidad",
+    "luxury_real_estate": "Bienes Raíces de Lujo",
+    "property_story": "Cada propiedad cuenta una historia de ambición, lujo y posibilidades infinitas.",
+    "vision_badge": "Lo Que Defendemos",
+    "values_badge": "Nuestros Valores",
+    "services_badge": "Nuestros Servicios",
+    "solutions": "Soluciones"
+  }
+}

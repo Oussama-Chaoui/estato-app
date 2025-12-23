@@ -1,0 +1,55 @@
+{
+  "meta": {
+    "title": "Terms of Service - Yakout",
+    "description": "Read our Terms of Service to understand the rules and guidelines for using Yakout's real estate platform."
+  },
+  "hero": {
+    "title": "Terms of Service",
+      "subtitle": "Please read these terms carefully before using our platform. By accessing or using Yakout, you agree to be bound by these terms."
+  },
+  "sidebar": {
+    "title": "Table of Contents"
+  },
+  "sections": {
+    "acceptance": {
+      "title": "Acceptance of Terms",
+      "content": "Welcome to Yakout. By accessing or using our website, you agree to be bound by these Terms of Service and all applicable laws and regulations. If you do not agree with any of these terms, you are prohibited from using or accessing this site. These terms apply to all visitors and users of the platform."
+    },
+    "platform": {
+      "title": "About Our Platform",
+      "content": "Yakout is a real estate platform that allows you to browse property listings, view property details, and contact agents for inquiries. You may use this platform for personal, non-commercial purposes to search for properties in Morocco.\n\nProperty listings, descriptions, photos, prices, and availability are provided by property owners and licensed real estate agents. While we strive to ensure accuracy, Yakout does not guarantee the completeness, accuracy, or reliability of any property information. All details are subject to change without notice and should be verified directly with the listing agent or property owner.\n\nYou agree to use our platform responsibly and in compliance with all applicable laws."
+    },
+    "inquiries_bookings": {
+      "title": "Inquiries & Bookings",
+      "content": "When you submit an inquiry about a property, we collect your contact information to connect you with the relevant agent. By submitting an inquiry, you consent to being contacted by agents regarding your inquiry and authorize Yakout and its partner agents to reach out to you about real estate services. You agree to provide accurate information.\n\nIf you proceed with booking or renting a property, you are entering into a direct agreement with the property owner or their agent. Yakout acts solely as an intermediary. Any agreements, payments, rental fees, or security deposits are determined and collected by the property owner or agent, not by Yakout. We are not a party to these transactions and assume no responsibility for the terms, fulfillment, or outcome of any agreements.\n\nWe recommend that you personally inspect any property and verify all details before committing to a rental or purchase."
+    },
+    "prohibited_conduct": {
+      "title": "Prohibited Conduct",
+      "content": "The following activities are strictly prohibited when using our platform:",
+      "prohibitions": {
+        "scraping": "Automated data scraping, crawling, or copying of property listings or website content.",
+        "fraud": "Submitting false inquiries or providing fraudulent contact information.",
+        "harassment": "Harassing or sending abusive messages to agents or property owners.",
+        "spam": "Using our inquiry system to send spam, advertising, or unsolicited commercial messages.",
+        "illegal": "Using the platform for any illegal purpose or in violation of any law.",
+        "interference": "Attempting to interfere with or disrupt the functionality or security of our platform."
+      }
+    },
+    "intellectual_property": {
+      "title": "Intellectual Property & Content",
+      "content": "All content on the Yakout platform, including text, graphics, logos, images, software, and design, is the property of Yakout or its licensors and is protected by intellectual property laws. You may not copy, reproduce, distribute, or create derivative works from our content without explicit written permission.\n\nProperty listings and photos are provided by property owners and agents and remain their property. Our platform may contain links to third-party websites or display content provided by property owners, agents, and other third parties. Yakout is not responsible for the accuracy, legality, or content of any third-party materials."
+    },
+    "liability": {
+      "title": "Disclaimer & Liability",
+      "content": "Yakout provides this platform on an \"as is\" and \"as available\" basis. We make no warranties, express or implied, regarding the platform's operation, the accuracy of property listings, or the conduct of agents and property owners.\n\nTo the fullest extent permitted by law, Yakout shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from your use of the platform, including but not limited to damages for loss of profits, data, or other intangible losses. We are not responsible for the actions, representations, or conduct of agents, property owners, or other users. Your use of the platform is at your own risk.\n\nYour privacy is important to us. Please review our Privacy Policy to understand how we collect and use your information."
+    },
+    "legal": {
+      "title": "Legal & Dispute Resolution",
+      "content": "Any disputes arising from these terms or your use of the platform shall be resolved in accordance with the laws of Morocco. Any legal proceedings shall be conducted in Tangier, Morocco. If any provision of these terms is found to be unenforceable, the remaining provisions shall remain in full force and effect.\n\nWe reserve the right to modify these Terms of Service at any time. If we make material changes, we will notify users by posting a notice on our platform prior to the changes taking effect. Your continued use of the platform after any changes constitutes your acceptance of the new terms."
+    },
+    "contact": {
+      "title": "Contact Us",
+      "content": "If you have any questions, concerns, or feedback about these Terms of Service, please contact us at:\n\nEmail: legal@yakout.ma\nPhone: +212 5XX XXX XXX\nAddress: Boulevard Pasteur, Tangier, Morocco, 90000\n\nLast updated: July 29, 2024"
+    }
+  }
+}

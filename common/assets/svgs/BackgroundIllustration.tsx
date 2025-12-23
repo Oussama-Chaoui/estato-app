@@ -1,10 +1,8 @@
 import { memo } from 'react';
-import { useTheme } from '@mui/material/styles';
 
 const BackgroundIllustration = () => {
-  const theme = useTheme();
-
-  const PRIMARY_MAIN = theme.palette.primary.main;
+  // Using Tailwind primary colors
+  const PRIMARY_MAIN = '#21807D'; // primary-500
 
   return (
     <>

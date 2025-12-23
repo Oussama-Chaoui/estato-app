@@ -1,0 +1,29 @@
+{
+  "navigation": {
+    "daily_rentals": "Daily Rentals",
+    "monthly_rentals": "Monthly Rentals",
+    "home_sales": "Home Sales",
+    "home": "Home",
+    "blog": "Blog",
+    "join_team": "Join the Team",
+    "favorites": "Favorites"
+  },
+  "brand": {
+    "name": "YAKOUT",
+    "tagline": "IMMOBILIER"
+  },
+  "contact": {
+    "title": "Contact Us",
+    "phone": "+1 (555) 123-4567",
+    "email": "info@yakout.com"
+  },
+  "footer": {
+    "copyright": "© 2024 YAKOUT. All rights reserved.",
+    "privacy": "Privacy",
+    "terms": "Terms",
+    "support": "Support"
+  },
+  "mobile": {
+    "language": "Language"
+  }
+}

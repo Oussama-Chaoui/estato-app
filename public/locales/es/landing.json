@@ -1,0 +1,100 @@
+{
+  "hero": {
+    "daily_rent": {
+      "badge": "✨ Descubre lo Mejor de Marruecos",
+      "title": "Encuentra Tu",
+      "title_highlight": "Retiro Marroquí Perfecto",
+      "subtitle": "Descubre alojamientos de vacaciones extraordinarios en todo Marruecos y experimenta la magia del norte de África",
+      "search": {
+        "where_label": "Dónde",
+        "where_placeholder": "Buscar ciudades y regiones marroquíes",
+        "where_search_placeholder": "Buscar ciudades...",
+        "where_empty_text": "No se encontraron ciudades",
+        "when_label": "Cuándo",
+        "when_placeholder": "Seleccionar fechas",
+        "search_button": "Buscar Propiedades"
+      },
+      "stats": {
+        "properties": "Propiedades",
+        "happy_guests": "Huéspedes Felices",
+        "cities": "Ciudades Marroquíes"
+      }
+    }
+  },
+  "categories": {
+    "title": "Explora los Tipos de Propiedades",
+    "subtitle": "Descubre el tipo de propiedad perfecto adaptado a tu estilo de vida y aspiraciones.",
+    "property_types": {
+      "villas": {
+        "title": "Villas",
+        "description": "Fincas privadas lujosas con espacios expansivos y amenidades premium."
+      },
+      "apartments": {
+        "title": "Apartamentos",
+        "description": "Espacios de vida modernos en el corazón de la ciudad, diseñados para la conveniencia."
+      },
+      "studios": {
+        "title": "Estudios",
+        "description": "Espacios compactos y elegantes perfectos para la vida urbana."
+      }
+    }
+  },
+  "features": {
+    "daily_rent": {
+      "vacation_homes": {
+        "title": "Casas de Vacaciones",
+        "description": "Hermosas propiedades perfectas para tu experiencia de escapada."
+      },
+      "verified_hosts": {
+        "title": "Anfitriones Verificados",
+        "description": "Propietarios de confianza y gerentes profesionales."
+      },
+      "best_rates": {
+        "title": "Mejores Tarifas",
+        "description": "Precios competitivos con un modelo de precios transparente."
+      },
+      "support": {
+        "title": "Soporte 24/7",
+        "description": "Asistencia dedicada durante toda tu estadía."
+      }
+    }
+  },
+  "products_grid": {
+    "title": "Propiedades Destacadas",
+    "subtitle": "Descubre nuestra selección cuidadosamente elegida de propiedades excepcionales en todo Marruecos",
+    "view_more": "Ver Más Listados"
+  },
+  "join_us": {
+    "badge": "Únete a Nuestra Comunidad",
+    "title": "Únete a Yakout Hoy",
+    "subtitle": "Ya seas un agente inmobiliario buscando expandir tu alcance o un propietario que quiere listar su casa, únete a miles de profesionales que confían en Yakout para sus necesidades inmobiliarias.",
+    "benefits": {
+      "network": {
+        "title": "Únete a Nuestra Red",
+        "description": "Conéctate con miles de compradores y inquilinos potenciales en todo Marruecos"
+      },
+      "list_properties": {
+        "title": "Lista Tus Propiedades",
+        "description": "Muestra tus propiedades con fotografía profesional y tours virtuales"
+      },
+      "professional_support": {
+        "title": "Soporte Profesional",
+        "description": "Obtén orientación experta y herramientas de marketing para maximizar la exposición de tu propiedad"
+      },
+      "trusted_platform": {
+        "title": "Plataforma de Confianza",
+        "description": "Benefíciate de nuestra reputación establecida y procesos de transacción seguros"
+      }
+    },
+    "cta": {
+      "title": "¿Listo para Comenzar?",
+      "subtitle": "Únete a nuestra plataforma y comienza a conectar con compradores, inquilinos y colegas profesionales en el próspero mercado inmobiliario de Marruecos.",
+      "button": "Únete Ahora"
+    }
+  },
+  "mosaic": {
+    "title": "Muestra Tu Propiedad de Ensueño Con",
+    "hashtag": "# ViveConYakout"
+  }
+}
+

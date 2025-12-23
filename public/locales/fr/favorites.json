@@ -1,0 +1,12 @@
+{
+  "title": "Favoris",
+  "subtitle": "Propriétés que vous avez aimées",
+  "no_favorites": {
+    "title": "Aucun favori pour le moment",
+    "description": "Commencez à explorer notre collection premium et aimez les propriétés qui vous plaisent",
+    "browse_button": "Parcourir les propriétés"
+  },
+  "property": {
+  
+  }
+}

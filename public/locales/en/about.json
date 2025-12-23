@@ -1,0 +1,100 @@
+{
+  "hero": {
+    "badge": "Premium Real Estate Platform",
+    "title": "Redefining Moroccan Real Estate",
+    "subtitle": "We're on a mission to become the most trusted and innovative real estate platform in Morocco, offering unparalleled access to premium properties with unmatched service excellence.",
+    "moroccan": "Moroccan",
+    "real_estate": "Real Estate"
+  },
+  "vision": {
+    "title": "Our Vision",
+    "subtitle": "To revolutionize the Moroccan real estate landscape by creating the most comprehensive, trusted, and innovative platform that connects discerning clients with exceptional properties.",
+    "points": {
+      "excellence": {
+        "title": "Excellence in Everything",
+        "description": "Setting the gold standard for luxury real estate in Morocco"
+      },
+      "trust": {
+        "title": "Trust & Security",
+        "description": "Building lasting relationships through transparency and reliability"
+      },
+      "service": {
+        "title": "Exceptional Service",
+        "description": "Delivering unmatched customer experience at every touchpoint"
+      },
+      "leadership": {
+        "title": "Striving for Excellence",
+        "description": "Working towards becoming the leading real estate platform in Morocco"
+      }
+    }
+  },
+  "values": {
+    "title": "The Values We Believe In",
+    "subtitle": "The principles that guide every decision, every interaction, and every property we represent.",
+    "points": {
+      "passion": {
+        "title": "Passion",
+        "description": "We're driven by the love for exceptional properties and outstanding service"
+      },
+      "community": {
+        "title": "Community",
+        "description": "Building bridges between dreams and reality, one property at a time"
+      },
+      "excellence": {
+        "title": "Excellence",
+        "description": "Committed to delivering nothing less than extraordinary results"
+      },
+      "innovation": {
+        "title": "Innovation",
+        "description": "Embracing cutting-edge technology to revolutionize real estate"
+      }
+    }
+  },
+  "services": {
+    "title": "Comprehensive Solutions",
+    "subtitle": "From luxury sales to flexible rentals, we offer complete real estate solutions tailored to every need and aspiration.",
+    "points": {
+      "sales": {
+        "title": "Luxury Sales",
+        "description": "Premium properties that define luxury living in Morocco",
+        "stats": "Premium Properties"
+      },
+      "rentals": {
+        "title": "Rental Solutions",
+        "description": "Flexible rental options from daily to long-term stays",
+        "stats": "Flexible Options"
+      },
+      "global": {
+        "title": "Global Reach",
+        "description": "Connecting international clients with Moroccan real estate",
+        "stats": "Global Reach"
+      }
+    }
+  },
+  "cta": {
+    "title": "Ready to Find Your Dream Property?",
+    "subtitle": "Join thousands of satisfied clients who have discovered their perfect property through our platform. Experience the difference that premium service makes.",
+    "button": "Explore Properties",
+    "badge": "Ready to Begin Your Journey?",
+    "dream_property": "Dream Property?",
+    "contact_us": "Contact Us",
+    "trust_indicators": {
+      "secure_platform": "Secure Platform",
+      "premium_quality": "Premium Quality",
+      "expert_support": "Expert Support"
+    }
+  },
+  "ui": {
+    "watch_story": "Watch Story",
+    "learn_more": "Learn More",
+    "explore_properties": "Explore Properties",
+    "transforming_dreams": "Transforming Dreams",
+    "into_reality": "Into Reality",
+    "luxury_real_estate": "Luxury Real Estate",
+    "property_story": "Every property tells a story of ambition, luxury, and endless possibilities.",
+    "vision_badge": "What We Stand For",
+    "values_badge": "Our Values",
+    "services_badge": "Our Services",
+    "solutions": "Solutions"
+  }
+}

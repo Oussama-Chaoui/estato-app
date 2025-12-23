@@ -1,0 +1,83 @@
+{
+  "hero": {
+    "badge": "Get in Touch",
+    "title": "Contact Us Today",
+    "subtitle": "Ready to find your dream property? Our expert team is here to help you every step of the way. Reach out to us and let's make your real estate dreams come true."
+  },
+  "info": {
+    "title": "How to Reach Us",
+    "subtitle": "Multiple ways to connect with our team",
+    "address": {
+      "title": "Visit Our Office",
+      "details": "Located in the heart of the city\nBoulevard Pasteur\nTangier, Morocco\n90000"
+    },
+    "phone": {
+      "title": "Call Us",
+      "details": "Speak directly with our expert team\n+212 5XX XXX XXX\nor\n+212 5XX XXX XXX"
+    },
+    "email": {
+      "title": "Email Us",
+      "details": "Send us your inquiries and we'll respond promptly\ninfo@yakout.ma\nsupport@yakout.ma\nsales@yakout.ma"
+    },
+    "hours": {
+      "title": "Business Hours",
+      "details": "Monday - Friday: 9:00 AM - 6:00 PM\nSaturday: 9:00 AM - 2:00 PM\nSunday: Closed"
+    }
+  },
+  "form": {
+    "title": "Send us a Message",
+    "subtitle": "Fill out the form below and we'll get back to you within 24 hours",
+    "fields": {
+      "name": "Full Name",
+      "email": "Email Address",
+      "phone": "Phone Number",
+      "subject": "Subject",
+      "message": "Message",
+      "property_type": "Property Type"
+    },
+    "placeholders": {
+      "name": "Enter your full name",
+      "email": "Enter your email address",
+      "phone": "Enter your phone number",
+      "subject": "What can we help you with?",
+      "message": "Tell us about your requirements...",
+      "property_type": "Select property type"
+    },
+    "property_types": {
+      "apartment": "Apartment",
+      "villa": "Villa",
+      "office": "Office",
+      "commercial": "Commercial",
+      "land": "Land",
+      "other": "Other"
+    },
+    "submit": "Send Message",
+    "submitting": "Sending...",
+    "success_message": "Thank you! Your message has been sent successfully.",
+    "error_message": "Sorry, there was an error sending your message. Please try again.",
+    "validation": {
+      "name_required": "Name is required",
+      "name_min": "Name must be at least 2 characters",
+      "email_required": "Email is required",
+      "email_invalid": "Please enter a valid email address",
+      "phone_invalid": "Please enter a valid phone number",
+      "subject_required": "Subject is required",
+      "subject_min": "Subject must be at least 5 characters",
+      "message_required": "Message is required",
+      "message_min": "Message must be at least 10 characters"
+    }
+  },
+  "map": {
+    "title": "Find Us Here",
+    "subtitle": "Visit our office in Tangier"
+  },
+  "social": {
+    "title": "Follow Us",
+    "subtitle": "Stay connected with us on social media"
+  },
+  "quick_contact": {
+    "title": "Need Immediate Help?",
+    "subtitle": "For urgent inquiries, call us directly",
+    "call_now": "Call Now"
+  }
+}

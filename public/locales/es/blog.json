@@ -1,0 +1,48 @@
+{
+  "hero": {
+    "title": "Consejos Inmobiliarios",
+    "subtitle": "Descubre consejos de expertos, tendencias del mercado y trucos exclusivos para el mercado inmobiliario marroquí",
+    "search_placeholder": "Buscar artículos..."
+  },
+  "filters": {
+    "title": "Filtrar por Categoría",
+    "all_articles": "Todos los Artículos",
+    "clear_filters": "Limpiar filtros"
+  },
+  "posts": {
+    "no_articles_found": "No se encontraron artículos",
+    "no_articles_description": "Intenta ajustar tus términos de búsqueda o filtros",
+    "no_articles_available": "No hay artículos disponibles aún",
+    "no_articles_available_description": "Estamos trabajando en crear contenido increíble para ti. ¡Vuelve pronto!",
+    "read_more": "Leer Más",
+    "min_read": "min de lectura",
+    "unknown_author": "Autor Desconocido",
+    "published_at": "Publicado el",
+    "author": "Autor",
+    "read_time": "Tiempo de lectura"
+  },
+  "article": {
+    "back_to_blog": "Volver al Blog",
+    "share_article": "Compartir Artículo",
+    "reading_time": "Tiempo de lectura",
+    "published_on": "Publicado el",
+    "written_by": "Escrito por",
+    "related_articles": "Artículos Relacionados",
+    "tags": "Etiquetas",
+    "categories": "Categorías",
+    "share_on": "Compartir en",
+    "copy_link": "Copiar Enlace",
+    "link_copied": "¡Enlace copiado al portapapeles!",
+    "not_found": {
+      "title": "Artículo No Encontrado",
+      "description": "El artículo que buscas no existe o ha sido eliminado.",
+      "back_button": "Volver al Blog"
+    }
+  },
+  "pagination": {
+    "previous": "Anterior",
+    "next": "Siguiente",
+    "page": "Página",
+    "of": "de"
+  }
+}

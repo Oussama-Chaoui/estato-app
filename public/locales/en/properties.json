@@ -1,0 +1,190 @@
+{
+  "listing": {
+    "title": "Properties listing",
+    "empty_state": {
+      "title": "No Properties Found",
+      "description": "We couldn't find any properties matching your criteria. Try adjusting your filters or search terms.",
+      "clear_filters": "Clear Filters"
+    }
+  },
+  "filters": {
+    "location": {
+      "placeholder": "Location",
+      "search_placeholder": "Search cities...",
+      "empty_text": "No cities found",
+      "anywhere": "Anywhere"
+    },
+    "dates": {
+      "placeholder": "Select dates",
+      "available_from": "Available from"
+    },
+    "property_type": {
+      "placeholder": "Property Type",
+      "search_placeholder": "Search property types...",
+      "empty_text": "No types found",
+      "any_type": "Any type",
+      "house": "House",
+      "apartment": "Apartment",
+      "villa": "Villa",
+      "studio": "Studio",
+      "mansion": "Mansion",
+      "land": "Land",
+      "commercial": "Commercial",
+      "office": "Office",
+      "garage": "Garage"
+    },
+    "furnishing_status": {
+      "title": "Furnishing Status",
+      "furnished": "Furnished",
+      "semi_furnished": "Semi-furnished",
+      "unfurnished": "Unfurnished"
+    },
+    "price_range": {
+      "title": "Price Range",
+      "per_night": "(per night)",
+      "per_month": "(per month)",
+      "total": "(total)",
+      "min": "Min:",
+      "max": "Max:",
+      "currency": "MAD"
+    },
+    "area_range": {
+      "title": "Area Range (m²)",
+      "min": "Min:",
+      "max": "Max:",
+      "unit": "m²"
+    },
+    "bedrooms": {
+      "title": "Bedrooms"
+    },
+    "bathrooms": {
+      "title": "Bathrooms"
+    },
+    "garages": {
+      "title": "Garages"
+    },
+    "floors": {
+      "title": "Floors"
+    },
+    "amenities": {
+      "title": "Popular Amenities"
+    },
+    "advanced": {
+      "show_more": "Show more filters",
+      "hide": "Hide filters"
+    },
+    "search": {
+      "button": "Search Properties"
+    }
+  },
+  "property_item": {
+    "view_details": "View Details",
+    "photos": "photo",
+    "photos_plural": "photos",
+    "no_photos": "No photos",
+    "share": "Share",
+    "like": "Like",
+    "sold": "SOLD"
+  },
+  
+  "showcase": {
+    "loading": {
+      "title": "Loading Property Details",
+      "description": "Please wait while we gather the information"
+    },
+    "not_found": {
+      "title": "Property Not Found",
+      "description": "We couldn't find the property you're looking for. It may have been removed or the URL is incorrect.",
+      "browse_button": "Browse Available Properties"
+    },
+    "features": {
+      "bedrooms": "Bedrooms",
+      "bathrooms": "Bathrooms",
+      "garages": "Garages",
+      "built": "Built"
+    },
+    "availability": {
+      "title": "Availability",
+      "select_stay": "Select Your Stay",
+      "choose_dates": "Choose your preferred dates",
+      "date_placeholder": "Choose check-in & check-out dates",
+      "calendar": {
+        "available_all_day": "Available all day",
+        "timezone_info": "All times shown in {timezone} (GMT{offset})",
+        "to": "to",
+        "days": {
+          "sun": "Sun",
+          "mon": "Mon",
+          "tue": "Tue",
+          "wed": "Wed",
+          "thu": "Thu",
+          "fri": "Fri",
+          "sat": "Sat"
+        },
+        "months": {
+          "january": "January",
+          "february": "February",
+          "march": "March",
+          "april": "April",
+          "may": "May",
+          "june": "June",
+          "july": "July",
+          "august": "August",
+          "september": "September",
+          "october": "October",
+          "november": "November",
+          "december": "December"
+        }
+      }
+    },
+    "price_history": {
+      "title": "Price History"
+    },
+    "virtual_tour": {
+      "explore": "Explore 3D Virtual Tour"
+    },
+    "map": {
+      "not_available": "Location map not available"
+    },
+    "contact": {
+      "nightly_rate": "Nightly Rate",
+      "monthly_rate": "Monthly Rate",
+      "sale_price": "Sale Price",
+      "price_breakdown": "Price Breakdown",
+      "stay_details": "Your stay details",
+      "nights": "nights",
+      "daily_rate": "Daily rate",
+      "total": "Total",
+      "includes_fees": "Includes all fees and taxes",
+      "book_now": "Book Now",
+      "years_experience": "years experience",
+      "contact_agent": "Contact",
+      "speaks": "Speaks",
+      "your_name": "Your Name",
+      "your_email": "Your Email",
+      "message": "Message",
+      "send_to": "Send to",
+      "or": "Or",
+      "call_directly": "Call Directly",
+      "schedule_tour": "Schedule Tour"
+    },
+            "hero": {
+          "image": "Property image",
+          "close": "Close",
+          "previous": "Previous",
+          "next": "Next",
+          "slide_counter": "slide counter",
+          "loading_images": "Loading images..."
+        },
+    "booking_modal": {
+      "title": "Book This Property",
+      "subtitle": "Contact our agent to secure your booking",
+      "years_experience": "years experience",
+      "speaks": "Speaks",
+      "contact_information": "Contact Information",
+      "phone_number": "Phone Number",
+      "show_number": "Show Number",
+      "hide": "Hide"
+    }
+  }
+}
