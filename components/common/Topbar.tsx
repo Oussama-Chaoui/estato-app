@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import { Button } from "../ui/button";
 import { Poppins } from "next/font/google";
 import { cn } from "../lib/utils/twMerge";
-import { Heart, MenuIcon, Phone, Mail, BookOpen, Check } from "lucide-react";
+import { Heart, MenuIcon, Phone, Mail, BookOpen, Check, Home, Calendar, CalendarRange, Building, Handshake } from "lucide-react";
 import Image from "next/image";
 import Routes from "@/common/defs/routes";
 import PropertyRoutes from "@/modules/properties/defs/routes";
@@ -111,24 +111,31 @@ const Topbar = ({ focus = WEBSITE_FOCUS.DAILY_RENT }: TopbarProps) => {
     count: null,
   };
 
+  const getIconForRoute = (href: string) => {
+    if (href === "/") return Home;
+    if (href.includes(PropertyRoutes.DailyRent.ReadAll)) return Calendar;
+    if (href.includes(PropertyRoutes.MonthlyRent.ReadAll)) return CalendarRange;
+    if (href.includes(PropertyRoutes.HomeSale.ReadAll)) return Building;
+    if (href === Routes.Posts.ReadAll) return BookOpen;
+    if (href === "/join-us") return Handshake;
+    return Home;
+  };
+
   const mobileMenuLinks = [
-    { href: "/", label: t('topbar:navigation.home'), icon: "🏠" },
-    ...navigationLinks.map(({ href, label }) => ({ href, label, icon: "📋" })),
-    { href: Routes.Posts.ReadAll, label: t('topbar:navigation.blog'), icon: "📝" },
-    { href: "/join-us", label: t('topbar:navigation.join_team'), icon: "🤝" },
+    { href: "/", label: t('topbar:navigation.home'), icon: Home },
+    ...navigationLinks.map(({ href, label }) => ({ href, label, icon: getIconForRoute(href) })),
+    { href: Routes.Posts.ReadAll, label: t('topbar:navigation.blog'), icon: BookOpen },
+    { href: "/join-us", label: t('topbar:navigation.join_team'), icon: Handshake },
     // { href: "/profile", label: "Profile", icon: "👤" },
   ];
 
   const Logo = () => (
     <div className="flex items-center gap-3">
-      <div className="md:block hidden">
+      <div className="block">
         <SVG name="logo" />
       </div>
-      <div className="block md:hidden">
-        <SVG name="logo" height={28} width={35} />
-      </div>
-      <div className="hidden sm:block">
-        <h1 className={cn("text-xl xl:text-xl lg:text-lg font-bold text-gray-900", getFontClass(poppins.className))}>
+      <div>
+        <h1 className={cn("text-lg sm:text-xl xl:text-xl lg:text-lg font-bold text-gray-900", getFontClass(poppins.className))}>
           YAKOUT
         </h1>
         <p className="text-xs lg:text-xs xl:text-xs text-gray-500 font-medium tracking-wider">IMMOBILIER</p>
@@ -286,7 +293,7 @@ const Topbar = ({ focus = WEBSITE_FOCUS.DAILY_RENT }: TopbarProps) => {
 
           <nav className="flex-1 overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-transparent hover:scrollbar-thumb-gray-400 pr-2">
             <div className="space-y-2 pb-4">
-              {mobileMenuLinks.map(({ href, label, icon }, index) => (
+              {mobileMenuLinks.map(({ href, label, icon: Icon }, index) => (
                 <div key={index} className="animate-in slide-in-from-right-2 duration-300" style={{ animationDelay: `${index * 100}ms` }}>
                   <Link href={href}>
                     <Button
@@ -296,7 +303,7 @@ const Topbar = ({ focus = WEBSITE_FOCUS.DAILY_RENT }: TopbarProps) => {
                       )}
                       variant="ghost"
                     >
-                      <span className="text-lg mr-3">{icon}</span>
+                      {Icon && <Icon className="w-5 h-5 mr-3 text-gray-600 group-hover:text-primary-600" />}
                       {label}
                       <div className="ml-auto opacity-0 group-hover:opacity-100 transition-opacity duration-200">
                         {isRTL ? '←' : '→'}
