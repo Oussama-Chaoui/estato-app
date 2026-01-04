@@ -57,7 +57,7 @@ const JoinUs = () => {
               {t('join_us.badge')}
             </div>
           </motion.div>
-          
+
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -70,7 +70,7 @@ const JoinUs = () => {
           >
             {t('join_us.title')}
           </motion.h2>
-          
+
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -137,21 +137,20 @@ const JoinUs = () => {
             </p>
           </div>
 
-                     <div className="flex justify-center">
-             <Button
-               onClick={() => {
-                 console.log('Join Now button clicked');
-               }}
-               className="bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 text-white px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 active:scale-95 font-medium flex items-center gap-2"
-             >
-               {t('join_us.cta.button')}
-               {isRTL ? (
-                 <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" />
-               ) : (
-                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-               )}
-             </Button>
-           </div>
+          <div className="flex justify-center">
+            <Button
+              onClick={() => {
+              }}
+              className="bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 text-white px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 active:scale-95 font-medium flex items-center gap-2"
+            >
+              {t('join_us.cta.button')}
+              {isRTL ? (
+                <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" />
+              ) : (
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+              )}
+            </Button>
+          </div>
         </motion.div>
       </div>
     </section>

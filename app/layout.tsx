@@ -3,9 +3,16 @@ import { Montserrat, Noto_Kufi_Arabic } from "next/font/google";
 import "./globals.css";
 import { AppProviders } from "@/common/providers/AppProviders";
 import LayoutContent from "./LayoutContent";
-import { DEFAULT_DESCRIPTION, DEFAULT_OG_IMAGE, DEFAULT_TWITTER_IMAGE, SEO_BRAND, SITE_NAME } from "@/common/seo/config";
-import { SUPPORTED_LOCALES } from "@/common/seo/config";
-import { getBaseUrl } from "@/common/seo/config";
+import {
+  DEFAULT_DESCRIPTION,
+  DEFAULT_OG_IMAGE,
+  DEFAULT_TWITTER_IMAGE,
+  SEO_BRAND,
+  SITE_NAME,
+  SUPPORTED_LOCALES,
+  getBaseUrl,
+} from "@/common/seo/config";
+import FaviconSwitcher from "@/components/common/FaviconSwitcher";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -24,6 +31,15 @@ export const metadata: Metadata = {
     default: SITE_NAME,
   },
   description: DEFAULT_DESCRIPTION,
+
+  icons: {
+    icon: [
+      { url: "/favicon-dark.ico", media: "(prefers-color-scheme: light)" },
+      { url: "/favicon-light.ico", media: "(prefers-color-scheme: dark)" },
+      { url: "/favicon-dark.ico" },
+    ],
+  },
+
   robots: {
     index: true,
     follow: true,
@@ -66,14 +82,11 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html className={`${montserrat.variable} ${notoKufiArabic.variable}`}>
       <body className="antialiased">
+        <FaviconSwitcher />
         <AppProviders>
           <LayoutContent>{children}</LayoutContent>
         </AppProviders>

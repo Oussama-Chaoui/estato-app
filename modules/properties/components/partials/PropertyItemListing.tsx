@@ -68,16 +68,12 @@ const PropertyItemListing = ({ property, websiteFocus }: PropertyItemProps) => {
       try {
         await navigator.share(shareData);
       } catch (error) {
-        console.log('Error sharing:', error);
       }
     } else {
       // Fallback: copy to clipboard
       try {
         await navigator.clipboard.writeText(propertyUrl);
-        // You could show a toast notification here
-        console.log('Property link copied to clipboard');
       } catch (error) {
-        console.log('Error copying to clipboard:', error);
       }
     }
   };

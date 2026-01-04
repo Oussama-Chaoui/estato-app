@@ -5,7 +5,7 @@ import Link from "next/link";
 import { Button } from "../../ui/button";
 import { Input } from "../../ui/input";
 import { motion } from "framer-motion";
-import { Instagram, Facebook, Linkedin, MapPin } from "lucide-react";
+import { Instagram, Facebook, Linkedin, MapPin, Phone } from "lucide-react";
 import { useTranslation } from "next-i18next";
 import { useRTLFont } from "@/common/utils/rtl";
 import { useDirection } from "@/common/contexts/DirectionContext";
@@ -93,20 +93,44 @@ const Footer = () => {
             <p className="text-gray-600 text-xs leading-relaxed max-w-xs">
               {t('brand.description')}
             </p>
-            <div className="flex items-center gap-2 text-gray-500">
-              <MapPin className="w-3 h-3 text-primary-500" />
+            <div className="flex items-start gap-2 text-gray-500">
+              <MapPin className="w-3 h-3 text-primary-500 mt-0.5 flex-shrink-0" />
               <p className="text-xs">{t('brand.address')}</p>
             </div>
+            <div className="flex items-center gap-2 text-gray-500">
+              <Phone className="w-3 h-3 text-primary-500 flex-shrink-0" />
+              <a href={`tel:${t('brand.phone')}`} className="text-xs hover:text-primary-600 transition">
+                {t('brand.phone')}
+              </a>
+            </div>
             <div className="flex gap-3 mt-3">
-              <motion.button whileHover={{ y: -2 }} className="p-1.5 rounded-full bg-primary-100 hover:bg-primary-200 transition">
+              <motion.a
+                href="https://www.instagram.com/yakout.immobilier/"
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ y: -2 }}
+                className="p-1.5 rounded-full bg-primary-100 hover:bg-primary-200 transition"
+              >
                 <Instagram className="w-4 h-4 text-primary-500" />
-              </motion.button>
-              <motion.button whileHover={{ y: -2 }} className="p-1.5 rounded-full bg-primary-100 hover:bg-primary-200 transition">
+              </motion.a>
+              <motion.a
+                href="https://www.facebook.com/AlYakoutImmobilier"
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ y: -2 }}
+                className="p-1.5 rounded-full bg-primary-100 hover:bg-primary-200 transition"
+              >
                 <Facebook className="w-4 h-4 text-primary-500" />
-              </motion.button>
-              <motion.button whileHover={{ y: -2 }} className="p-1.5 rounded-full bg-primary-100 hover:bg-primary-200 transition">
+              </motion.a>
+              <motion.a
+                href="https://www.linkedin.com/company/yakout-real-estate/"
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ y: -2 }}
+                className="p-1.5 rounded-full bg-primary-100 hover:bg-primary-200 transition"
+              >
                 <Linkedin className="w-4 h-4 text-primary-500" />
-              </motion.button>
+              </motion.a>
             </div>
           </div>
 

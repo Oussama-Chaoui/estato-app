@@ -55,21 +55,21 @@ const LogoLoading = () => {
             {/* Glow effect */}
             <div className="absolute -inset-4 bg-gradient-to-r from-primary-400 via-primary-500 to-primary-600 rounded-full opacity-20 blur-xl animate-pulse"></div>
 
-                         {/* Rotating rings with logo in center */}
-             <div className="relative flex items-center justify-center">
-               <div className="w-32 h-32 border-2 border-primary-400/30 rounded-full animate-spin-slow"></div>
-               <div className="absolute w-40 h-40 border border-primary-300/20 rounded-full animate-spin-reverse"></div>
-               
-               {/* Logo in the center */}
-               <div className="absolute w-24 h-24 flex items-center justify-center">
-                 <img 
-                   src="/logo.png" 
-                   alt="logo" 
-                   className="w-24 h-24 object-contain"
-                   style={{ transition: 'none' }}
-                 />
-               </div>
-             </div>
+            {/* Rotating rings with logo in center */}
+            <div className="relative flex items-center justify-center">
+              <div className="w-32 h-32 border-2 border-primary-400/30 rounded-full animate-spin-slow"></div>
+              <div className="absolute w-40 h-40 border border-primary-300/20 rounded-full animate-spin-reverse"></div>
+
+              {/* Logo in the center */}
+              <div className="absolute w-24 h-24 flex items-center justify-center">
+                <img
+                  src="/logo-light.png"
+                  alt="logo"
+                  className="w-20 h-20 object-contain"
+                  style={{ transition: 'none' }}
+                />
+              </div>
+            </div>
           </div>
 
           {/* Enhanced loading dots */}

@@ -27,7 +27,6 @@ import {
   Instagram,
   Facebook,
   Linkedin,
-  Twitter,
   User
 } from "lucide-react";
 import Footer from "@/components/common/layout/footer";
@@ -176,10 +175,9 @@ const ContactClient = () => {
   ];
 
   const socialLinks = [
-    { icon: <Facebook className="w-5 h-5" />, href: "#", label: "Facebook" },
-    { icon: <Instagram className="w-5 h-5" />, href: "#", label: "Instagram" },
-    { icon: <Linkedin className="w-5 h-5" />, href: "#", label: "LinkedIn" },
-    { icon: <Twitter className="w-5 h-5" />, href: "#", label: "Twitter" }
+    { icon: <Facebook className="w-5 h-5" />, href: "https://www.facebook.com/AlYakoutImmobilier", label: "Facebook" },
+    { icon: <Instagram className="w-5 h-5" />, href: "https://www.instagram.com/yakout.immobilier/", label: "Instagram" },
+    { icon: <Linkedin className="w-5 h-5" />, href: "https://www.linkedin.com/company/yakout-real-estate/", label: "LinkedIn" }
   ];
 
 
@@ -481,7 +479,7 @@ const ContactClient = () => {
               <div className="bg-white rounded-3xl flex-1 shadow-xl min-h-[320px] overflow-hidden">
                 <div className="h-full">
                   <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3213.1234567890!2d-5.8096!3d35.7595!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sBoulevard%20Pasteur%2C%20Tangier%2C%20Morocco!5e0!3m2!1sen!2sma!4v1234567890123!5m2!1sen!2sma"
+                    src="https://www.google.com/maps?q=Al+Yakout+Immobiliere,+Av.+Ibn+Rochd,+Martil+93150,+Morocco&output=embed"
                     width="100%"
                     height="100%"
                     style={{ border: 0 }}
@@ -504,13 +502,17 @@ const ContactClient = () => {
                       key={index}
                       whileHover={{ scale: 1.05, y: -2 }}
                       whileTap={{ scale: 0.95 }}
+                      className={index === socialLinks.length - 1 && socialLinks.length % 2 !== 0 ? "col-span-2 flex justify-center" : ""}
                     >
                       <Button
                         variant="outline"
                         asChild
-                        className="flex items-center justify-center gap-3 p-4 rounded-xl bg-gradient-to-r from-gray-50 to-gray-100 hover:from-primary-50 hover:to-primary-100 transition-all duration-300 border border-gray-200 h-auto w-full min-h-[60px]"
+                        className={cn(
+                          "flex items-center justify-center gap-3 p-4 rounded-xl bg-gradient-to-r from-gray-50 to-gray-100 hover:from-primary-50 hover:to-primary-100 transition-all duration-300 border border-gray-200 h-auto w-full min-h-[60px]",
+                          index === socialLinks.length - 1 && socialLinks.length % 2 !== 0 ? "max-w-md mx-auto" : ""
+                        )}
                       >
-                        <a href={social.href} className="flex items-center gap-3 w-full justify-center">
+                        <a href={social.href} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 w-full justify-center">
                           <div className="w-10 h-10 bg-primary-100 rounded-xl flex items-center justify-center text-primary-600 flex-shrink-0">
                             {social.icon}
                           </div>

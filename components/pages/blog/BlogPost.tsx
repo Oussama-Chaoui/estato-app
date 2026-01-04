@@ -49,8 +49,8 @@ const BlogPost = ({ initialPost }: BlogPostProps) => {
           text: post?.excerpt || '',
           url: window.location.href,
         });
-      } catch (error) {
-        console.log('Error sharing:', error);
+      } catch {
+        // User cancelled share or share failed silently
       }
     } else {
       // Fallback: copy to clipboard
@@ -58,8 +58,8 @@ const BlogPost = ({ initialPost }: BlogPostProps) => {
         await navigator.clipboard.writeText(window.location.href);
         // You could show a toast notification here
         alert(t('blog:article.link_copied'));
-      } catch (error) {
-        console.log('Error copying to clipboard:', error);
+      } catch {
+        // Clipboard copy failed silently
       }
     }
   };
@@ -80,7 +80,6 @@ const BlogPost = ({ initialPost }: BlogPostProps) => {
       setError(null);
 
       const response = await readOneBySlug(slug);
-      console.log('Blog post response:', response);
 
       if (response.success && response.data?.item) {
         setPost(response.data.item);

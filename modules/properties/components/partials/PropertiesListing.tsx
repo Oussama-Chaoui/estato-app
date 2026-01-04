@@ -46,8 +46,6 @@ const PropertiesListing = ({ websiteFocus, initialData }: PropertiesListingProps
 
   useEffect(() => {
     if (initialData) {
-      // Skip initial fetch; already hydrated from server
-      console.log('initialData with filter', initialData);
       return;
     }
     const urlLocation = searchParams.get('location');
