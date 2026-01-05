@@ -46,7 +46,8 @@
       "total": "(الإجمالي)",
       "min": "الحد الأدنى:",
       "max": "الحد الأقصى:",
-      "currency": "MAD"
+      "currency": "MAD",
+      "no_limit": "بدون حدود"
     },
     "area_range": {
       "title": "نطاق المساحة (م²)",

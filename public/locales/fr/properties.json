@@ -46,7 +46,8 @@
       "total": "(total)",
       "min": "Min:",
       "max": "Max:",
-      "currency": "MAD"
+      "currency": "MAD",
+      "no_limit": "Pas de limite"
     },
     "area_range": {
       "title": "Fourchette de Surface (m²)",

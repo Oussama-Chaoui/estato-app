@@ -46,7 +46,8 @@
       "total": "(total)",
       "min": "Mín:",
       "max": "Máx:",
-      "currency": "MAD"
+      "currency": "MAD",
+      "no_limit": "Sin límite"
     },
     "area_range": {
       "title": "Rango de Área (m²)",
