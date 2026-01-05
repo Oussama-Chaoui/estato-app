@@ -53,7 +53,8 @@
       "title": "Rango de Área (m²)",
       "min": "Mín:",
       "max": "Máx:",
-      "unit": "m²"
+      "unit": "m²",
+      "no_limit": "Sin límite"
     },
     "bedrooms": {
       "title": "Habitaciones"

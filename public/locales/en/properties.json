@@ -53,7 +53,8 @@
       "title": "Area Range (m²)",
       "min": "Min:",
       "max": "Max:",
-      "unit": "m²"
+      "unit": "m²",
+      "no_limit": "No limit"
     },
     "bedrooms": {
       "title": "Bedrooms"

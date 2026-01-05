@@ -1,5 +1,5 @@
 import React, { useState, useMemo, forwardRef, useImperativeHandle, useEffect, useRef } from "react";
-import { Search, MapPin, Calendar, ChevronDown, ChevronUp, Home, Bed, Bath, Star, Wallet, Sofa, ChevronsUpDown, Eraser } from "lucide-react";
+import { Search, MapPin, Calendar, ChevronDown, ChevronUp, Home, Bed, Bath, Star, Wallet, Sofa, ChevronsUpDown, Eraser, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { DatePicker } from "@/components/ui/date-picker";
 import { Combobox, ComboboxOption } from "@/components/ui/combobox";
@@ -76,6 +76,15 @@ const MonthlyPropertiesFilter = forwardRef<any, MonthlyPropertiesFilterProps>(({
   const [selectedAmenities, setSelectedAmenities] = useState<string[]>([]);
   const [showAdvancedFilters, setShowAdvancedFilters] = useState(false);
 
+  // Track applied (committed) values for secondary filters
+  // These are the values that were actually sent via onSearch
+  const [appliedMinPrice, setAppliedMinPrice] = useState(0);
+  const [appliedMaxPrice, setAppliedMaxPrice] = useState<number | null>(null);
+  const [appliedIsMaxPriceActive, setAppliedIsMaxPriceActive] = useState(false);
+  const [appliedBedrooms, setAppliedBedrooms] = useState<number | undefined>(undefined);
+  const [appliedBathrooms, setAppliedBathrooms] = useState<number | undefined>(undefined);
+  const [appliedAmenities, setAppliedAmenities] = useState<string[]>([]);
+
   const { items: locations } = useLocations({ fetchItems: true, pageSize: 'all' });
   const { items: amenities } = useAmenities({ fetchItems: true, pageSize: 8 });
   const filterRef = useRef<HTMLDivElement>(null);
@@ -83,24 +92,22 @@ const MonthlyPropertiesFilter = forwardRef<any, MonthlyPropertiesFilterProps>(({
 
   const activeFiltersCount = useMemo(() => {
     let count = 0;
-    // Main filters (always applied immediately)
+    // Primary filters (always applied immediately, use current UI state)
     if (location) count++;
     if (availableFrom) count++;
     if (propertyType) count++;
+    if (furnishingStatus) count++; // furnishingStatus is also applied immediately via auto-trigger
 
-    // Advanced filters (only counted when not in advanced panel)
-    if (!showAdvancedFilters) {
-      if (furnishingStatus) count++;
-      if (minPrice > 0) count++;
-      if (isMaxPriceActive && maxPrice !== null) count++;
-      if (bedrooms !== undefined) count++;
-      if (bathrooms !== undefined) count++;
-      // Count each selected amenity as a separate filter
-      count += selectedAmenities.length;
-    }
+    // Secondary filters (only count applied/committed values, not current UI state)
+    if (appliedMinPrice > 0) count++;
+    if (appliedIsMaxPriceActive && appliedMaxPrice !== null) count++;
+    if (appliedBedrooms !== undefined) count++;
+    if (appliedBathrooms !== undefined) count++;
+    // Count each applied amenity as a separate filter
+    count += appliedAmenities.length;
 
     return count;
-  }, [location, availableFrom, propertyType, furnishingStatus, minPrice, isMaxPriceActive, maxPrice, bedrooms, bathrooms, selectedAmenities, websiteFocus, showAdvancedFilters]);
+  }, [location, availableFrom, propertyType, furnishingStatus, appliedMinPrice, appliedIsMaxPriceActive, appliedMaxPrice, appliedBedrooms, appliedBathrooms, appliedAmenities]);
 
   // Handle click outside to close advanced filters
   useEffect(() => {
@@ -201,6 +208,15 @@ const MonthlyPropertiesFilter = forwardRef<any, MonthlyPropertiesFilterProps>(({
       amenities: selectedAmenities.length > 0 ? selectedAmenities : undefined,
       websiteFocus: websiteFocus,
     });
+    
+    // Update applied (committed) values for secondary filters
+    setAppliedMinPrice(minPrice);
+    setAppliedMaxPrice(maxPrice);
+    setAppliedIsMaxPriceActive(isMaxPriceActive);
+    setAppliedBedrooms(bedrooms);
+    setAppliedBathrooms(bathrooms);
+    setAppliedAmenities([...selectedAmenities]);
+    
     // Close the advanced filters panel after search
     setShowAdvancedFilters(false);
   };
@@ -230,7 +246,7 @@ const MonthlyPropertiesFilter = forwardRef<any, MonthlyPropertiesFilterProps>(({
       }, 200);
     }
 
-    // Clear all filters
+    // Clear all filters (both UI state and applied state)
     setLocation("");
     setAvailableFrom(undefined);
     setPropertyType("");
@@ -242,6 +258,14 @@ const MonthlyPropertiesFilter = forwardRef<any, MonthlyPropertiesFilterProps>(({
     setBathrooms(undefined);
     setSelectedAmenities([]);
     setShowAdvancedFilters(false);
+    
+    // Clear applied state
+    setAppliedMinPrice(0);
+    setAppliedMaxPrice(null);
+    setAppliedIsMaxPriceActive(false);
+    setAppliedBedrooms(undefined);
+    setAppliedBathrooms(undefined);
+    setAppliedAmenities([]);
 
     // Update URL to remove query parameters
     const url = new URL(window.location.href);
@@ -418,29 +442,43 @@ const MonthlyPropertiesFilter = forwardRef<any, MonthlyPropertiesFilterProps>(({
                   </Label>
                   <div className="grid grid-cols-2 gap-3">
                     {/* Min Price Input */}
-                    <div className="flex items-center gap-2 px-3 py-2.5 border border-gray-200 rounded-xl bg-white hover:border-primary-500 transition-colors h-12">
+                    <div className="flex items-center gap-2 px-3 py-2.5 border border-gray-200 rounded-xl bg-white hover:border-primary-500 transition-colors h-12 relative">
                       <span className="text-xs font-medium text-gray-600">{t('filters.price_range.min')}</span>
-                      <Input
-                        type="number"
-                        placeholder="0"
-                        value={minPrice}
-                        onChange={(e) => {
-                          const newMinPrice = parseInt(e.target.value) || 0;
-                          setMinPrice(newMinPrice);
-                          // Auto-adjust max price if it becomes less than min price
-                          if (isMaxPriceActive && maxPrice !== null && maxPrice < newMinPrice) {
-                            setMaxPrice(newMinPrice);
-                          }
-                        }}
-                        onFocus={(e) => e.target.select()}
-                        className="flex-1 bg-transparent border-none shadow-none h-auto p-0 text-xs focus:ring-0 focus:border-none rounded-none"
-                      />
+                      <div className="flex-1 relative">
+                        <Input
+                          type="number"
+                          placeholder="0"
+                          value={minPrice}
+                          onChange={(e) => {
+                            const newMinPrice = parseInt(e.target.value) || 0;
+                            setMinPrice(newMinPrice);
+                            // Auto-adjust max price if it becomes less than min price
+                            if (isMaxPriceActive && maxPrice !== null && maxPrice < newMinPrice) {
+                              setMaxPrice(newMinPrice);
+                            }
+                          }}
+                          onFocus={(e) => e.target.select()}
+                          className="w-full bg-transparent border-none shadow-none h-auto p-0 text-xs focus:ring-0 focus:border-none rounded-none pr-8 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none [-moz-appearance:textfield]"
+                        />
+                        {minPrice > 0 && (
+                          <button
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              setMinPrice(0);
+                            }}
+                            className="absolute right-0 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 transition-colors p-1"
+                            type="button"
+                          >
+                            <X className="w-3 h-3" />
+                          </button>
+                        )}
+                      </div>
                       <span className="text-xs font-medium text-gray-500">{t('filters.price_range.currency')}</span>
                     </div>
 
                     {/* Max Price Input */}
                     <div 
-                      className={`flex items-center gap-2 px-3 py-2.5 border rounded-xl transition-all h-12 cursor-pointer ${
+                      className={`flex items-center gap-2 px-3 py-2.5 border rounded-xl transition-all h-12 cursor-pointer relative ${
                         isMaxPriceActive 
                           ? 'border-gray-200 bg-white hover:border-primary-500' 
                           : 'border-gray-200 bg-gray-50 hover:bg-gray-100'
@@ -459,27 +497,43 @@ const MonthlyPropertiesFilter = forwardRef<any, MonthlyPropertiesFilterProps>(({
                         {t('filters.price_range.max')}
                       </span>
                       {isMaxPriceActive ? (
-                        <Input
-                          type="number"
-                          placeholder={getPriceRange()[1].toString()}
-                          value={maxPrice || ''}
-                          onChange={(e) => {
-                            const newMaxPrice = parseInt(e.target.value);
-                            if (newMaxPrice && newMaxPrice >= minPrice) {
-                              setMaxPrice(newMaxPrice);
-                            } else if (!e.target.value) {
-                              setMaxPrice(null);
-                            }
-                          }}
-                          onFocus={(e) => e.target.select()}
-                          onBlur={(e) => {
-                            if (!e.target.value || parseInt(e.target.value) < minPrice) {
-                              setMaxPrice(null);
-                              setIsMaxPriceActive(false);
-                            }
-                          }}
-                          className="flex-1 bg-transparent border-none shadow-none h-auto p-0 text-xs focus:ring-0 focus:border-none rounded-none"
-                        />
+                        <div className="flex-1 relative">
+                          <Input
+                            type="number"
+                            placeholder={getPriceRange()[1].toString()}
+                            value={maxPrice || ''}
+                            onChange={(e) => {
+                              const newMaxPrice = parseInt(e.target.value);
+                              if (newMaxPrice && newMaxPrice >= minPrice) {
+                                setMaxPrice(newMaxPrice);
+                              } else if (!e.target.value) {
+                                setMaxPrice(null);
+                              }
+                            }}
+                            onFocus={(e) => e.target.select()}
+                            onBlur={(e) => {
+                              if (!e.target.value || parseInt(e.target.value) < minPrice) {
+                                setMaxPrice(null);
+                                setIsMaxPriceActive(false);
+                              }
+                            }}
+                            onClick={(e) => e.stopPropagation()}
+                            className="w-full bg-transparent border-none shadow-none h-auto p-0 text-xs focus:ring-0 focus:border-none rounded-none pr-8 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none [-moz-appearance:textfield]"
+                          />
+                          {maxPrice !== null && (
+                            <button
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                setMaxPrice(null);
+                                setIsMaxPriceActive(false);
+                              }}
+                              className="absolute right-0 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 transition-colors p-1 z-10"
+                              type="button"
+                            >
+                              <X className="w-3 h-3" />
+                            </button>
+                          )}
+                        </div>
                       ) : (
                         <span className="flex-1 text-xs text-gray-400">
                           {t('filters.price_range.no_limit')}

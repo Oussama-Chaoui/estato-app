@@ -1,5 +1,5 @@
 import React, { useState, useMemo, forwardRef, useImperativeHandle, useEffect, useRef } from "react";
-import { Search, MapPin, ChevronDown, ChevronUp, Home, Bed, Bath, Star, Wallet, Car, Building2, Eye, Eraser } from "lucide-react";
+import { Search, MapPin, ChevronDown, ChevronUp, Home, Bed, Bath, Star, Wallet, Car, Building2, Eye, Eraser, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Combobox, ComboboxOption } from "@/components/ui/combobox";
 import { Checkbox } from "@/components/ui/checkbox";
@@ -67,13 +67,29 @@ const SalePropertiesFilter = forwardRef<any, SalePropertiesFilterProps>(({
   const [minPrice, setMinPrice] = useState(0);
   const [maxPrice, setMaxPrice] = useState<number | null>(null);
   const [isMaxPriceActive, setIsMaxPriceActive] = useState(false);
-  const [areaRange, setAreaRange] = useState([initialMinArea || 0, initialMaxArea || 1000]);
+  const [minArea, setMinArea] = useState(initialMinArea || 0);
+  const [maxArea, setMaxArea] = useState<number | null>(initialMaxArea || null);
+  const [isMaxAreaActive, setIsMaxAreaActive] = useState(!!initialMaxArea);
   const [bedrooms, setBedrooms] = useState<number>();
   const [bathrooms, setBathrooms] = useState<number>();
   const [garages, setGarages] = useState<number>();
   const [floors, setFloors] = useState<number>();
   const [selectedAmenities, setSelectedAmenities] = useState<string[]>([]);
   const [showAdvancedFilters, setShowAdvancedFilters] = useState(false);
+
+  // Track applied (committed) values for secondary filters
+  // These are the values that were actually sent via onSearch
+  const [appliedMinPrice, setAppliedMinPrice] = useState(0);
+  const [appliedMaxPrice, setAppliedMaxPrice] = useState<number | null>(null);
+  const [appliedIsMaxPriceActive, setAppliedIsMaxPriceActive] = useState(false);
+  const [appliedMinArea, setAppliedMinArea] = useState(0);
+  const [appliedMaxArea, setAppliedMaxArea] = useState<number | null>(null);
+  const [appliedIsMaxAreaActive, setAppliedIsMaxAreaActive] = useState(false);
+  const [appliedBedrooms, setAppliedBedrooms] = useState<number | undefined>(undefined);
+  const [appliedBathrooms, setAppliedBathrooms] = useState<number | undefined>(undefined);
+  const [appliedGarages, setAppliedGarages] = useState<number | undefined>(undefined);
+  const [appliedFloors, setAppliedFloors] = useState<number | undefined>(undefined);
+  const [appliedAmenities, setAppliedAmenities] = useState<string[]>([]);
 
   const { items: locations } = useLocations({ fetchItems: true, pageSize: 'all' });
   const { items: amenities } = useAmenities({ fetchItems: true, pageSize: 8 });
@@ -82,26 +98,24 @@ const SalePropertiesFilter = forwardRef<any, SalePropertiesFilterProps>(({
 
   const activeFiltersCount = useMemo(() => {
     let count = 0;
-    // Main filters (always applied immediately)
+    // Primary filters (always applied immediately, use current UI state)
     if (location) count++;
     if (propertyType) count++;
 
-    // Advanced filters (only counted when not in advanced panel)
-    if (!showAdvancedFilters) {
-      if (minPrice > 0) count++;
-      if (isMaxPriceActive && maxPrice !== null) count++;
-      const maxArea = 1000;
-      if (areaRange[0] > 0 || areaRange[1] < maxArea) count++;
-      if (bedrooms !== undefined) count++;
-      if (bathrooms !== undefined) count++;
-      if (garages !== undefined) count++;
-      if (floors !== undefined) count++;
-      // Count each selected amenity as a separate filter
-      count += selectedAmenities.length;
-    }
+    // Secondary filters (only count applied/committed values, not current UI state)
+    if (appliedMinPrice > 0) count++;
+    if (appliedIsMaxPriceActive && appliedMaxPrice !== null) count++;
+    if (appliedMinArea > 0) count++;
+    if (appliedIsMaxAreaActive && appliedMaxArea !== null) count++;
+    if (appliedBedrooms !== undefined) count++;
+    if (appliedBathrooms !== undefined) count++;
+    if (appliedGarages !== undefined) count++;
+    if (appliedFloors !== undefined) count++;
+    // Count each applied amenity as a separate filter
+    count += appliedAmenities.length;
 
     return count;
-  }, [location, propertyType, minPrice, isMaxPriceActive, maxPrice, areaRange, bedrooms, bathrooms, garages, floors, selectedAmenities, websiteFocus, showAdvancedFilters]);
+  }, [location, propertyType, appliedMinPrice, appliedIsMaxPriceActive, appliedMaxPrice, appliedMinArea, appliedIsMaxAreaActive, appliedMaxArea, appliedBedrooms, appliedBathrooms, appliedGarages, appliedFloors, appliedAmenities]);
 
   // Handle click outside to close advanced filters
   useEffect(() => {
@@ -129,19 +143,34 @@ const SalePropertiesFilter = forwardRef<any, SalePropertiesFilterProps>(({
       }, 200);
     }
 
-    // Clear all filters
+    // Clear all filters (both UI state and applied state)
     setLocation("");
     setPropertyType("");
     setMinPrice(0);
     setMaxPrice(null);
     setIsMaxPriceActive(false);
-    setAreaRange([0, 1000]);
+    setMinArea(0);
+    setMaxArea(null);
+    setIsMaxAreaActive(false);
     setBedrooms(undefined);
     setBathrooms(undefined);
     setGarages(undefined);
     setFloors(undefined);
     setSelectedAmenities([]);
     setShowAdvancedFilters(false);
+    
+    // Clear applied state
+    setAppliedMinPrice(0);
+    setAppliedMaxPrice(null);
+    setAppliedIsMaxPriceActive(false);
+    setAppliedMinArea(0);
+    setAppliedMaxArea(null);
+    setAppliedIsMaxAreaActive(false);
+    setAppliedBedrooms(undefined);
+    setAppliedBathrooms(undefined);
+    setAppliedGarages(undefined);
+    setAppliedFloors(undefined);
+    setAppliedAmenities([]);
 
     // Update URL to remove query parameters
     const url = new URL(window.location.href);
@@ -187,8 +216,8 @@ const SalePropertiesFilter = forwardRef<any, SalePropertiesFilterProps>(({
       propertyType: propertyType || undefined,
       minPrice: minPrice > 0 ? minPrice : undefined,
       maxPrice: isMaxPriceActive && maxPrice !== null ? maxPrice : undefined,
-      minArea: areaRange[0] > 0 ? areaRange[0] : undefined,
-      maxArea: areaRange[1] > 0 ? areaRange[1] : undefined,
+      minArea: minArea > 0 ? minArea : undefined,
+      maxArea: isMaxAreaActive && maxArea !== null ? maxArea : undefined,
       bedrooms: bedrooms || undefined,
       bathrooms: bathrooms || undefined,
       garages: garages || undefined,
@@ -196,6 +225,20 @@ const SalePropertiesFilter = forwardRef<any, SalePropertiesFilterProps>(({
       amenities: selectedAmenities.length > 0 ? selectedAmenities : undefined,
       websiteFocus: websiteFocus,
     });
+    
+    // Update applied (committed) values for secondary filters
+    setAppliedMinPrice(minPrice);
+    setAppliedMaxPrice(maxPrice);
+    setAppliedIsMaxPriceActive(isMaxPriceActive);
+    setAppliedMinArea(minArea);
+    setAppliedMaxArea(maxArea);
+    setAppliedIsMaxAreaActive(isMaxAreaActive);
+    setAppliedBedrooms(bedrooms);
+    setAppliedBathrooms(bathrooms);
+    setAppliedGarages(garages);
+    setAppliedFloors(floors);
+    setAppliedAmenities([...selectedAmenities]);
+    
     // Close the advanced filters panel after search
     setShowAdvancedFilters(false);
   };
@@ -229,8 +272,7 @@ const SalePropertiesFilter = forwardRef<any, SalePropertiesFilterProps>(({
     if (minPrice > 0 || (isMaxPriceActive && maxPrice !== null)) {
       labels.push(t('filters.price_range.title'));
     }
-    const maxArea = 1000;
-    if (areaRange[0] > 0 || areaRange[1] < maxArea) {
+    if (minArea > 0 || (isMaxAreaActive && maxArea !== null)) {
       labels.push(t('filters.area_range.title'));
     }
     if (bedrooms !== undefined) {
@@ -252,7 +294,7 @@ const SalePropertiesFilter = forwardRef<any, SalePropertiesFilterProps>(({
       }
     });
     return labels;
-  }, [location, propertyType, minPrice, isMaxPriceActive, maxPrice, areaRange, bedrooms, bathrooms, garages, floors, selectedAmenities, locationOptions, PROPERTY_TYPES, amenityOptions, t, websiteFocus]);
+  }, [location, propertyType, minPrice, isMaxPriceActive, maxPrice, minArea, isMaxAreaActive, maxArea, bedrooms, bathrooms, garages, floors, selectedAmenities, locationOptions, PROPERTY_TYPES, amenityOptions, t, websiteFocus]);
 
   return (
     <div className="w-full px-3 space-y-0">
@@ -387,29 +429,43 @@ const SalePropertiesFilter = forwardRef<any, SalePropertiesFilterProps>(({
                   </Label>
                   <div className="grid grid-cols-2 gap-3">
                     {/* Min Price Input */}
-                    <div className="flex items-center gap-2 px-3 py-2.5 border border-gray-200 rounded-xl bg-white hover:border-primary-500 transition-colors h-12">
+                    <div className="flex items-center gap-2 px-3 py-2.5 border border-gray-200 rounded-xl bg-white hover:border-primary-500 transition-colors h-12 relative">
                       <span className="text-xs font-medium text-gray-600">{t('filters.price_range.min')}</span>
-                      <Input
-                        type="number"
-                        placeholder="0"
-                        value={minPrice}
-                        onChange={(e) => {
-                          const newMinPrice = parseInt(e.target.value) || 0;
-                          setMinPrice(newMinPrice);
-                          // Auto-adjust max price if it becomes less than min price
-                          if (isMaxPriceActive && maxPrice !== null && maxPrice < newMinPrice) {
-                            setMaxPrice(newMinPrice);
-                          }
-                        }}
-                        onFocus={(e) => e.target.select()}
-                        className="flex-1 bg-transparent border-none shadow-none h-auto p-0 text-xs focus:ring-0 focus:border-none rounded-none"
-                      />
+                      <div className="flex-1 relative">
+                        <Input
+                          type="number"
+                          placeholder="0"
+                          value={minPrice}
+                          onChange={(e) => {
+                            const newMinPrice = parseInt(e.target.value) || 0;
+                            setMinPrice(newMinPrice);
+                            // Auto-adjust max price if it becomes less than min price
+                            if (isMaxPriceActive && maxPrice !== null && maxPrice < newMinPrice) {
+                              setMaxPrice(newMinPrice);
+                            }
+                          }}
+                          onFocus={(e) => e.target.select()}
+                          className="w-full bg-transparent border-none shadow-none h-auto p-0 text-xs focus:ring-0 focus:border-none rounded-none pr-8 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none [-moz-appearance:textfield]"
+                        />
+                        {minPrice > 0 && (
+                          <button
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              setMinPrice(0);
+                            }}
+                            className="absolute right-0 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 transition-colors p-1"
+                            type="button"
+                          >
+                            <X className="w-3 h-3" />
+                          </button>
+                        )}
+                      </div>
                       <span className="text-xs font-medium text-gray-500">{t('filters.price_range.currency')}</span>
                     </div>
 
                     {/* Max Price Input */}
                     <div 
-                      className={`flex items-center gap-2 px-3 py-2.5 border rounded-xl transition-all h-12 cursor-pointer ${
+                      className={`flex items-center gap-2 px-3 py-2.5 border rounded-xl transition-all h-12 cursor-pointer relative ${
                         isMaxPriceActive 
                           ? 'border-gray-200 bg-white hover:border-primary-500' 
                           : 'border-gray-200 bg-gray-50 hover:bg-gray-100'
@@ -428,27 +484,43 @@ const SalePropertiesFilter = forwardRef<any, SalePropertiesFilterProps>(({
                         {t('filters.price_range.max')}
                       </span>
                       {isMaxPriceActive ? (
-                        <Input
-                          type="number"
-                          placeholder={getPriceRange()[1].toString()}
-                          value={maxPrice || ''}
-                          onChange={(e) => {
-                            const newMaxPrice = parseInt(e.target.value);
-                            if (newMaxPrice && newMaxPrice >= minPrice) {
-                              setMaxPrice(newMaxPrice);
-                            } else if (!e.target.value) {
-                              setMaxPrice(null);
-                            }
-                          }}
-                          onFocus={(e) => e.target.select()}
-                          onBlur={(e) => {
-                            if (!e.target.value || parseInt(e.target.value) < minPrice) {
-                              setMaxPrice(null);
-                              setIsMaxPriceActive(false);
-                            }
-                          }}
-                          className="flex-1 bg-transparent border-none shadow-none h-auto p-0 text-xs focus:ring-0 focus:border-none rounded-none"
-                        />
+                        <div className="flex-1 relative">
+                          <Input
+                            type="number"
+                            placeholder={getPriceRange()[1].toString()}
+                            value={maxPrice || ''}
+                            onChange={(e) => {
+                              const newMaxPrice = parseInt(e.target.value);
+                              if (newMaxPrice && newMaxPrice >= minPrice) {
+                                setMaxPrice(newMaxPrice);
+                              } else if (!e.target.value) {
+                                setMaxPrice(null);
+                              }
+                            }}
+                            onFocus={(e) => e.target.select()}
+                            onBlur={(e) => {
+                              if (!e.target.value || parseInt(e.target.value) < minPrice) {
+                                setMaxPrice(null);
+                                setIsMaxPriceActive(false);
+                              }
+                            }}
+                            onClick={(e) => e.stopPropagation()}
+                            className="w-full bg-transparent border-none shadow-none h-auto p-0 text-xs focus:ring-0 focus:border-none rounded-none pr-8 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none [-moz-appearance:textfield]"
+                          />
+                          {maxPrice !== null && (
+                            <button
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                setMaxPrice(null);
+                                setIsMaxPriceActive(false);
+                              }}
+                              className="absolute right-0 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 transition-colors p-1 z-10"
+                              type="button"
+                            >
+                              <X className="w-3 h-3" />
+                            </button>
+                          )}
+                        </div>
                       ) : (
                         <span className="flex-1 text-xs text-gray-400">
                           {t('filters.price_range.no_limit')}
@@ -468,29 +540,106 @@ const SalePropertiesFilter = forwardRef<any, SalePropertiesFilterProps>(({
                     {t('filters.area_range.title')}
                   </Label>
                   <div className="grid grid-cols-2 gap-3">
-                    <div className="flex items-center gap-2 px-3 py-2.5 border border-gray-200 rounded-xl bg-white hover:border-primary-500 transition-colors h-12">
+                    {/* Min Area Input */}
+                    <div className="flex items-center gap-2 px-3 py-2.5 border border-gray-200 rounded-xl bg-white hover:border-primary-500 transition-colors h-12 relative">
                       <span className="text-xs font-medium text-gray-600">{t('filters.area_range.min')}</span>
-                      <Input
-                        type="number"
-                        placeholder="0"
-                        value={areaRange[0]}
-                        onChange={(e) => setAreaRange([parseInt(e.target.value) || 0, areaRange[1]])}
-                        onFocus={(e) => e.target.select()}
-                        className="flex-1 bg-transparent border-none shadow-none h-auto p-0 text-xs focus:ring-0 focus:border-none rounded-none"
-                      />
+                      <div className="flex-1 relative">
+                        <Input
+                          type="number"
+                          placeholder="0"
+                          value={minArea}
+                          onChange={(e) => {
+                            const newMinArea = parseInt(e.target.value) || 0;
+                            setMinArea(newMinArea);
+                            // Auto-adjust max area if it becomes less than min area
+                            if (isMaxAreaActive && maxArea !== null && maxArea < newMinArea) {
+                              setMaxArea(newMinArea);
+                            }
+                          }}
+                          onFocus={(e) => e.target.select()}
+                          className="w-full bg-transparent border-none shadow-none h-auto p-0 text-xs focus:ring-0 focus:border-none rounded-none pr-8 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none [-moz-appearance:textfield]"
+                        />
+                        {minArea > 0 && (
+                          <button
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              setMinArea(0);
+                            }}
+                            className="absolute right-0 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 transition-colors p-1"
+                            type="button"
+                          >
+                            <X className="w-3 h-3" />
+                          </button>
+                        )}
+                      </div>
                       <span className="text-xs font-medium text-gray-500">{t('filters.area_range.unit')}</span>
                     </div>
-                    <div className="flex items-center gap-2 px-3 py-2.5 border border-gray-200 rounded-xl bg-white hover:border-primary-500 transition-colors h-12">
-                      <span className="text-xs font-medium text-gray-600">{t('filters.area_range.max')}</span>
-                      <Input
-                        type="number"
-                        placeholder="1000"
-                        value={areaRange[1]}
-                        onChange={(e) => setAreaRange([areaRange[0], parseInt(e.target.value) || 1000])}
-                        onFocus={(e) => e.target.select()}
-                        className="flex-1 bg-transparent border-none shadow-none h-auto p-0 text-xs focus:ring-0 focus:border-none rounded-none"
-                      />
-                      <span className="text-xs font-medium text-gray-500">{t('filters.area_range.unit')}</span>
+
+                    {/* Max Area Input */}
+                    <div 
+                      className={`flex items-center gap-2 px-3 py-2.5 border rounded-xl transition-all h-12 cursor-pointer relative ${
+                        isMaxAreaActive 
+                          ? 'border-gray-200 bg-white hover:border-primary-500' 
+                          : 'border-gray-200 bg-gray-50 hover:bg-gray-100'
+                      }`}
+                      onClick={() => {
+                        if (!isMaxAreaActive) {
+                          setIsMaxAreaActive(true);
+                          // Set smart default based on min area
+                          const smartDefault = Math.max(minArea + 100, 100);
+                          setMaxArea(smartDefault);
+                        }
+                      }}
+                    >
+                      <span className={`text-xs font-medium ${isMaxAreaActive ? 'text-gray-600' : 'text-gray-400'}`}>
+                        {t('filters.area_range.max')}
+                      </span>
+                      {isMaxAreaActive ? (
+                        <div className="flex-1 relative">
+                          <Input
+                            type="number"
+                            placeholder="10000"
+                            value={maxArea || ''}
+                            onChange={(e) => {
+                              const newMaxArea = parseInt(e.target.value);
+                              if (newMaxArea && newMaxArea >= minArea) {
+                                setMaxArea(newMaxArea);
+                              } else if (!e.target.value) {
+                                setMaxArea(null);
+                              }
+                            }}
+                            onFocus={(e) => e.target.select()}
+                            onBlur={(e) => {
+                              if (!e.target.value || parseInt(e.target.value) < minArea) {
+                                setMaxArea(null);
+                                setIsMaxAreaActive(false);
+                              }
+                            }}
+                            onClick={(e) => e.stopPropagation()}
+                            className="w-full bg-transparent border-none shadow-none h-auto p-0 text-xs focus:ring-0 focus:border-none rounded-none pr-8 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none [-moz-appearance:textfield]"
+                          />
+                          {maxArea !== null && (
+                            <button
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                setMaxArea(null);
+                                setIsMaxAreaActive(false);
+                              }}
+                              className="absolute right-0 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 transition-colors p-1 z-10"
+                              type="button"
+                            >
+                              <X className="w-3 h-3" />
+                            </button>
+                          )}
+                        </div>
+                      ) : (
+                        <span className="flex-1 text-xs text-gray-400">
+                          {t('filters.area_range.no_limit')}
+                        </span>
+                      )}
+                      <span className={`text-xs font-medium ${isMaxAreaActive ? 'text-gray-500' : 'text-gray-400'}`}>
+                        {t('filters.area_range.unit')}
+                      </span>
                     </div>
                   </div>
                 </div>
