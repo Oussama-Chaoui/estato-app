@@ -63,6 +63,10 @@ import enFaq from '../../public/locales/en/faq.json';
 import frFaq from '../../public/locales/fr/faq.json';
 import esFaq from '../../public/locales/es/faq.json';
 import arFaq from '../../public/locales/ar/faq.json';
+import en404 from '../../public/locales/en/404.json';
+import fr404 from '../../public/locales/fr/404.json';
+import es404 from '../../public/locales/es/404.json';
+import ar404 from '../../public/locales/ar/404.json';
 
 
 interface I18nContextType {
@@ -115,7 +119,7 @@ export const I18nProvider = ({ children, initialLocale }: I18nProviderProps) => 
         .init({
           lng: currentLocale,
           fallbackLng: 'fr',
-          ns: ['common', 'topbar', 'landing', 'footer', 'properties', 'amenities', 'favorites', 'blog', 'joinUs', 'about', 'contact', 'privacy', 'terms', 'faq'],
+          ns: ['common', 'topbar', 'landing', 'footer', 'properties', 'amenities', 'favorites', 'blog', 'joinUs', 'about', 'contact', 'privacy', 'terms', 'faq', '404'],
           defaultNS: 'common',
           debug: process.env.NODE_ENV === 'development',
           interpolation: {
@@ -137,6 +141,7 @@ export const I18nProvider = ({ children, initialLocale }: I18nProviderProps) => 
               privacy: enPrivacy,
               terms: enTerms,
               faq: enFaq,
+              '404': en404,
             },
             fr: {
               common: frCommon,
@@ -153,6 +158,7 @@ export const I18nProvider = ({ children, initialLocale }: I18nProviderProps) => 
               privacy: frPrivacy,
               terms: frTerms,
               faq: frFaq,
+              '404': fr404,
             },
             es: {
               common: esCommon,
@@ -169,6 +175,7 @@ export const I18nProvider = ({ children, initialLocale }: I18nProviderProps) => 
               privacy: esPrivacy,
               terms: esTerms,
               faq: esFaq,
+              '404': es404,
             },
             ar: {
               common: arCommon,
@@ -185,6 +192,7 @@ export const I18nProvider = ({ children, initialLocale }: I18nProviderProps) => 
               privacy: arPrivacy,
               terms: arTerms,
               faq: arFaq,
+              '404': ar404,
             },
           },
         });

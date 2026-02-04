@@ -55,8 +55,8 @@ const Footer = () => {
 
   const helps = [
     { href: Routes.Common.PrivacyPolicy, label: t('links.privacy_policy') },
-    { href: Routes.Common.TermsOfService, label: t('links.investment_guide') },
-    { href: Routes.Common.FAQ, label: t('links.vip_services') },
+    { href: Routes.Common.TermsOfService, label: t('links.terms_of_service') },
+    { href: Routes.Common.FAQ, label: t('links.faq') },
   ];
 
   return (
@@ -202,12 +202,12 @@ const Footer = () => {
         >
           <p>{t('legal.copyright', { year: new Date().getFullYear() })}</p>
           <div className="flex gap-3">
-            <Link href="/terms-of-service">
+            <Link href={Routes.Common.TermsOfService}>
               <motion.span whileHover={{ color: "rgb(33 128 125)" }} className="cursor-pointer">
                 {t('legal.terms_of_service')}
               </motion.span>
             </Link>
-            <Link href="/privacy-policy">
+            <Link href={Routes.Common.PrivacyPolicy}>
               <motion.span whileHover={{ color: "rgb(33 128 125)" }} className="cursor-pointer">
                 {t('legal.privacy_policy')}
               </motion.span>

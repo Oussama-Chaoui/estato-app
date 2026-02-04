@@ -178,7 +178,7 @@ const PropertyHero = ({ property, websiteFocus }: PropertyHeroProps) => {
 
     emblaApi.on('select', onSelect);
     emblaApi.on('init', onInit);
-    
+
     return () => {
       emblaApi.off('select', onSelect);
       emblaApi.off('init', onInit);
@@ -243,7 +243,7 @@ const PropertyHero = ({ property, websiteFocus }: PropertyHeroProps) => {
               <div
                 key={`${img.id}-${index}`}
                 className="embla__slide relative h-full flex-shrink-0 cursor-pointer group"
-                style={{ 
+                style={{
                   width: `${img.width}px`,
                   minWidth: `${img.width}px`,
                   maxWidth: `${img.width}px`
@@ -260,9 +260,8 @@ const PropertyHero = ({ property, websiteFocus }: PropertyHeroProps) => {
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 70vw"
                   />
                   {/* Center indicator overlay */}
-                  <div className={`absolute inset-0 border-2 border-transparent transition-all duration-300 ${
-                    selectedIndex === index ? 'border-white/30 shadow-lg' : ''
-                  }`} />
+                  <div className={`absolute inset-0 border-2 border-transparent transition-all duration-300 ${selectedIndex === index ? 'border-white/30 shadow-lg' : ''
+                    }`} />
                 </div>
               </div>
             ))}
@@ -375,13 +374,15 @@ const PropertyHero = ({ property, websiteFocus }: PropertyHeroProps) => {
 
             {/* Main image container */}
             <div className="flex h-full w-full items-center justify-center p-4 md:p-8">
-              <Image
-                src={imageData[modalActiveStep].url}
-                fill
-                alt={imageData[modalActiveStep].caption ?? `${t('showcase.hero.image')} ${modalActiveStep + 1}`}
-                className="object-contain transition-opacity duration-300"
-                priority
-              />
+              {imageData[modalActiveStep] && (
+                <Image
+                  src={imageData[modalActiveStep].url}
+                  fill
+                  alt={imageData[modalActiveStep].caption ?? `${t('showcase.hero.image')} ${modalActiveStep + 1}`}
+                  className="object-contain transition-opacity duration-300"
+                  priority
+                />
+              )}
             </div>
 
             {/* Slide counter */}
@@ -391,7 +392,7 @@ const PropertyHero = ({ property, websiteFocus }: PropertyHeroProps) => {
             </div>
 
             {/* Caption */}
-            {imageData[modalActiveStep].caption && (
+            {imageData[modalActiveStep]?.caption && (
               <div className="absolute bottom-4 left-1/2 z-40 w-full max-w-2xl -translate-x-1/2
               px-4 text-center text-sm text-white/90 md:text-base">
                 <div className="rounded-lg bg-black/80 px-6 py-3 backdrop-blur-sm">

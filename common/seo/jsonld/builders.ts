@@ -355,11 +355,13 @@ export function buildOrganizationJsonLd(locale: SupportedLocale): JsonLdOrganiza
     contactPoint: {
       '@type': 'ContactPoint',
       contactType: 'customer service',
-      email: 'info@yourplatform.com',
-      telephone: '+212-XXX-XXXXXX',
+      email: 'contact@yakout-immo.com',
+      telephone: '+212716657380',
     },
     sameAs: [
-      // Add social media URLs here
+      'https://www.instagram.com/yakout.immobilier/',
+      'https://www.facebook.com/AlYakoutImmobilier',
+      'https://www.linkedin.com/company/yakout-real-estate/',
     ],
   };
 }

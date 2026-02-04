@@ -8,7 +8,7 @@ const initI18next = async (locale: string) => {
     .init({
       lng: locale,
       fallbackLng: 'fr',
-      ns: ['common', 'topbar', 'landing', 'footer', 'properties', 'amenities', 'favorites', 'blog', 'joinUs'],
+      ns: ['common', 'topbar', 'landing', 'footer', 'properties', 'amenities', 'favorites', 'blog', 'joinUs', '404'],
       defaultNS: 'common',
       debug: process.env.NODE_ENV === 'development',
       interpolation: {
@@ -25,6 +25,7 @@ const initI18next = async (locale: string) => {
           favorites: require('../../public/locales/en/favorites.json'),
           blog: require('../../public/locales/en/blog.json'),
           joinUs: require('../../public/locales/en/join-us.json'),
+          '404': require('../../public/locales/en/404.json'),
         },
         fr: {
           common: require('../../public/locales/fr/common.json'),
@@ -36,6 +37,7 @@ const initI18next = async (locale: string) => {
           favorites: require('../../public/locales/fr/favorites.json'),
           blog: require('../../public/locales/fr/blog.json'),
           joinUs: require('../../public/locales/fr/join-us.json'),
+          '404': require('../../public/locales/fr/404.json'),
         },
         es: {
           common: require('../../public/locales/es/common.json'),
@@ -47,6 +49,7 @@ const initI18next = async (locale: string) => {
           favorites: require('../../public/locales/es/favorites.json'),
           blog: require('../../public/locales/es/blog.json'),
           joinUs: require('../../public/locales/es/join-us.json'),
+          '404': require('../../public/locales/es/404.json'),
         },
         ar: {
           common: require('../../public/locales/ar/common.json'),
@@ -58,6 +61,7 @@ const initI18next = async (locale: string) => {
           favorites: require('../../public/locales/ar/favorites.json'),
           blog: require('../../public/locales/ar/blog.json'),
           joinUs: require('../../public/locales/ar/join-us.json'),
+          '404': require('../../public/locales/ar/404.json'),
         },
       },
     });

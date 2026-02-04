@@ -14,14 +14,13 @@
   },
   "contact": {
     "title": "Contáctanos",
-    "phone": "+1 (555) 123-4567",
-    "email": "info@yakout.com"
+    "phone": "+212716657380",
+    "email": "contact@yakout-immo.com"
   },
   "footer": {
-    "copyright": "© 2024 YAKOUT. Todos los derechos reservados.",
+    "copyright": "© {{year}} YAKOUT. Todos los derechos reservados.",
     "privacy": "Privacidad",
-    "terms": "Términos",
-    "support": "Soporte"
+    "terms": "Términos"
   },
   "mobile": {
     "language": "Idioma"

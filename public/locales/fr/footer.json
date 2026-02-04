@@ -16,7 +16,9 @@
     "consultation": "Consultation",
     "privacy_policy": "Politique de Confidentialité",
     "investment_guide": "Guide d'Investissement",
-    "vip_services": "Services VIP"
+    "vip_services": "Services VIP",
+    "terms_of_service": "Conditions d'Utilisation",
+    "faq": "FAQ"
   },
   "newsletter": {
     "description": "Obtenez des rapports exclusifs du marché et des annonces premium",

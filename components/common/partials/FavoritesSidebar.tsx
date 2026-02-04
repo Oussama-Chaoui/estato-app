@@ -75,8 +75,11 @@ const FavoritesSidebar = ({ trigger, navigationLinks }: FavoritesSidebarProps) =
   }, []);
 
   const removeFavorite = (propertyId: string | number) => {
+    isRemovingRef.current = true;
+    setIsRemoving(true);
+
     removeFromFavorites(propertyId);
-    
+
     setTimeout(() => {
       isRemovingRef.current = false;
       setIsRemoving(false);
@@ -221,18 +224,18 @@ const FavoritesSidebar = ({ trigger, navigationLinks }: FavoritesSidebarProps) =
       <SheetTrigger asChild>
         {memoizedTrigger}
       </SheetTrigger>
-      <SheetContent 
+      <SheetContent
         side={isRTL ? "left" : "right"}
-        isRTL={isRTL} 
+        isRTL={isRTL}
         className={cn(
-          "w-96 bg-white border-gray-200",
+          "w-full max-w-96 bg-white border-gray-200",
           isRTL ? "border-r pl-4" : "border-l pl-4"
         )}
       >
         <div className="w-full h-full flex flex-col pt-8">
           <div className={cn("mb-8", isRTL ? "text-right" : "text-left")}>
             <h2 className={cn(
-              "text-2xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent", 
+              "text-2xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent",
               poppins.className
             )}>
               {t('title')}

@@ -72,7 +72,7 @@ export const useFavoritesManager = () => {
 
   const isPropertyFavorited = (propertyId: string | number): boolean => {
     const favorites = getFavorites();
-    return favorites.some((fav) => fav.id === propertyId);
+    return favorites.some((fav) => String(fav.id) === String(propertyId));
   };
 
   const addToFavorites = (property: Property, websiteFocus?: WEBSITE_FOCUS) => {
@@ -114,7 +114,7 @@ export const useFavoritesManager = () => {
 
   const removeFromFavorites = (propertyId: string | number) => {
     const existingFavorites = getFavorites();
-    const updatedFavorites = existingFavorites.filter((fav) => fav.id !== propertyId);
+    const updatedFavorites = existingFavorites.filter((fav) => String(fav.id) !== String(propertyId));
     localStorage.setItem('favoriteProperties', JSON.stringify(updatedFavorites));
     window.dispatchEvent(new CustomEvent('favoritesUpdated', { detail: updatedFavorites }));
     return true;

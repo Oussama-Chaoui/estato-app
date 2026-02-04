@@ -363,12 +363,15 @@ const Topbar = ({ focus = WEBSITE_FOCUS.DAILY_RENT }: TopbarProps) => {
           <SheetFooter className="mt-auto pb-8 flex-shrink-0">
             <div className="w-full text-center">
               <p className="text-xs text-gray-500 mb-2">
-                © 2024 YAKOUT. All rights reserved.
+                {t('topbar:footer.copyright', { year: new Date().getFullYear() })}
               </p>
               <div className="flex justify-center space-x-4 text-xs text-gray-400">
-                <a href="#" className="hover:text-primary-600 transition-colors">{t('topbar:footer.privacy')}</a>
-                <a href="#" className="hover:text-primary-600 transition-colors">{t('topbar:footer.terms')}</a>
-                <a href="#" className="hover:text-primary-600 transition-colors">{t('topbar:footer.support')}</a>
+                <Link href={Routes.Common.PrivacyPolicy} className="hover:text-primary-600 transition-colors">
+                  {t('topbar:footer.privacy')}
+                </Link>
+                <Link href={Routes.Common.TermsOfService} className="hover:text-primary-600 transition-colors">
+                  {t('topbar:footer.terms')}
+                </Link>
               </div>
             </div>
           </SheetFooter>

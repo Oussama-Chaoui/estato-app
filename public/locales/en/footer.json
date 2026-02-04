@@ -16,7 +16,9 @@
     "consultation": "Consultation",
     "privacy_policy": "Privacy Policy",
     "investment_guide": "Investment Guide",
-    "vip_services": "VIP Services"
+    "vip_services": "VIP Services",
+    "terms_of_service": "Terms of Service",
+    "faq": "FAQ"
   },
   "newsletter": {
     "description": "Get exclusive market reports and premium listings",
