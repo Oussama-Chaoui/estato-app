@@ -6,6 +6,8 @@ import { motion } from "framer-motion";
 import { Button } from "../../ui/button";
 import { useTranslation } from "next-i18next";
 import { useDirection } from "@/common/contexts/DirectionContext";
+import { useRouter } from "next/navigation";
+import Routes from "@/common/defs/routes";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -15,6 +17,7 @@ const poppins = Poppins({
 const JoinUs = () => {
   const { t } = useTranslation('landing');
   const { isRTL } = useDirection();
+  const router = useRouter();
 
   const benefits = [
     {
@@ -140,6 +143,7 @@ const JoinUs = () => {
           <div className="flex justify-center">
             <Button
               onClick={() => {
+                router.push(Routes.Common.JoinUs);
               }}
               className="bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 text-white px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 active:scale-95 font-medium flex items-center gap-2"
             >
