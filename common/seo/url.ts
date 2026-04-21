@@ -1,27 +1,46 @@
-import { SUPPORTED_LOCALES, SupportedLocale, getBaseUrl } from './config';
+import { SUPPORTED_LOCALES, getBaseUrl } from './config';
 
-export function buildCanonical(pathname: string, searchParams?: URLSearchParams | null, allowlistParams: string[] = []): string {
-  let url = pathname;
+const toAbsoluteUrl = (pathname: string): string => {
+  if (/^https?:\/\//i.test(pathname)) {
+    return pathname;
+  }
+
+  const baseUrl = getBaseUrl().replace(/\/$/, '');
+  const normalizedPath = pathname.startsWith('/') ? pathname : `/${pathname}`;
+  return `${baseUrl}${normalizedPath}`;
+};
+
+export function buildCanonical(
+  pathname: string,
+  searchParams?: URLSearchParams | null,
+  allowlistParams: string[] = []
+): string {
+  let targetPath = pathname;
+
   if (searchParams && allowlistParams.length > 0) {
-    const filtered = new URLSearchParams();
+    const filteredSearchParams = new URLSearchParams();
+
     for (const key of allowlistParams) {
       const value = searchParams.get(key);
-      if (value !== null) filtered.set(key, value);
+      if (value !== null) {
+        filteredSearchParams.set(key, value);
+      }
     }
-    const qs = filtered.toString();
-    url = qs ? `${pathname}?${qs}` : pathname;
+
+    const queryString = filteredSearchParams.toString();
+    targetPath = queryString ? `${pathname}?${queryString}` : pathname;
   }
-  const base = getBaseUrl();
-  return `${base}${url}`;
+
+  return toAbsoluteUrl(targetPath);
 }
 
 export function buildAlternates(pathname: string): Record<string, string> {
-  const base = getBaseUrl();
-  const map: Record<string, string> = {};
+  const canonical = buildCanonical(pathname);
+  const alternateMap: Record<string, string> = {};
+
   for (const locale of SUPPORTED_LOCALES) {
-    map[locale] = `${base}/${locale}${pathname}`.replace(/\/+/, '/');
+    alternateMap[locale] = canonical;
   }
-  return map;
+
+  return alternateMap;
 }
-
-

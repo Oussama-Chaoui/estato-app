@@ -6,6 +6,7 @@ import { detectRequestLocale, normalizeLocale } from "@/common/seo/locale";
 import { fetchPostBySlug } from "@/common/seo/fetchers";
 import { buildBlogPostJsonLd, buildBreadcrumbJsonLd } from "@/common/seo/jsonld/builders";
 import { buildBlogBreadcrumbs } from "@/common/seo/jsonld/helpers";
+import { getLocalizedValue } from "@/common/utils/localized-text";
 
 /**
  * Fetch blog post data for a page
@@ -25,9 +26,10 @@ export async function fetchBlogPostPageData(slug: string) {
  */
 export function generateBlogPostJsonLd(post: any, slug: string, locale: string) {
   const normalizedLocale = normalizeLocale(locale);
-  const blogPostJsonLd = buildBlogPostJsonLd(post, normalizedLocale);
-  
-  const breadcrumbItems = buildBlogBreadcrumbs(slug, post?.title || '', normalizedLocale);
+  const blogPostJsonLd = post ? buildBlogPostJsonLd(post, normalizedLocale) : null;
+
+  const postTitle = getLocalizedValue(post?.title, normalizedLocale);
+  const breadcrumbItems = buildBlogBreadcrumbs(slug, postTitle, normalizedLocale);
   const breadcrumbJsonLd = buildBreadcrumbJsonLd(breadcrumbItems);
 
   return {

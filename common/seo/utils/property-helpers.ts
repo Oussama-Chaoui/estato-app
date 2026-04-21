@@ -7,6 +7,7 @@ import { fetchProperty } from "@/common/seo/fetchers";
 import { buildPropertyJsonLd, buildBreadcrumbJsonLd } from "@/common/seo/jsonld/builders";
 import { buildPropertyBreadcrumbs } from "@/common/seo/jsonld/helpers";
 import { WEBSITE_FOCUS } from "@/modules/settings/defs/types";
+import { getLocalizedValue } from "@/common/utils/localized-text";
 
 /**
  * Fetch property data for a page
@@ -35,7 +36,7 @@ export function generatePropertyJsonLd(
   const breadcrumbItems = buildPropertyBreadcrumbs(
     websiteFocus,
     id,
-    property?.title || '',
+    getLocalizedValue(property?.title, locale),
     locale
   );
   const breadcrumbJsonLd = buildBreadcrumbJsonLd(breadcrumbItems);

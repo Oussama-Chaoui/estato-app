@@ -46,7 +46,7 @@ export default async function Page({ params }: Params) {
     <>
       {propertyJsonLd && <JsonLd id={propertyId} data={propertyJsonLd} />}
       <JsonLd id={breadcrumbId} data={breadcrumbJsonLd} />
-      <PropertyShowcase websiteFocus={WEBSITE_FOCUS.SELLING} />
+      <PropertyShowcase websiteFocus={WEBSITE_FOCUS.SELLING} initialProperty={property} />
     </>
   );
 }

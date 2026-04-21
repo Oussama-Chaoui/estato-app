@@ -10,6 +10,7 @@ import Routes from '@/common/defs/routes';
 import { useTranslation } from 'react-i18next';
 import { format } from 'date-fns';
 import useUtils from '@/common/hooks/useUtils';
+import { estimateReadTime, getLocalizedValue } from '@/common/utils/localized-text';
 
 interface BlogPostProps {
   initialPost?: Post | null;
@@ -22,18 +23,12 @@ const BlogPost = ({ initialPost }: BlogPostProps) => {
   const [post, setPost] = useState<Post | null>(initialPost || null);
   const [loading, setLoading] = useState(!initialPost);
   const [error, setError] = useState<string | null>(null);
-  const { t } = useTranslation(['blog']);
+  const { t, i18n } = useTranslation(['blog']);
   const { getDateFnsLocale } = useUtils();
 
   // Format date with proper locale
   const formatDate = (dateString: string) => {
     return format(new Date(dateString), 'MMMM dd, yyyy', { locale: getDateFnsLocale() });
-  };
-
-  const calculateReadTime = (content: string) => {
-    const wordsPerMinute = 200;
-    const wordCount = content.replace(/<[^>]*>/g, '').split(/\s+/).length;
-    return Math.ceil(wordCount / wordsPerMinute);
   };
 
   const processHtmlContent = (htmlContent: string) => {
@@ -45,8 +40,8 @@ const BlogPost = ({ initialPost }: BlogPostProps) => {
     if (navigator.share) {
       try {
         await navigator.share({
-          title: post?.title || '',
-          text: post?.excerpt || '',
+          title: getLocalizedValue(post?.title, i18n.language),
+          text: getLocalizedValue(post?.excerpt, i18n.language),
           url: window.location.href,
         });
       } catch {
@@ -126,7 +121,11 @@ const BlogPost = ({ initialPost }: BlogPostProps) => {
     );
   }
 
-  const readTime = calculateReadTime(post.content || '');
+  const localizedTitle = getLocalizedValue(post.title, i18n.language, t('blog:posts.untitled'));
+  const localizedContent = getLocalizedValue(post.content, i18n.language);
+  const categories = post.categories || [];
+  const tags = post.tags || [];
+  const readTime = estimateReadTime(localizedContent);
 
   return (
     <div className="min-h-screen bg-gray-50 mt-[75px]">
@@ -135,15 +134,15 @@ const BlogPost = ({ initialPost }: BlogPostProps) => {
         {/* Header */}
         <header className="mb-8">
           {/* Categories */}
-          {post.categories.length > 0 && (
+          {categories.length > 0 && (
             <div className="mb-4">
               <div className="flex flex-wrap gap-2">
-                {post.categories.map((category: { id: number; name: string }) => (
+                {categories.map((category) => (
                   <span
                     key={category.id}
                     className="bg-primary-100 text-primary-700 px-3 py-1 rounded-full text-sm font-medium hover:bg-primary-200 transition-colors cursor-default"
                   >
-                    {category.name}
+                    {getLocalizedValue(category.name, i18n.language, category.slug)}
                   </span>
                 ))}
               </div>
@@ -152,7 +151,7 @@ const BlogPost = ({ initialPost }: BlogPostProps) => {
 
           {/* Title */}
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
-            {post.title}
+            {localizedTitle}
           </h1>
 
           {/* Meta information */}
@@ -192,7 +191,7 @@ const BlogPost = ({ initialPost }: BlogPostProps) => {
           <div className="mb-8">
             <img
               src={post.image.url}
-              alt={post.title}
+              alt={localizedTitle}
               className="w-full h-64 md:h-96 object-cover rounded-2xl shadow-lg"
             />
           </div>
@@ -202,24 +201,24 @@ const BlogPost = ({ initialPost }: BlogPostProps) => {
         <div className="prose prose-lg max-w-none">
           <div
             dangerouslySetInnerHTML={{
-              __html: processHtmlContent(post.content || '')
+              __html: processHtmlContent(localizedContent)
             }}
             className="text-gray-800 leading-relaxed"
           />
         </div>
 
         {/* Tags */}
-        {post.tags.length > 0 && (
+        {tags.length > 0 && (
           <div className="mt-12 pt-8 border-t border-gray-200">
             <h3 className="text-lg font-semibold text-gray-900 mb-4">{t('blog:article.tags')}</h3>
             <div className="flex flex-wrap gap-2">
-              {post.tags.map((tag: { id: number; name: string }) => (
+              {tags.map((tag) => (
                 <span
                   key={tag.id}
                   className="inline-flex items-center gap-1 px-3 py-1 bg-primary-50 text-primary-700 rounded-full text-sm font-medium"
                 >
                   <Tag className="h-3 w-3" />
-                  {tag.name}
+                  {getLocalizedValue(tag.name, i18n.language)}
                 </span>
               ))}
             </div>

@@ -1,25 +1,24 @@
 import type { Metadata } from 'next';
-import AboutClient from './AboutClient';
 import { detectRequestLocale } from '@/common/seo/locale';
 import { buildCanonical } from '@/common/seo/url';
 import Routes from '@/common/defs/routes';
 
 export const generateMetadata = async (): Promise<Metadata> => {
   const locale = detectRequestLocale();
-  const canonical = buildCanonical(Routes.Common.About);
+  const canonical = buildCanonical(Routes.Common.JoinUs);
 
   const titleByLocale = {
-    en: 'About Yakout immobilier',
-    fr: 'A propos de Yakout immobilier',
-    es: 'Sobre Yakout immobilier',
-    ar: 'حول Yakout immobilier',
+    en: 'Join Us',
+    fr: 'Rejoignez-nous',
+    es: 'Unete a nosotros',
+    ar: 'انضم الينا',
   };
 
   const descriptionByLocale = {
-    en: 'Learn more about Yakout immobilier, our mission, and our expertise in Morocco real estate.',
-    fr: 'Decouvrez Yakout immobilier, notre mission et notre expertise dans limmobilier au Maroc.',
-    es: 'Conoce Yakout immobilier, nuestra mision y nuestra experiencia en el sector inmobiliario de Marruecos.',
-    ar: 'تعرف على Yakout immobilier ورسالتنا وخبرتنا في سوق العقارات المغربي.',
+    en: 'Join Yakout immobilier and grow your real estate career in Morocco.',
+    fr: 'Rejoignez Yakout immobilier et developpez votre carriere dans limmobilier au Maroc.',
+    es: 'Unete a Yakout immobilier y desarrolla tu carrera en el sector inmobiliario en Marruecos.',
+    ar: 'انضم الى Yakout immobilier وطوّر مسارك المهني في سوق العقارات بالمغرب.',
   };
 
   const title = titleByLocale[locale] || titleByLocale.fr;
@@ -45,6 +44,6 @@ export const generateMetadata = async (): Promise<Metadata> => {
   };
 };
 
-export default function AboutPage() {
-  return <AboutClient />;
+export default function JoinUsLayout({ children }: { children: React.ReactNode }) {
+  return children;
 }

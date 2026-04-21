@@ -42,7 +42,7 @@ export async function fetchListingPageData(
       meta: {
         currentPage: result.meta.currentPage,
         lastPage: result.meta.lastPage,
-        totalItems: result.meta.total,
+        totalItems: result.meta.totalItems ?? result.meta.total,
       },
       page,
       pageSize,
@@ -79,7 +79,7 @@ export async function fetchBlogPageData(
       meta: {
         currentPage: result.meta.currentPage,
         lastPage: result.meta.lastPage,
-        totalItems: result.meta.total,
+        totalItems: result.meta.totalItems ?? result.meta.total,
       },
       page,
       pageSize,

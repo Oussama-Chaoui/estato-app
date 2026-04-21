@@ -1,9 +1,9 @@
 import { SupportedLocale } from '@/common/seo/config';
 import { getBaseUrl, SITE_NAME } from '@/common/seo/config';
-import { formatPrice } from '@/common/seo/format';
 import Routes from '@/common/defs/routes';
 import { getServerTranslation } from './server-translations';
 import { WEBSITE_FOCUS } from '@/modules/settings/defs/types';
+import { estimateReadTime, getLocalizedValue, stripHtml } from '@/common/utils/localized-text';
 
 export interface JsonLdProperty {
   '@context': 'https://schema.org';
@@ -100,6 +100,10 @@ export interface JsonLdOrganization {
   description: string;
   address?: {
     '@type': 'PostalAddress';
+    streetAddress?: string;
+    addressLocality?: string;
+    addressRegion?: string;
+    postalCode?: string;
     addressCountry: string;
   };
   contactPoint?: {
@@ -107,6 +111,10 @@ export interface JsonLdOrganization {
     telephone?: string;
     email?: string;
     contactType: string;
+  };
+  areaServed?: {
+    '@type': 'Country';
+    name: string;
   };
   sameAs?: string[];
 }
@@ -171,32 +179,37 @@ export function buildPropertyJsonLd(
   let propertyRoute: string;
   switch (websiteFocus) {
     case WEBSITE_FOCUS.DAILY_RENT:
-      propertyRoute = Routes.Properties.DailyRent.ReadOne.replace('{id}', property.id);
+      propertyRoute = Routes.Properties.DailyRent.ReadOne.replace('{id}', String(property.id));
       break;
     case WEBSITE_FOCUS.RENT:
-      propertyRoute = Routes.Properties.MonthlyRent.ReadOne.replace('{id}', property.id);
+      propertyRoute = Routes.Properties.MonthlyRent.ReadOne.replace('{id}', String(property.id));
       break;
     case WEBSITE_FOCUS.SELLING:
-      propertyRoute = Routes.Properties.HomeSale.ReadOne.replace('{id}', property.id);
+      propertyRoute = Routes.Properties.HomeSale.ReadOne.replace('{id}', String(property.id));
       break;
     default:
-      propertyRoute = Routes.Properties.HomeSale.ReadOne.replace('{id}', property.id);
+      propertyRoute = Routes.Properties.HomeSale.ReadOne.replace('{id}', String(property.id));
   }
 
   const propertyUrl = `${baseUrl}${propertyRoute}`;
 
   // Build images array
-  const images = property.images?.map((img: any) =>
-    img.url?.startsWith('http') ? img.url : `${baseUrl}${img.url}`
-  ) || [];
+  const images = (property.images || [])
+    .map((img: any) => img?.upload?.url || img?.url)
+    .filter(Boolean)
+    .map((url: string) => (url.startsWith('http') ? url : `${baseUrl}${url}`));
 
   // Build address
+  const localizedStreetAddress = getLocalizedValue(property.location?.streetAddress, locale);
+  const localizedCity = getLocalizedValue(property.location?.city?.names, locale, 'Unknown');
+  const localizedRegion = getLocalizedValue(property.location?.city?.region?.names, locale);
+
   const address = {
     '@type': 'PostalAddress' as const,
-    addressLocality: property.location?.city || 'Unknown',
-    addressCountry: 'MA', // Morocco
-    ...(property.location?.address && { streetAddress: property.location.address }),
-    ...(property.location?.region && { addressRegion: property.location.region }),
+    addressLocality: localizedCity,
+    addressCountry: 'Morocco',
+    ...(localizedStreetAddress && { streetAddress: localizedStreetAddress }),
+    ...(localizedRegion && { addressRegion: localizedRegion }),
     ...(property.location?.postalCode && { postalCode: property.location.postalCode }),
   };
 
@@ -208,12 +221,16 @@ export function buildPropertyJsonLd(
   } : undefined;
 
   // Build offers
-  const price = formatPrice(property.price, property.currency);
   const availability = websiteFocus === WEBSITE_FOCUS.DAILY_RENT ? 'https://schema.org/InStock' : 'https://schema.org/InStock';
+  const resolvedPrice = websiteFocus === WEBSITE_FOCUS.DAILY_RENT
+    ? property.dailyPrice
+    : websiteFocus === WEBSITE_FOCUS.RENT
+      ? property.monthlyPrice
+      : (property.salePrice ?? property.price);
 
   const offers = {
     '@type': 'Offer' as const,
-    price: property.price?.toString() || '0',
+    price: String(resolvedPrice ?? 0),
     priceCurrency: property.currency || 'MAD',
     availability,
     category: websiteFocus,
@@ -231,7 +248,7 @@ export function buildPropertyJsonLd(
   // Build amenity features
   const amenityFeature = property.amenities?.map((amenity: any) => ({
     '@type': 'LocationFeatureSpecification' as const,
-    name: amenity.name,
+    name: getLocalizedValue(amenity.name, locale),
     value: true,
   })) || [];
 
@@ -261,8 +278,8 @@ export function buildPropertyJsonLd(
   return {
     '@context': 'https://schema.org',
     '@type': 'RealEstate',
-    name: property.title,
-    description: property.description,
+    name: getLocalizedValue(property.title, locale) || SITE_NAME,
+    description: stripHtml(getLocalizedValue(property.description, locale)),
     url: propertyUrl,
     image: images,
     address,
@@ -286,6 +303,9 @@ export function buildBlogPostJsonLd(
 ): JsonLdBlogPost {
   const baseUrl = getBaseUrl();
   const postUrl = `${baseUrl}${Routes.Posts.ReadOne.replace('{slug}', post.slug)}`;
+  const localizedTitle = getLocalizedValue(post.title, locale, 'Blog Post');
+  const localizedExcerpt = getLocalizedValue(post.excerpt, locale);
+  const localizedContent = getLocalizedValue(post.content, locale);
 
   // Build images array
   const images = post.image?.url ? [
@@ -293,20 +313,21 @@ export function buildBlogPostJsonLd(
   ] : [];
 
   // Calculate word count and reading time
-  const wordCount = post.content ? post.content.replace(/<[^>]*>/g, '').split(/\s+/).length : 0;
-  const readingTime = Math.ceil(wordCount / 200); // 200 words per minute
+  const plainContent = stripHtml(localizedContent);
+  const wordCount = plainContent ? plainContent.split(/\s+/).length : 0;
+  const readingTime = estimateReadTime(localizedContent); // 200 words per minute
 
   // Build keywords from categories and tags
   const keywords = [
-    ...(post.categories?.map((cat: any) => cat.name) || []),
-    ...(post.tags?.map((tag: any) => tag.name) || []),
+    ...(post.categories?.map((cat: any) => getLocalizedValue(cat.name, locale)).filter(Boolean) || []),
+    ...(post.tags?.map((tag: any) => getLocalizedValue(tag.name, locale)).filter(Boolean) || []),
   ];
 
   return {
     '@context': 'https://schema.org',
     '@type': 'BlogPosting',
-    headline: post.title,
-    description: post.excerpt || post.description,
+    headline: localizedTitle,
+    description: localizedExcerpt || stripHtml(localizedContent),
     url: postUrl,
     image: images,
     author: {
@@ -323,13 +344,13 @@ export function buildBlogPostJsonLd(
         url: `${baseUrl}/logo.png`,
       },
     },
-    datePublished: post.publishedAt,
+    datePublished: post.publishedAt || post.createdAt || new Date().toISOString(),
     dateModified: post.updatedAt,
     mainEntityOfPage: {
       '@type': 'WebPage',
       '@id': postUrl,
     },
-    articleSection: post.categories?.[0]?.name,
+    articleSection: getLocalizedValue(post.categories?.[0]?.name, locale),
     keywords,
     wordCount,
     timeRequired: `PT${readingTime}M`,
@@ -350,7 +371,15 @@ export function buildOrganizationJsonLd(locale: SupportedLocale): JsonLdOrganiza
     description: t('organization.description'),
     address: {
       '@type': 'PostalAddress',
-      addressCountry: 'MA',
+      streetAddress: 'Al Yakout Immobiliere, Av. Ibn Rochd',
+      addressLocality: 'Martil',
+      addressRegion: 'Tangier-Tetouan-Al Hoceima',
+      postalCode: '93150',
+      addressCountry: 'Morocco',
+    },
+    areaServed: {
+      '@type': 'Country',
+      name: 'Morocco',
     },
     contactPoint: {
       '@type': 'ContactPoint',
@@ -408,7 +437,8 @@ export function buildWebSiteJsonLd(locale: SupportedLocale): JsonLdWebSite {
 // Build ItemList JSON-LD for listing pages
 export function buildListingItemListJsonLd(
   items: any[] | null | undefined,
-  focus: WEBSITE_FOCUS
+  focus: WEBSITE_FOCUS,
+  locale: SupportedLocale
 ): JsonLdItemList | null {
   if (!items || items.length === 0) return null;
   const baseUrl = getBaseUrl();
@@ -429,7 +459,7 @@ export function buildListingItemListJsonLd(
     '@type': 'ListItem' as const,
     position: idx + 1,
     url: `${baseUrl}${toDetailRoute(it.id)}`,
-    name: it?.title?.fr || it?.title?.en || it?.title?.es || it?.title?.ar || undefined,
+    name: getLocalizedValue(it?.title, locale) || undefined,
     image: it?.images?.[0]?.upload?.url
       ? (it.images[0].upload.url.startsWith('http') ? it.images[0].upload.url : `${baseUrl}${it.images[0].upload.url}`)
       : undefined,

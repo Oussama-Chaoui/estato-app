@@ -9,10 +9,17 @@ import {
   DEFAULT_TWITTER_IMAGE,
   SEO_BRAND,
   SITE_NAME,
-  SUPPORTED_LOCALES,
   getBaseUrl,
 } from "@/common/seo/config";
 import FaviconSwitcher from "@/components/common/FaviconSwitcher";
+
+const baseUrl = getBaseUrl();
+const ogImageUrl = DEFAULT_OG_IMAGE.startsWith('http')
+  ? DEFAULT_OG_IMAGE
+  : `${baseUrl}${DEFAULT_OG_IMAGE.startsWith('/') ? '' : '/'}${DEFAULT_OG_IMAGE}`;
+const twitterImageUrl = DEFAULT_TWITTER_IMAGE.startsWith('http')
+  ? DEFAULT_TWITTER_IMAGE
+  : `${baseUrl}${DEFAULT_TWITTER_IMAGE.startsWith('/') ? '' : '/'}${DEFAULT_TWITTER_IMAGE}`;
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -26,10 +33,12 @@ const notoKufiArabic = Noto_Kufi_Arabic({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(baseUrl),
   title: {
     template: "%s | " + SITE_NAME,
     default: SITE_NAME,
   },
+  applicationName: SITE_NAME,
   description: DEFAULT_DESCRIPTION,
 
   icons: {
@@ -51,15 +60,22 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
+  other: {
+    "geo.region": "MA",
+    "geo.placename": "Martil, Morocco",
+    "geo.position": "35.6167;-5.2752",
+    ICBM: "35.6167, -5.2752",
+  },
   openGraph: {
     type: "website",
+    locale: "fr_MA",
     siteName: SITE_NAME,
     title: SITE_NAME,
     description: DEFAULT_DESCRIPTION,
-    url: getBaseUrl(),
+    url: baseUrl,
     images: [
       {
-        url: DEFAULT_OG_IMAGE,
+        url: ogImageUrl,
         width: 1200,
         height: 630,
         alt: SITE_NAME,
@@ -71,14 +87,10 @@ export const metadata: Metadata = {
     site: SEO_BRAND.twitterHandle,
     title: SITE_NAME,
     description: DEFAULT_DESCRIPTION,
-    images: [DEFAULT_TWITTER_IMAGE],
+    images: [twitterImageUrl],
   },
   alternates: {
-    canonical: getBaseUrl(),
-    languages: SUPPORTED_LOCALES.reduce((acc, locale) => {
-      acc[locale] = `${getBaseUrl()}/${locale}`;
-      return acc;
-    }, {} as Record<string, string>),
+    canonical: '/',
   },
 };
 

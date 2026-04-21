@@ -7,6 +7,7 @@ import { getServerTranslation, getBreadcrumbNameKey } from "@/common/seo/jsonld/
 import { normalizeLocale } from "@/common/seo/locale";
 import { WEBSITE_FOCUS } from "@/modules/settings/defs/types";
 import AppRoutes from "@/common/defs/routes";
+import { getBaseUrl } from "@/common/seo/config";
 
 /**
  * Generate listing page JSON-LD (ItemList + Breadcrumbs)
@@ -17,15 +18,16 @@ export function generateListingJsonLd(
   page: number,
   locale: string
 ) {
-  const itemListJsonLd = buildListingItemListJsonLd(items, websiteFocus);
   const normalizedLocale = normalizeLocale(locale);
+  const itemListJsonLd = buildListingItemListJsonLd(items, websiteFocus, normalizedLocale);
   const { t } = getServerTranslation(normalizedLocale);
+  const baseUrl = getBaseUrl();
   
   const breadcrumbJsonLd = buildBreadcrumbJsonLd([
-    { name: t('breadcrumbs.home'), url: `${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/` },
+    { name: t('breadcrumbs.home'), url: `${baseUrl}/` },
     { 
       name: t(getBreadcrumbNameKey(websiteFocus)), 
-      url: `${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}${getListingRoute(websiteFocus)}` 
+      url: `${baseUrl}${getListingRoute(websiteFocus)}` 
     },
   ]);
 
@@ -43,10 +45,11 @@ export function generateListingJsonLd(
 export function generateBlogJsonLd(locale: string) {
   const normalizedLocale = normalizeLocale(locale);
   const { t } = getServerTranslation(normalizedLocale);
+  const baseUrl = getBaseUrl();
   
   const breadcrumbJsonLd = buildBreadcrumbJsonLd([
-    { name: t('breadcrumbs.home'), url: `${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/` },
-    { name: t('breadcrumbs.blog'), url: `${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}${AppRoutes.Posts.ReadAll}` },
+    { name: t('breadcrumbs.home'), url: `${baseUrl}/` },
+    { name: t('breadcrumbs.blog'), url: `${baseUrl}${AppRoutes.Posts.ReadAll}` },
   ]);
 
   return {

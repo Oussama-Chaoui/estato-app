@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import PropertiesListing from "@/modules/properties/components/partials/PropertiesListing";
 import { WEBSITE_FOCUS } from "@/modules/settings/defs/types";
-import { buildCanonical, buildAlternates } from "@/common/seo/url";
+import { buildCanonical } from "@/common/seo/url";
 import AppRoutes from "@/common/defs/routes";
 import { buildListingMetadata } from "@/common/seo/builders/listing";
 import { fetchListings, type ListingFilterInputs } from "@/common/seo/fetchers";
@@ -20,6 +20,7 @@ export const generateMetadata = async ({ searchParams }: { searchParams: { [key:
   const result = await fetchListings(filters as ListingFilterInputs, page, 12, locale);
 
   const canonical = buildCanonical(AppRoutes.Properties.DailyRent.ReadAll, qs, [...PARAM_SETS.LISTING]);
+  const hasActiveFilters = Boolean(filters.location || filters.propertyType || qs.get('checkIn') || qs.get('checkOut'));
   const listingMeta = buildListingMetadata({
     locale,
     focus: WEBSITE_FOCUS.DAILY_RENT,
@@ -27,15 +28,33 @@ export const generateMetadata = async ({ searchParams }: { searchParams: { [key:
       location: filters.location || null,
       propertyType: filters.propertyType || null
     },
-    total: result?.meta?.total ?? null,
+    total: result?.meta?.totalItems ?? result?.meta?.total ?? null,
   });
 
   return {
     title: listingMeta.title,
     description: listingMeta.description,
+    openGraph: {
+      title: listingMeta.title,
+      description: listingMeta.description,
+      url: canonical,
+      type: 'website',
+    },
+    twitter: {
+      title: listingMeta.title,
+      description: listingMeta.description,
+      card: 'summary_large_image',
+    },
+    ...(hasActiveFilters
+      ? {
+          robots: {
+            index: false,
+            follow: true,
+          },
+        }
+      : {}),
     alternates: {
       canonical,
-      languages: buildAlternates(AppRoutes.Properties.DailyRent.ReadAll),
     },
   };
 };
@@ -54,11 +73,22 @@ export default async function Page({ searchParams }: { searchParams: { [key: str
     locale
   );
 
+  const initialData = result && result.meta ? {
+    items: result.items,
+    meta: {
+      currentPage: result.meta.currentPage,
+      lastPage: result.meta.lastPage,
+      totalItems: result.meta.totalItems ?? result.meta.total ?? 0,
+    },
+    page,
+    pageSize: 12,
+  } : undefined;
+
   return (
     <>
       {itemListJsonLd && <JsonLd id={itemListId} data={itemListJsonLd} />}
       <JsonLd id={breadcrumbId} data={breadcrumbJsonLd} />
-      <PropertiesListing websiteFocus={WEBSITE_FOCUS.DAILY_RENT} />
+      <PropertiesListing websiteFocus={WEBSITE_FOCUS.DAILY_RENT} initialData={initialData} />
     </>
   );
 }

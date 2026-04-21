@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState, useCallback, useMemo } from 'react';
+import { useEffect, useState, useCallback, useMemo, useRef } from 'react';
 import usePosts from '@/modules/posts/hooks/api/usePosts';
 import { Post } from '@/modules/posts/defs/types';
 import { POST_STATUS } from '@/modules/posts/defs/types';
@@ -12,6 +12,7 @@ import CategoryFilter from './CategoryFilter';
 import PostsGrid from './PostsGrid';
 import Footer from '@/components/common/layout/footer';
 import Pagination from '@/components/ui/pagination';
+import { getLocalizedValue } from '@/common/utils/localized-text';
 
 interface PostsListProps {
   initialData?: {
@@ -24,17 +25,22 @@ interface PostsListProps {
     page: number;
     pageSize: number;
   };
+  initialFilters?: {
+    search?: string;
+    category?: string;
+  };
 }
 
-const PostsList = ({ initialData }: PostsListProps) => {
-  const { t } = useTranslation(['blog']);
+const PostsList = ({ initialData, initialFilters }: PostsListProps) => {
+  const { t, i18n } = useTranslation(['blog']);
   const { readAll, items: posts, paginationMeta } = usePosts();
-  const [searchTerm, setSearchTerm] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState('all');
+  const [searchTerm, setSearchTerm] = useState(initialFilters?.search || '');
+  const [selectedCategory, setSelectedCategory] = useState(initialFilters?.category || 'all');
   const [isLoaded, setIsLoaded] = useState(!!initialData);
   const [isSearching, setIsSearching] = useState(!initialData);
   const [currentPage, setCurrentPage] = useState(initialData?.page ?? 1);
   const [pageSize] = useState(initialData?.pageSize ?? 6);
+  const isFirstSearchStateRender = useRef(true);
 
   const [emblaRef, emblaApi] = useEmblaCarousel({
     align: 'start',
@@ -88,6 +94,11 @@ const PostsList = ({ initialData }: PostsListProps) => {
   }, [searchTerm, selectedCategory]);
 
   useEffect(() => {
+    if (isFirstSearchStateRender.current) {
+      isFirstSearchStateRender.current = false;
+      return;
+    }
+
     setCurrentPage(1);
   }, [searchTerm, selectedCategory]);
 
@@ -122,7 +133,7 @@ const PostsList = ({ initialData }: PostsListProps) => {
       return [{ slug: 'all', name: t('blog:filters.all_articles') }];
     }
 
-    const allCategories = currentPosts.flatMap(post => post.categories || []);
+    const allCategories = currentPosts.flatMap((post) => post.categories || []);
     const uniqueCategories = allCategories.filter((category, index, self) =>
       index === self.findIndex(c => c.slug === category.slug)
     );
@@ -131,10 +142,10 @@ const PostsList = ({ initialData }: PostsListProps) => {
       { slug: 'all', name: t('blog:filters.all_articles') },
       ...uniqueCategories.map(category => ({
         slug: category.slug,
-        name: category.name
+        name: getLocalizedValue(category.name, i18n.language, category.slug)
       }))
     ];
-  }, [posts, initialData?.items, t]);
+  }, [posts, initialData?.items, t, i18n.language]);
 
   const PostsGridLoader = () => (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

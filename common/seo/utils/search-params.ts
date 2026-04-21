@@ -24,7 +24,7 @@ export function extractAllowedParams(
  */
 export const PARAM_SETS = {
   LISTING: ["location", "propertyType", "checkIn", "checkOut", "page"],
-  LISTING_SALE: ["location", "propertyType", "priceMin", "priceMax", "page"],
+  LISTING_SALE: ["location", "propertyType", "minArea", "maxArea", "priceMin", "priceMax", "page"],
   BLOG: ["search", "category", "page"],
 } as const;
 
@@ -48,8 +48,12 @@ export function buildFiltersFromParams(
     propertyType: qs.get('propertyType') || undefined,
     checkIn: qs.get('checkIn') || undefined,
     checkOut: qs.get('checkOut') || undefined,
+    availableFrom: qs.get('availableFrom') || undefined,
+    furnishingStatus: qs.get('furnishingStatus') || undefined,
     priceMin: qs.get('priceMin') || undefined,
     priceMax: qs.get('priceMax') || undefined,
+    minArea: qs.get('minArea') || undefined,
+    maxArea: qs.get('maxArea') || undefined,
     websiteFocus,
     ...extraFilters,
   };

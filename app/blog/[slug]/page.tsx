@@ -7,19 +7,24 @@ import { detectRequestLocale } from "@/common/seo/locale";
 import { generateBlogPostJsonLd } from "@/common/seo/utils/blog-helpers";
 import JsonLd from "@/common/seo/jsonld/components";
 import Routes from "@/common/defs/routes";
+import { notFound } from "next/navigation";
 
 export const generateMetadata = async ({ params }: { params: { slug: string } }): Promise<Metadata> => {
   const locale = detectRequestLocale();
   const post = await fetchPostBySlug(params.slug, locale);
+  const metadata = buildBlogPostMetadata(post, locale);
   
   if (!post) {
     return {
-      title: "Article Not Found | Yakout immobilier",
-      description: "The article you're looking for doesn't exist or has been removed.",
+      title: metadata.notFound.title,
+      description: metadata.notFound.description,
+      robots: {
+        index: false,
+        follow: false,
+      },
     };
   }
 
-  const metadata = buildBlogPostMetadata(post, locale);
   const canonical = buildCanonical(Routes.Posts.ReadOne.replace('{slug}', params.slug));
 
   return {
@@ -42,9 +47,13 @@ export const generateMetadata = async ({ params }: { params: { slug: string } })
 export const revalidate = 300;
 
 export default async function BlogPostPage({ params }: { params: { slug: string } }) {
-  // Fetch post for JSON-LD only
   const locale = detectRequestLocale();
   const post = await fetchPostBySlug(params.slug, locale);
+
+  if (!post) {
+    notFound();
+  }
+
   const { blogPostJsonLd, breadcrumbJsonLd, blogPostId, breadcrumbId } = generateBlogPostJsonLd(
     post,
     params.slug,
@@ -55,7 +64,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
     <>
       {blogPostJsonLd && <JsonLd id={blogPostId} data={blogPostJsonLd} />}
       <JsonLd id={breadcrumbId} data={breadcrumbJsonLd} />
-      <BlogPost />
+      <BlogPost initialPost={post} />
     </>
   );
 }

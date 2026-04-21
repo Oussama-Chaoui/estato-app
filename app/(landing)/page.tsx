@@ -1,20 +1,42 @@
 import type { Metadata } from "next";
 import LandingClient from "./LandingClient";
 import { DEFAULT_DESCRIPTION } from "@/common/seo/config";
-import { buildAlternates } from "@/common/seo/url";
+import { buildCanonical } from "@/common/seo/url";
 import Routes from "@/common/defs/routes";
 import { detectRequestLocale } from "@/common/seo/locale";
 import { buildOrganizationJsonLd, buildWebSiteJsonLd } from "@/common/seo/jsonld/builders";
 import JsonLd from "@/common/seo/jsonld/components";
 
 export const generateMetadata = async (): Promise<Metadata> => {
-  // Static landing metadata for now; can be enhanced with server fetch of focus if needed
+  const locale = detectRequestLocale();
+  const titleByLocale = {
+    fr: 'Accueil',
+    en: 'Home',
+    es: 'Inicio',
+    ar: 'الرئيسية',
+  };
+
+  const title = titleByLocale[locale] || titleByLocale.fr;
   const description = DEFAULT_DESCRIPTION;
+  const canonical = buildCanonical(Routes.Common.Home);
+
   return {
+    title,
     description,
+    openGraph: {
+      title,
+      description,
+      url: canonical,
+      type: 'website',
+    },
+    twitter: {
+      title,
+      description,
+      card: 'summary_large_image',
+    },
     alternates: {
-      languages: buildAlternates(Routes.Common.Home)
-    }
+      canonical,
+    },
   };
 };
 

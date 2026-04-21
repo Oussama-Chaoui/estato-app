@@ -7,6 +7,7 @@ import Routes from '@/common/defs/routes';
 import { useTranslation } from 'react-i18next';
 import { format } from 'date-fns';
 import useUtils from '@/common/hooks/useUtils';
+import { getLocalizedValue } from '@/common/utils/localized-text';
 
 interface PostsGridProps {
   posts: Post[];
@@ -15,7 +16,7 @@ interface PostsGridProps {
 }
 
 const PostsGrid = ({ posts, onClearFilters, hasSearchOrFilter = false }: PostsGridProps) => {
-  const { t } = useTranslation(['blog']);
+  const { t, i18n } = useTranslation(['blog']);
   const { getDateFnsLocale } = useUtils();
 
   // Format date with proper locale
@@ -26,7 +27,14 @@ const PostsGrid = ({ posts, onClearFilters, hasSearchOrFilter = false }: PostsGr
   if (posts.length > 0) {
     return (
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {posts.map((post, index) => (
+        {posts.map((post, index) => {
+          const localizedTitle = getLocalizedValue(post.title, i18n.language, t('blog:posts.untitled'));
+          const localizedExcerpt = getLocalizedValue(post.excerpt, i18n.language);
+          const categories = post.categories || [];
+          const tags = post.tags || [];
+          const localizedPrimaryCategory = getLocalizedValue(categories[0]?.name, i18n.language);
+
+          return (
           <Link
             key={post.id}
             href={Routes.Posts.ReadOne.replace('{slug}', post.slug)}
@@ -38,16 +46,16 @@ const PostsGrid = ({ posts, onClearFilters, hasSearchOrFilter = false }: PostsGr
               <div className="relative overflow-hidden aspect-video">
                 <img
                   src={post.image?.url || '/placeholder-image.jpg'}
-                  alt={post.title}
+                  alt={localizedTitle}
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
 
                 {/* Category badge */}
-                {post.categories.length > 0 && (
+                {categories.length > 0 && (
                   <div className="absolute top-4 left-4">
                     <span className="bg-primary-500 text-white px-3 py-1 rounded-full text-xs font-medium">
-                      {post.categories[0].name}
+                      {localizedPrimaryCategory}
                     </span>
                   </div>
                 )}
@@ -73,23 +81,23 @@ const PostsGrid = ({ posts, onClearFilters, hasSearchOrFilter = false }: PostsGr
 
                 {/* Title */}
                 <h2 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-primary-600 transition-colors duration-300 line-clamp-2">
-                  {post.title}
+                  {localizedTitle}
                 </h2>
 
                 {/* Excerpt */}
                 <p className="text-gray-600 mb-6 line-clamp-4">
-                  {post.excerpt}
+                  {localizedExcerpt}
                 </p>
 
                 {/* Tags */}
                 <div className="flex flex-wrap gap-2 mb-6">
-                  {post.tags.slice(0, 3).map((tag: { id: number; name: string }) => (
+                  {tags.slice(0, 3).map((tag) => (
                     <span
                       key={tag.id}
                       className="inline-flex items-center gap-1 px-2 py-1 bg-primary-50 text-primary-700 rounded-lg text-xs font-medium"
                     >
                       <Tag className="h-3 w-3" />
-                      {tag.name}
+                      {getLocalizedValue(tag.name, i18n.language)}
                     </span>
                   ))}
                 </div>
@@ -105,7 +113,8 @@ const PostsGrid = ({ posts, onClearFilters, hasSearchOrFilter = false }: PostsGr
               </div>
             </article>
           </Link>
-        ))}
+          );
+        })}
       </div>
     );
   }
